@@ -1,0 +1,184 @@
+# Keymap Drawer Configuration for Kinesis Advantage 360
+# https://github.com/caksoylar/keymap-drawer
+
+draw_config:
+  # Key size and spacing
+  key_w: 60
+  key_h: 56
+  split_gap: 30
+
+  # Styling
+  outer_pad_w: 10
+  outer_pad_h: 10
+
+  # Font settings
+  key_font_size: 14
+  header_font_size: 16
+
+  # Colors - dark theme
+  svg_style: |
+    svg {
+      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #1a1a2e;
+    }
+    rect.key {
+      fill: #16213e;
+      stroke: #0f3460;
+      stroke-width: 1;
+      rx: 6;
+    }
+    rect.key.held {
+      fill: #533483;
+    }
+    text {
+      fill: #e4e4e4;
+    }
+    text.label {
+      fill: #00d9ff;
+    }
+    text.tap {
+      font-size: 13px;
+    }
+    text.hold {
+      font-size: 10px;
+      fill: #ff6b6b;
+    }
+    rect.combo {
+      fill: #2d4059;
+    }
+
+  # Show hold-tap behaviors
+  separate_combo_diagrams: true
+  combo_w: 28
+  combo_h: 22
+
+parse_config:
+  # Mapping for special keys to display nicely
+  raw_binding_map:
+    # Layer keys
+    "&mo 2": "Fn"
+    "&mo 3": "Mod"
+    "&mo 4": "Sym"
+    "&mo 5": "Excel"
+    "&mo 6": "Spanish"
+    "&tog 1": "Keypad"
+
+    # Macros - Programming
+    "&macro_quotes": "' '"
+    "&macro_dquotes": '" "'
+    "&macro_parens": "( )"
+    "&macro_braces": "{ }"
+    "&macro_brackets": "[ ]"
+    "&macro_angles": "< >"
+    "&macro_grave": "`"
+    "&macro_tilde": "~"
+    "&macro_caret": "^"
+    "&macro_arrow": "->"
+    "&macro_fat_arrow": "=>"
+    "&macro_eq": "=="
+    "&macro_neq": "!="
+    "&macro_lte": "<="
+    "&macro_gte": ">="
+    "&macro_and": "&&"
+    "&macro_or": "||"
+    "&macro_scope": "::"
+    "&macro_line_comment": "//"
+    "&macro_block_comment": "/* */"
+
+    # Macros - Spanish
+    "&macro_a_acute": "á"
+    "&macro_e_acute": "é"
+    "&macro_i_acute": "í"
+    "&macro_o_acute": "ó"
+    "&macro_u_acute": "ú"
+    "&macro_u_diaeresis": "ü"
+    "&macro_n_tilde": "ñ"
+    "&macro_spanish_question": "¿?"
+    "&macro_spanish_exclaim": "¡!"
+    "&macro_guillemets": "«»"
+
+    # Macros - OS shortcuts
+    "&Win_Lock_PC": "Win Lock"
+    "&Win_Snip_Tool": "Win Snip"
+    "&Mac_Lock_PC": "Mac Lock"
+    "&Mac_Snip_Tool": "Mac Snip"
+    "&macro_ver": "Version"
+    "&Double_Click": "2xClick"
+
+    # System
+    "&studio_unlock": "Studio"
+    "&stp STP_BAT": "Battery"
+    "&bootloader": "Boot"
+    "&bt BT_CLR": "BT Clear"
+    "&bl BL_TOG": "BL Tog"
+    "&bl BL_INC": "BL +"
+    "&bl BL_DEC": "BL -"
+    "&rgb_ug RGB_TOG": "RGB"
+
+    # Common keys
+    "&kp C_VOL_UP": "Vol+"
+    "&kp C_VOL_DN": "Vol-"
+    "&kp C_MUTE": "Mute"
+    "&kp C_PP": "Play"
+    "&kp C_PREV": "Prev"
+    "&kp C_NEXT": "Next"
+    "&kp C_BRI_UP": "Bri+"
+    "&kp C_BRI_DN": "Bri-"
+    "&kp C_AL_CALC": "Calc"
+
+  # ZMK behavior mappings
+  zmk_combos: {}
+  zmk_keycode_map:
+    BSPC: "⌫"
+    DEL: "Del"
+    RET: "↵"
+    ENTER: "↵"
+    SPACE: "␣"
+    TAB: "⇥"
+    ESC: "Esc"
+    CAPS: "Caps"
+
+    # Arrows
+    UP: "↑"
+    DOWN: "↓"
+    LEFT: "←"
+    RIGHT: "→"
+
+    # Navigation
+    PG_UP: "PgUp"
+    PG_DN: "PgDn"
+    HOME: "Home"
+    END: "End"
+
+    # Modifiers (display names)
+    LSHFT: "⇧"
+    RSHFT: "⇧"
+    LCTRL: "Ctrl"
+    RCTRL: "Ctrl"
+    LALT: "Alt"
+    RALT: "Alt"
+    LGUI: "⌘"
+    RGUI: "⌘"
+
+    # Symbols
+    MINUS: "-"
+    EQUAL: "="
+    LBKT: "["
+    RBKT: "]"
+    BSLH: "\\"
+    SEMI: ";"
+    SQT: "'"
+    GRAVE: "`"
+    COMMA: ","
+    DOT: "."
+    FSLH: "/"
+
+    # Keypad
+    KP_NUM: "Num"
+    KP_EQUAL: "="
+    KP_DIVIDE: "÷"
+    KP_MULTIPLY: "×"
+    KP_MINUS: "-"
+    KP_PLUS: "+"
+    KP_ENTER: "↵"
+    KP_DOT: "."

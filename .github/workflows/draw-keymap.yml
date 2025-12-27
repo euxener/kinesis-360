@@ -1,0 +1,21 @@
+name: Draw Keymap
+
+on:
+  workflow_dispatch:  # Manual trigger
+  push:
+    paths:
+      - 'config/*.keymap'
+      - 'config/*.dtsi'
+      - 'keymap_drawer.config.yaml'
+  pull_request:
+    paths:
+      - 'config/*.keymap'
+
+jobs:
+  draw:
+    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@main
+    with:
+      keymap_patterns: "config/adv360.keymap"
+      config_path: "keymap_drawer.config.yaml"
+      output_folder: "keymap-img"
+      parse_args: "adv360:'--layer-names Base Keypad Fn Mod Symbol Excel Spanish'"
