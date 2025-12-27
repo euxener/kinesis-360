@@ -190,7 +190,9 @@ Mac_Lock_PC: Mac_Lock_PC {
 Double_Click: Double_Click {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&mkp MB1 &mkp MB1>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&mkp MB1>, <&mkp MB1>;
     display-name = "Double Click";
 };
 
@@ -201,6 +203,8 @@ Double_Click: Double_Click {
 macro_quotes: macro_quotes {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp SQT>, <&kp SPACE>, <&kp SQT>, <&kp SPACE>, <&kp LEFT>;
     display-name = "Single Quotes";
 };
@@ -208,6 +212,8 @@ macro_quotes: macro_quotes {
 macro_dquotes: macro_dquotes {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp DQT>, <&kp SPACE>, <&kp DQT>, <&kp SPACE>, <&kp LEFT>;
     display-name = "Double Quotes";
 };
@@ -215,6 +221,8 @@ macro_dquotes: macro_dquotes {
 macro_braces: macro_braces {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
     display-name = "Curly Braces";
 };
@@ -222,6 +230,8 @@ macro_braces: macro_braces {
 macro_parens: macro_parens {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
     display-name = "Parentheses";
 };
@@ -229,6 +239,8 @@ macro_parens: macro_parens {
 macro_brackets: macro_brackets {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
     display-name = "Brackets";
 };
@@ -236,6 +248,8 @@ macro_brackets: macro_brackets {
 macro_angles: macro_angles {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>, <&kp LEFT>;
     display-name = "Angle Brackets";
 };
@@ -244,6 +258,8 @@ macro_angles: macro_angles {
 macro_grave: macro_grave {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp GRAVE>, <&kp SPACE>;
     display-name = "Grave Accent";
 };
@@ -251,6 +267,8 @@ macro_grave: macro_grave {
 macro_tilde: macro_tilde {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(GRAVE)>, <&kp SPACE>;
     display-name = "Tilde";
 };
@@ -258,6 +276,8 @@ macro_tilde: macro_tilde {
 macro_caret: macro_caret {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp CARET>, <&kp SPACE>;
     display-name = "Caret";
 };
@@ -269,6 +289,8 @@ macro_caret: macro_caret {
 macro_arrow: macro_arrow {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp MINUS>, <&kp LS(DOT)>;
     display-name = "Arrow";
 };
@@ -276,6 +298,8 @@ macro_arrow: macro_arrow {
 macro_fat_arrow: macro_fat_arrow {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp EQUAL>, <&kp LS(DOT)>;
     display-name = "Fat Arrow";
 };
@@ -283,6 +307,8 @@ macro_fat_arrow: macro_fat_arrow {
 macro_eq: macro_eq {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp EQUAL>, <&kp EQUAL>;
     display-name = "Equals";
 };
@@ -290,6 +316,8 @@ macro_eq: macro_eq {
 macro_neq: macro_neq {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(N1)>, <&kp EQUAL>;
     display-name = "Not Equals";
 };
@@ -297,6 +325,8 @@ macro_neq: macro_neq {
 macro_lte: macro_lte {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(COMMA)>, <&kp EQUAL>;
     display-name = "Less or Equal";
 };
@@ -304,6 +334,8 @@ macro_lte: macro_lte {
 macro_gte: macro_gte {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(DOT)>, <&kp EQUAL>;
     display-name = "Greater or Equal";
 };
@@ -311,6 +343,8 @@ macro_gte: macro_gte {
 macro_and: macro_and {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(N7)>, <&kp LS(N7)>;
     display-name = "Logical AND";
 };
@@ -318,6 +352,8 @@ macro_and: macro_and {
 macro_or: macro_or {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(BSLH)>, <&kp LS(BSLH)>;
     display-name = "Logical OR";
 };
@@ -325,6 +361,8 @@ macro_or: macro_or {
 macro_scope: macro_scope {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp LS(SEMI)>, <&kp LS(SEMI)>;
     display-name = "Scope";
 };
@@ -332,6 +370,8 @@ macro_scope: macro_scope {
 macro_line_comment: macro_line_comment {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp FSLH>, <&kp FSLH>, <&kp SPACE>;
     display-name = "Line Comment";
 };
@@ -339,6 +379,8 @@ macro_line_comment: macro_line_comment {
 macro_block_comment: macro_block_comment {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>;
     display-name = "Block Comment";
 };
@@ -401,6 +443,8 @@ macro_n_tilde: macro_n_tilde {
 macro_spanish_question: macro_spanish_question {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp RA(FSLH)>, <&kp LS(FSLH)>, <&kp LEFT>;
     display-name = "Spanish Question";
 };
@@ -408,6 +452,8 @@ macro_spanish_question: macro_spanish_question {
 macro_spanish_exclaim: macro_spanish_exclaim {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp RA(N1)>, <&kp LS(N1)>, <&kp LEFT>;
     display-name = "Spanish Exclaim";
 };
@@ -415,6 +461,8 @@ macro_spanish_exclaim: macro_spanish_exclaim {
 macro_guillemets: macro_guillemets {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
     bindings = <&kp RA(LBKT)>, <&kp RA(RBKT)>, <&kp LEFT>;
     display-name = "Spanish Quotes";
 };
