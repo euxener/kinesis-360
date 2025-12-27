@@ -33,7 +33,6 @@
           hold-trigger-key-positions = <KEYS_R THUMBS>;
           hold-trigger-on-release;
       };
-    };
           hmr: homerow_mods_right {
           compatible = "zmk,behavior-hold-tap";
           label = "HOMEROW_MODS_RIGHT";
@@ -46,7 +45,7 @@
           hold-trigger-key-positions = <KEYS_L THUMBS>;
           hold-trigger-on-release;
       };
-
+    };
 
   keymap {
     compatible = "zmk,keymap";
@@ -54,11 +53,11 @@
     default_layer {
       display-name = "Base (Colemak-DH)";
       bindings = <
-        &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7 &kp N8    &kp N9   &kp N0   &kp MINUS
-        &kp TAB   &kp Q     &kp W    &kp F    &kp P      &kp B  &none                                                            &none &kp J  &kp L  &kp U     &kp Y    &kp SEMI &kp BSLH
-        &kp ESC   &kp A     &kp R    &kp S    &kp T      &kp G  &none           &kp LCTRL &kp LALT &kp LGUI  &kp RCTRL           &none &kp M  &kp N  &kp E     &kp I    &kp O    &kp SQT
-        &kp LSHFT &kp Z     &kp X    &kp C    &kp D      &kp V                            &kp HOME &kp PG_UP                           &kp K  &kp H  &kp COMMA &kp DOT  &kp FSLH &kp RSHFT
-        &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp SPACE              &kp UP &kp DOWN  &kp LBKT &kp RBKT &mo 2
+        &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
+        &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &none                                                            &none &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
+        &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &none               &mo 4   &kp LALT &kp LGUI  &mo 4             &none &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+        &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                              &kp HOME &kp PG_UP                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+        &mo 2     &kp GRAVE    &kp CAPS    &kp LEFT    &kp RIGHT                      &kp BSPC &kp DEL &kp END  &kp PG_DN &kp ENTER &kp SPACE            &kp UP       &kp DOWN    &kp LBKT    &kp RBKT     &mo 2
       >;
     };
     keypad {
