@@ -1,0 +1,541 @@
+layout: {zmk_keyboard: adv360}
+layers:
+  Base:
+  - '='
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - Keypad
+  - Mod
+  - '6'
+  - '7'
+  - '8'
+  - '9'
+  - '0'
+  - '-'
+  - ⇥
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - ''
+  - ''
+  - Y
+  - U
+  - I
+  - O
+  - P
+  - \
+  - Esc
+  - {t: A, h: Ctrl}
+  - {t: S, h: Alt}
+  - {t: D, h: ⌘}
+  - {t: F, h: ⇧}
+  - G
+  - ''
+  - Sym
+  - Excel
+  - Excel
+  - Sym
+  - ''
+  - H
+  - {t: J, h: ⇧}
+  - {t: K, h: ⌘}
+  - {t: L, h: Alt}
+  - {t: ;, h: Ctrl}
+  - ''''
+  - ⇧
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - Spanish
+  - PgUp
+  - N
+  - M
+  - ','
+  - .
+  - /
+  - ⇧
+  - Fn
+  - '`'
+  - Caps
+  - ←
+  - →
+  - ⌫
+  - Del
+  - End
+  - PgDn
+  - ↵
+  - ␣
+  - ↑
+  - ↓
+  - '['
+  - ']'
+  - Fn
+  Keypad:
+  - '='
+  - '1'
+  - '2'
+  - '3'
+  - '4'
+  - '5'
+  - {t: ▽, type: trans}
+  - Mod
+  - '6'
+  - Num
+  - '='
+  - ÷
+  - ×
+  - '-'
+  - ⇥
+  - Q
+  - W
+  - E
+  - R
+  - T
+  - ''
+  - ''
+  - Y
+  - KP 7
+  - KP 8
+  - KP 9
+  - '-'
+  - \
+  - Esc
+  - A
+  - S
+  - D
+  - F
+  - G
+  - ''
+  - Sym
+  - Excel
+  - Excel
+  - Sym
+  - ''
+  - H
+  - KP 4
+  - KP 5
+  - KP 6
+  - +
+  - ''''
+  - ⇧
+  - Z
+  - X
+  - C
+  - V
+  - B
+  - Spanish
+  - PgUp
+  - N
+  - KP 1
+  - KP 2
+  - KP 3
+  - ↵
+  - ⇧
+  - Fn
+  - '`'
+  - Caps
+  - ←
+  - →
+  - ⌫
+  - Del
+  - End
+  - PgDn
+  - ↵
+  - KP 0
+  - ↑
+  - ↓
+  - .
+  - ']'
+  - Fn
+  Fn:
+  - F1
+  - F2
+  - F3
+  - F4
+  - F5
+  - F6
+  - Keypad
+  - Mod
+  - F7
+  - F8
+  - F9
+  - F10
+  - F11
+  - F12
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - Calc
+  - {t: ▽, type: trans}
+  - Bri-
+  - Bri+
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Win Lock
+  - {t: ▽, type: trans}
+  - Win Snip
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - Mute
+  - Vol-
+  - Vol+
+  - Mac Snip
+  - Mac Lock
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Home
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Prev
+  - Play
+  - Next
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Mod:
+  - ''
+  - {t: BT, h: '0'}
+  - {t: BT, h: '1'}
+  - {t: BT, h: '2'}
+  - {t: BT, h: '3'}
+  - {t: BT, h: '4'}
+  - ''
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Boot
+  - Boot
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Studio
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - BT Clear
+  - ''
+  - Battery
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - Version
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - BL Tog
+  - RGB
+  - BL +
+  - BL -
+  - ''
+  - ''
+  - ''
+  Symbol:
+  - {t: ▽, type: trans}
+  - EXCL
+  - AT
+  - HASH
+  - DLLR
+  - PRCNT
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ^
+  - AMPS
+  - ASTRK
+  - UNDER
+  - PLUS
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''' '''
+  - '" "'
+  - ( )
+  - '{ }'
+  - '[ ]'
+  - ''
+  - ''
+  - ->
+  - =>
+  - '::'
+  - //
+  - /* */
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - < >
+  - '`'
+  - '~'
+  - Sft+\
+  - \
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ==
+  - '!='
+  - <=
+  - '>='
+  - '&&'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '||'
+  - Sft+-
+  - Sft+,
+  - Sft+.
+  - Sft+/
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Excel:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Spanish:
+  - {t: ▽, type: trans}
+  - ¡!
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - é
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - ''
+  - ü
+  - ú
+  - í
+  - ó
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - á
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ñ
+  - {t: ▽, type: trans}
+  - «»
+  - {t: ▽, type: trans}
+  - ¿?
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
