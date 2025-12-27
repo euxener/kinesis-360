@@ -1,6 +1,6 @@
 /*
 * Euxener Colemak-DH base keyboard layout
-* Version 1.0
+* Version 2.0
 */
 
 #include <behaviors.dtsi>
@@ -58,7 +58,7 @@ hmr: homerow_mods_right {
                 &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &none                                                            &none &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
                 &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &none               &mo 4   &mo 5    &mo 5     &mo 4             &none &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                              &kp HOME &kp PG_UP                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                              &mo 6    &kp PG_UP                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
                 &mo 2     &kp GRAVE    &kp CAPS    &kp LEFT    &kp RIGHT                      &kp BSPC &kp DEL &kp END  &kp PG_DN &kp ENTER &kp SPACE            &kp UP       &kp DOWN    &kp LBKT    &kp RBKT     &mo 2
             >;
         };
@@ -69,7 +69,7 @@ hmr: homerow_mods_right {
                 &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
                 &kp TAB   &kp Q     &kp W    &kp F    &kp P      &kp B  &none                                                            &none &kp J  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
                 &kp ESC   &kp A     &kp R    &kp S    &kp T      &kp G  &none           &mo 4     &mo 5    &mo 5     &mo 4               &none &kp M  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-                &kp LSHFT &kp Z     &kp X    &kp C    &kp D      &kp V                            &kp HOME &kp PG_UP                           &kp K  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+                &kp LSHFT &kp Z     &kp X    &kp C    &kp D      &kp V                            &mo 6    &kp PG_UP                           &kp K  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
                 &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
             >;
         };
@@ -77,22 +77,22 @@ hmr: homerow_mods_right {
         fn {
             display-name = "Fn";
             bindings = <
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5 &kp F6 &tog 1                                           &mo 3 &kp F7 &kp F8 &kp F9 &kp F10 &kp F11 &kp F12
-                &trans &trans &trans &trans &trans &trans  &none                                           &none &trans &trans &trans &trans  &trans  &trans
-                &trans &trans &trans &trans &trans &trans  &none        &trans &trans &trans &trans        &none &trans &trans &trans &trans  &trans  &trans
-                &trans &trans &trans &trans &trans &trans                      &trans &trans                     &trans &trans &trans &trans  &trans  &trans
-                &trans &trans &trans &trans &trans               &trans &trans &trans &trans &trans &trans              &trans &trans &trans  &trans  &trans
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &tog 1                                                   &mo 3 &kp F7        &kp F8       &kp F9       &kp F10        &kp F11      &kp F12
+                &trans &trans &trans &trans &trans         &trans &none                                                    &none &kp C_AL_CALC &trans       &kp C_BRI_DN &kp C_BRI_UP   &trans       &trans
+                &trans &Win_Lock_PC  &trans &Win_Snip_Tool &trans &trans &none        &trans &trans   &trans &trans        &none &kp C_MUTE    &kp C_VOL_DN &kp C_VOL_UP &Mac_Snip_Tool &Mac_Lock_PC &trans
+                &trans &trans &trans &trans &trans         &trans                            &kp HOME &trans                     &trans        &kp C_PREV   &kp C_PP     &kp C_NEXT     &trans       &trans
+                &trans &trans &trans &trans &trans                             &trans &trans &trans   &trans &trans &trans                     &trans       &trans       &trans         &trans       &trans
             >;
         };
 
         mod {
             display-name = "Mod";
             bindings = <
-                &none &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                     &trans                 &none        &none        &none        &none &none &none
-                &none &none        &none        &none        &none        &none        &bootloader                                                               &bootloader            &none        &none        &none        &none &none &none
-                &studio_unlock &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &stp STP_BAT &none        &none        &none        &none &none &none
-                &none &none        &none        &none        &macro_ver   &none                                      &none &none                                                        &none        &none        &none        &none &none &none
-                &none &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                                     &bl BL_INC   &bl BL_DEC   &none &none &none
+                &none          &bt BT_SEL 0 &bt BT_SEL 1 &bt BT_SEL 2 &bt BT_SEL 3 &bt BT_SEL 4 &none                                                                     &trans       &none &none      &none      &none &none &none
+                &none          &none        &none        &none        &none        &none        &bootloader                                                               &bootloader  &none &none      &none      &none &none &none
+                &studio_unlock &none        &none        &none        &none        &none        &none                   &none &none &bt BT_CLR &none                      &stp STP_BAT &none &none      &none      &none &none &none
+                &none          &none        &none        &none        &macro_ver   &none                                      &none &none                                              &none &none      &none      &none &none &none
+                &none          &none        &none        &none        &none                                       &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                    &bl BL_INC &bl BL_DEC &none &none &none
             >;
         };
 
@@ -100,9 +100,9 @@ hmr: homerow_mods_right {
             display-name = "Symbol";
             bindings = <
                 /* Row 0 */
-                &trans &kp EXCL      &kp AT         &kp HASH      &kp DLLR      &kp PRCNT       &trans                                              &trans &kp CARET    &kp AMPS         &kp ASTRK     &kp UNDER           &kp PLUS             &trans
+                &trans &kp EXCL      &kp AT         &kp HASH      &kp DLLR      &kp PRCNT       &trans                                              &trans &macro_caret &kp AMPS         &kp ASTRK     &kp UNDER           &kp PLUS             &trans
                 &trans &macro_quotes &macro_dquotes &macro_parens &macro_braces &macro_brackets &none                                               &none  &macro_arrow &macro_fat_arrow &macro_scope  &macro_line_comment &macro_block_comment &trans
-                &trans &macro_angles &kp GRAVE      &kp LS(GRAVE) &kp LS(BSLH)  &kp BSLH        &none           &trans &trans &trans &trans         &none  &macro_eq    &macro_neq       &macro_lte    &macro_gte          &macro_and           &trans
+                &trans &macro_angles &macro_grave   &macro_tilde  &kp LS(BSLH)  &kp BSLH        &none           &trans &trans &trans &trans         &none  &macro_eq    &macro_neq       &macro_lte    &macro_gte          &macro_and           &trans
                 &trans &trans        &trans         &trans        &trans        &trans                                 &trans &trans                       &macro_or    &kp LS(MINUS)    &kp LS(COMMA) &kp LS(DOT)         &kp LS(FSLH)         &trans
                 &trans &trans        &trans         &trans        &trans                                 &trans &trans &trans &trans &trans &trans                      &trans           &trans        &trans              &trans               &trans
             >;
@@ -120,9 +120,15 @@ hmr: homerow_mods_right {
             >;
         };
 
-        extra3 {
-            display-name = "Cyan";
-            status = "reserved";
+        spanish {
+            display-name = "Spanish";
+            bindings = <
+                &trans &macro_spanish_exclaim &trans &trans &trans &trans &trans                                                       &trans &trans &trans         &trans            &trans             &trans                  &trans
+                &trans &trans                 &trans &trans &trans &trans &none                                                        &none  &trans &trans         &macro_u_acute    &macro_u_diaeresis &trans                  &trans
+                &trans &macro_a_acute         &trans &trans &trans &trans &none           &trans &trans &trans &trans                  &none  &trans &macro_n_tilde &macro_e_acute    &macro_i_acute     &macro_o_acute          &trans
+                &trans &trans                 &trans &trans &trans &trans                        &trans &trans                                &trans &trans         &macro_guillemets &trans             &macro_spanish_question &trans
+                &trans &trans                 &trans &trans &trans                 &trans &trans &trans &trans &trans &trans                         &trans         &trans            &trans             &trans                  &trans
+            >;
         };
 
         extra4 {

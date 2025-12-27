@@ -180,6 +180,13 @@ Mac_Strike_Through_Text: Mac_Strike_Through_Text {
     display-name = "Mac Strikethrough Text";
 };
 
+Mac_Lock_PC: Mac_Lock_PC {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LG(Q))>;
+    display-name = "Mac Lock";
+};
+
 Double_Click: Double_Click {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
@@ -194,14 +201,14 @@ Double_Click: Double_Click {
 macro_quotes: macro_quotes {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp SQT>, <&kp SQT>, <&kp LEFT>;
+    bindings = <&kp SQT>, <&kp SPACE>, <&kp SQT>, <&kp SPACE>, <&kp LEFT>;
     display-name = "Single Quotes ''";
 };
 
 macro_dquotes: macro_dquotes {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
+    bindings = <&kp DQT>, <&kp SPACE>, <&kp DQT>, <&kp SPACE>, <&kp LEFT>;
     display-name = "Double Quotes \"\"";
 };
 
@@ -231,6 +238,28 @@ macro_angles: macro_angles {
     #binding-cells = <0>;
     bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>, <&kp LEFT>;
     display-name = "Angle Brackets <>";
+};
+
+// Dead key characters (cancelled with SPACE)
+macro_grave: macro_grave {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp GRAVE>, <&kp SPACE>;
+    display-name = "Grave `";
+};
+
+macro_tilde: macro_tilde {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LS(GRAVE)>, <&kp SPACE>;
+    display-name = "Tilde ~";
+};
+
+macro_caret: macro_caret {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp CARET>, <&kp SPACE>;
+    display-name = "Caret ^";
 };
 
 // ═══════════════════════════════════════════════════════════════
@@ -312,4 +341,80 @@ macro_block_comment: macro_block_comment {
     #binding-cells = <0>;
     bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>;
     display-name = "Block Comment /* */";
+};
+
+// ═══════════════════════════════════════════════════════════════
+// Spanish Character Macros (US-International: RightAlt + key)
+// ═══════════════════════════════════════════════════════════════
+
+// Accented vowels
+macro_a_acute: macro_a_acute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(A)>;
+    display-name = "á";
+};
+
+macro_e_acute: macro_e_acute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(E)>;
+    display-name = "é";
+};
+
+macro_i_acute: macro_i_acute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(I)>;
+    display-name = "í";
+};
+
+macro_o_acute: macro_o_acute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(O)>;
+    display-name = "ó";
+};
+
+macro_u_acute: macro_u_acute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(U)>;
+    display-name = "ú";
+};
+
+macro_u_diaeresis: macro_u_diaeresis {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(Y)>;
+    display-name = "ü";
+};
+
+macro_n_tilde: macro_n_tilde {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(N)>;
+    display-name = "ñ";
+};
+
+// Paired Spanish punctuation (cursor inside)
+macro_spanish_question: macro_spanish_question {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(FSLH)>, <&kp LS(FSLH)>, <&kp LEFT>;
+    display-name = "Spanish Question ¿?";
+};
+
+macro_spanish_exclaim: macro_spanish_exclaim {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(N1)>, <&kp LS(N1)>, <&kp LEFT>;
+    display-name = "Spanish Exclaim ¡!";
+};
+
+macro_guillemets: macro_guillemets {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp RA(LBKT)>, <&kp RA(RBKT)>, <&kp LEFT>;
+    display-name = "Spanish Quotes «»";
 };
