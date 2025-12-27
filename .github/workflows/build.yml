@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:3.5-branch
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build (Legacy)
     steps:
       - name: Checkout
@@ -42,11 +42,6 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: Downgrade CMake for Zephyr 3.5 compatibility
-        run: |
-          python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-x86_64.tar.gz', 'cmake.tar.gz')"
-          tar -xzf cmake.tar.gz
-          echo "${GITHUB_WORKSPACE}/cmake-3.20.5-linux-x86_64/bin" >> $GITHUB_PATH
       - name: West Build (left)
         run: west build -s zmk/app -d build/left -b adv360_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
       - name: Adv360 Left Kconfig file
@@ -67,7 +62,7 @@ jobs:
   build-clique:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:3.5-branch
+      image: zmkfirmware/zmk-build-arm:stable
     name: Build (Clique)
     steps:
       - name: Checkout
@@ -103,11 +98,6 @@ jobs:
         run: west update
       - name: West Zephyr export
         run: west zephyr-export
-      - name: Downgrade CMake for Zephyr 3.5 compatibility
-        run: |
-          python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/Kitware/CMake/releases/download/v3.20.5/cmake-3.20.5-linux-x86_64.tar.gz', 'cmake.tar.gz')"
-          tar -xzf cmake.tar.gz
-          echo "${GITHUB_WORKSPACE}/cmake-3.20.5-linux-x86_64/bin" >> $GITHUB_PATH
       - name: West Build (left)
         run: west build -s zmk/app -d build/left -b adv360_left -S studio-rpc-usb-uart -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DCONFIG_ZMK_STUDIO=y
       - name: Adv360 Left Kconfig file
