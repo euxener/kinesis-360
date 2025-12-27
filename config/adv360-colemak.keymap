@@ -1,7 +1,7 @@
 /*
- * Euxener QWERTY base keyboard layout
- * Version 2.0
- */
+* Euxener Colemak-DH base keyboard layout
+* Version 2.0
+*/
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
@@ -53,12 +53,12 @@ hmr: homerow_mods_right {
         compatible = "zmk,keymap";
 
         default_layer {
-            display-name = "Base (QWERTY)";
+            display-name = "Base (Colemak-DH)";
             bindings = <
                 &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
-                &kp TAB   &kp Q        &kp W       &kp E       &kp R        &kp T  &none                                                            &none &kp Y  &kp U        &kp I       &kp O       &kp P        &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT S &hml LGUI D &hml LSHFT F &kp G  &none               &mo 4   &mo 5    &mo 5     &mo 4             &none &kp H  &hmr RSHFT J &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp V        &kp B                              &mo 6    &kp PG_UP                         &kp N  &kp M        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &none                                                            &none &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &none               &mo 4   &mo 5    &mo 5     &mo 4             &none &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                              &mo 6    &kp PG_UP                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
                 &mo 2     &kp GRAVE    &kp CAPS    &kp LEFT    &kp RIGHT                      &kp BSPC &kp DEL &kp END  &kp PG_DN &kp ENTER &kp SPACE            &kp UP       &kp DOWN    &kp LBKT    &kp RBKT     &mo 2
             >;
         };
@@ -67,9 +67,9 @@ hmr: homerow_mods_right {
             display-name = "Kp";
             bindings = <
                 &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-                &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-                &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &mo 4     &mo 5    &mo 5     &mo 4               &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-                &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &mo 6    &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+                &kp TAB   &kp Q     &kp W    &kp F    &kp P      &kp B  &none                                                            &none &kp J  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+                &kp ESC   &kp A     &kp R    &kp S    &kp T      &kp G  &none           &mo 4     &mo 5    &mo 5     &mo 4               &none &kp M  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+                &kp LSHFT &kp Z     &kp X    &kp C    &kp D      &kp V                            &mo 6    &kp PG_UP                           &kp K  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
                 &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
             >;
         };
@@ -99,7 +99,7 @@ hmr: homerow_mods_right {
         symbol {
             display-name = "Symbol";
             bindings = <
-                /* Row 0 - same as Colemak version */
+                /* Row 0 */
                 &trans &kp EXCL      &kp AT         &kp HASH      &kp DLLR      &kp PRCNT       &trans                                              &trans &macro_caret &kp AMPS         &kp ASTRK     &kp UNDER           &kp PLUS             &trans
                 &trans &macro_quotes &macro_dquotes &macro_parens &macro_braces &macro_brackets &none                                               &none  &macro_arrow &macro_fat_arrow &macro_scope  &macro_line_comment &macro_block_comment &trans
                 &trans &macro_angles &macro_grave   &macro_tilde  &kp LS(BSLH)  &kp BSLH        &none           &trans &trans &trans &trans         &none  &macro_eq    &macro_neq       &macro_lte    &macro_gte          &macro_and           &trans
@@ -123,16 +123,11 @@ hmr: homerow_mods_right {
         spanish {
             display-name = "Spanish";
             bindings = <
-                // Row 0: ¡ on 1 position (same as Colemak)
-                &trans &macro_spanish_exclaim &trans          &trans &trans &trans &trans                                                       &trans &trans &trans         &trans            &trans             &trans                  &trans
-                // Row 1: QWERTY vowels - E on E position, U I O on right top row, ü on Y
-                &trans &trans                 &trans          &macro_e_acute &trans &trans &none                                                &none  &macro_u_diaeresis &macro_u_acute &macro_i_acute &macro_o_acute &trans &trans
-                // Row 2: á on A position (same), rest transparent
-                &trans &macro_a_acute         &trans          &trans &trans &trans &none           &trans &trans &trans &trans                  &none  &trans &trans         &trans            &trans             &trans                  &trans
-                // Row 3: ñ on N position (QWERTY), «» on comma, ¿? on /
-                &trans &trans                 &trans          &trans &trans &trans                        &trans &trans                                &macro_n_tilde &trans &macro_guillemets &trans &macro_spanish_question &trans
-                // Row 4: Thumb row
-                &trans &trans                 &trans          &trans &trans                 &trans &trans &trans &trans &trans &trans                         &trans         &trans            &trans             &trans                  &trans
+                &trans &macro_spanish_exclaim &trans &trans &trans &trans &trans                                                       &trans &trans &trans         &trans            &trans             &trans                  &trans
+                &trans &trans                 &trans &trans &trans &trans &none                                                        &none  &trans &trans         &macro_u_acute    &macro_u_diaeresis &trans                  &trans
+                &trans &macro_a_acute         &trans &trans &trans &trans &none           &trans &trans &trans &trans                  &none  &trans &macro_n_tilde &macro_e_acute    &macro_i_acute     &macro_o_acute          &trans
+                &trans &trans                 &trans &trans &trans &trans                        &trans &trans                                &trans &trans         &macro_guillemets &trans             &macro_spanish_question &trans
+                &trans &trans                 &trans &trans &trans                 &trans &trans &trans &trans &trans &trans                         &trans         &trans            &trans             &trans                  &trans
             >;
         };
 
