@@ -386,66 +386,83 @@ macro_block_comment: macro_block_comment {
 };
 
 // ═══════════════════════════════════════════════════════════════
-// Spanish Character Macros (US-International: RightAlt + key)
+// Spanish Character Macros (US-International dead key method)
 // ═══════════════════════════════════════════════════════════════
 
-// Accented vowels
+// Accented vowels using dead key method (apostrophe ' is acute dead key)
 macro_a_acute: macro_a_acute {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(A)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp A>;
     display-name = "á";
 };
 
 macro_e_acute: macro_e_acute {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(E)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp E>;
     display-name = "é";
 };
 
 macro_i_acute: macro_i_acute {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(I)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp I>;
     display-name = "í";
 };
 
 macro_o_acute: macro_o_acute {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(O)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp O>;
     display-name = "ó";
 };
 
 macro_u_acute: macro_u_acute {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(U)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp U>;
     display-name = "ú";
 };
 
+// ü using diaeresis dead key (Shift+' = " is diaeresis dead key)
 macro_u_diaeresis: macro_u_diaeresis {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(Y)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(SQT)>, <&kp U>;
     display-name = "ü";
 };
 
+// ñ using tilde dead key (Shift+` = ~ is tilde dead key)
 macro_n_tilde: macro_n_tilde {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp RA(N)>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(GRAVE)>, <&kp N>;
     display-name = "ñ";
 };
 
 // Paired Spanish punctuation (cursor inside)
+// macOS: Option+Shift+/ = ¿, Option+1 = ¡, Option+\ = «, Option+Shift+\ = »
 macro_spanish_question: macro_spanish_question {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
-    bindings = <&kp RA(FSLH)>, <&kp LS(FSLH)>, <&kp LEFT>;
+    bindings = <&kp LA(LS(FSLH))>, <&kp LS(FSLH)>, <&kp LEFT>;
     display-name = "Spanish Question";
 };
 
@@ -454,7 +471,7 @@ macro_spanish_exclaim: macro_spanish_exclaim {
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
-    bindings = <&kp RA(N1)>, <&kp LS(N1)>, <&kp LEFT>;
+    bindings = <&kp LA(N1)>, <&kp LS(N1)>, <&kp LEFT>;
     display-name = "Spanish Exclaim";
 };
 
@@ -463,6 +480,6 @@ macro_guillemets: macro_guillemets {
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
-    bindings = <&kp RA(LBKT)>, <&kp RA(RBKT)>, <&kp LEFT>;
+    bindings = <&kp LA(BSLH)>, <&kp LA(LS(BSLH))>, <&kp LEFT>;
     display-name = "Spanish Quotes";
 };
