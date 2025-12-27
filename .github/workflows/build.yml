@@ -44,7 +44,8 @@ jobs:
         run: west zephyr-export
       - name: Downgrade CMake for Zephyr 3.5 compatibility
         run: |
-          curl -sSL https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz | tar -xz
+          python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz', 'cmake.tar.gz')"
+          tar -xzf cmake.tar.gz
           echo "${GITHUB_WORKSPACE}/cmake-3.28.0-linux-x86_64/bin" >> $GITHUB_PATH
       - name: West Build (left)
         run: west build -s zmk/app -d build/left -b adv360_left -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config"
@@ -104,7 +105,8 @@ jobs:
         run: west zephyr-export
       - name: Downgrade CMake for Zephyr 3.5 compatibility
         run: |
-          curl -sSL https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz | tar -xz
+          python3 -c "import urllib.request; urllib.request.urlretrieve('https://github.com/Kitware/CMake/releases/download/v3.28.0/cmake-3.28.0-linux-x86_64.tar.gz', 'cmake.tar.gz')"
+          tar -xzf cmake.tar.gz
           echo "${GITHUB_WORKSPACE}/cmake-3.28.0-linux-x86_64/bin" >> $GITHUB_PATH
       - name: West Build (left)
         run: west build -s zmk/app -d build/left -b adv360_left -S studio-rpc-usb-uart -- -DZMK_CONFIG="${GITHUB_WORKSPACE}/config" -DCONFIG_ZMK_STUDIO=y
