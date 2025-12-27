@@ -6,7 +6,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:stable
+      image: zmkfirmware/zmk-build-arm:3.5-stable
     name: Build (Legacy)
     steps:
       - name: Checkout
@@ -62,7 +62,7 @@ jobs:
   build-clique:
     runs-on: ubuntu-latest
     container:
-      image: zmkfirmware/zmk-build-arm:stable
+      image: zmkfirmware/zmk-build-arm:3.5-stable
     name: Build (Clique)
     steps:
       - name: Checkout
