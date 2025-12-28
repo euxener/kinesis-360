@@ -381,9 +381,61 @@ macro_block_comment: macro_block_comment {
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
-    bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>;
+    bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>, <&kp LEFT>;
     display-name = "Block Comment";
 };
+
+// ═══════════════════════════════════════════════════════════════
+// Excel and Macabacus Macros
+// ═══════════════════════════════════════════════════════════════
+
+// General Number Cycle - LC(LS(N1))
+// Percent Cycle - LC(LS(N2))
+// Multiple Cycle - LC(LS(N3))
+// Date Cycle - LC(LS(N4))
+// Binary Cycle - LC(LS(Y))
+
+// Increase Decimals - LC(COMMA)
+// Decrease Decimals - LC(DOT)
+
+// Shift Decimals Left - LA(LS(COMMA))
+// Shift Decimals Right - LA(LS(DOT))
+
+// Blue-Black Toogle - LC(LS(SEMI))
+// Color Cycle - LC(SQT)
+// Fill Cycle - LC(LS(K))
+
+// Autocolor Selection - LC(LA(A))
+
+// Center Cycle - LC(LS(C))
+// Horizontal Cycle - LC(LS(H))
+// Vertical Cycle - LC(LS(V))
+
+// Outside Borders - LC(LS(N7))
+// No Borders - LC(LS(MINUS))
+
+// Fast Fill Right - LC(LS(R))
+// Fast Fill Down - LC(LS(D))
+// Error Wrap - LC(LS(E))
+
+// Anchor Formula Cycle - LC(F2)
+
+// Flip Sign - LC(LS(N))
+
+// Paste Number Format - LC(LA(F))
+// Paste Exact - LC(LA(E))
+
+// Pro Precedents - LC(LS(LBKT))
+// Pro Dependents - LC(LS(RBKT))
+
+// Uniformulas - LC(Q)
+
+// Smart Print Area - LC(LA(LS(B)))
+
+// Activate Sheet - LC(LS(T))
+
+// Row Height Cycle - LA(LS(PG_UP))
+// Column Height Cycle - LC(LA(LS(PG_UP)))
 
 // ═══════════════════════════════════════════════════════════════
 // Spanish Character Macros (US-International dead key method)
