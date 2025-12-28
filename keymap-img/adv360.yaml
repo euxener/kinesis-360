@@ -387,80 +387,80 @@ layers:
   - {t: ▽, type: trans}
   Excel:
   - {t: ▽, type: trans}
+  - '&mcb_num_cycle'
+  - '&mcb_pct_cycle'
+  - '&mcb_mult_cycle'
+  - '&mcb_date_cycle'
+  - '&mcb_anchor_cycle'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mcb_outside_borders'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mcb_export_match_none'
+  - '&mcb_no_borders'
   - {t: ▽, type: trans}
+  - '&mcb_uniformulas'
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mcb_error_wrap'
+  - '&mcb_fill_right'
+  - '&mcb_activate_sheet'
   - ''
   - ''
+  - '&mcb_binary_cycle'
+  - '&mcb_paste_exact'
+  - '&mcb_insert_note'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mcb_autocolor'
+  - '&mcb_quick_save'
+  - '&mcb_fill_down'
+  - '&mcb_paste_numfmt'
+  - '&mcb_expand_grp'
   - ''
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - ''
+  - '&mcb_horiz_cycle'
+  - '&mcb_collapse_grp'
+  - '&mcb_fill_cycle'
+  - {t: ▽, type: trans}
+  - '&mcb_blue_black'
+  - '&mcb_color_cycle'
+  - {t: ▽, type: trans}
+  - '&mcb_smart_print'
+  - '&mcb_super_find'
+  - '&mcb_center_cycle'
+  - '&mcb_vert_cycle'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&mcb_row_height'
+  - '&mcb_flip_sign'
+  - '&mcb_export_match_both'
+  - '&mcb_inc_dec'
+  - '&mcb_dec_dec'
+  - '&mcb_shift_dec_right'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '&mcb_shift_dec_left'
+  - {t: ▽, type: trans}
+  - '&mcb_left_border'
+  - '&mcb_right_border'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - '&mcb_col_width'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mcb_top_border'
+  - '&mcb_bottom_border'
+  - '&mcb_pro_precedents'
+  - '&mcb_pro_dependents'
   - {t: ▽, type: trans}
   Spanish:
   - {t: ▽, type: trans}
