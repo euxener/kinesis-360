@@ -109,28 +109,22 @@ hmr: homerow_mods_right {
         excel {
             display-name = "Excel";
             bindings = <
-                // Placeholder - add Macabacus/Excel shortcuts later
-                &trans &trans &trans &trans &trans &trans &trans                                                       &trans &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &none                                                        &none  &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans &none           &trans &trans &trans &trans                  &none  &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans &trans                        &trans &trans                                &trans &trans &trans &trans &trans &trans
-                &trans &trans &trans &trans &trans                 &trans &trans &trans &trans &trans &trans                         &trans &trans &trans &trans &trans
+                &trans &mcb_num_cycle      &mcb_pct_cycle  &mcb_mult_cycle   &mcb_date_cycle   &mcb_anchor_cycle   &trans                                                    &trans &trans            &mcb_outside_borders   &trans             &trans              &mcb_export_match_none &mcb_no_borders
+                &trans &mcb_uniformulas    &trans          &mcb_error_wrap   &mcb_fill_right   &mcb_activate_sheet &none                                                     &none  &mcb_binary_cycle &mcb_paste_exact       &mcb_insert_note   &trans              &trans                 &trans
+                &trans &mcb_autocolor      &mcb_quick_save &mcb_fill_down    &mcb_paste_numfmt &mcb_expand_grp     &none         &trans &trans &trans          &trans        &none  &mcb_horiz_cycle  &mcb_collapse_grp      &mcb_fill_cycle    &trans              &mcb_blue_black        &mcb_color_cycle
+                &trans &mcb_smart_print    &mcb_super_find &mcb_center_cycle &mcb_vert_cycle   &trans                                   &trans &mcb_row_height                      &mcb_flip_sign    &mcb_export_match_both &mcb_inc_dec       &mcb_dec_dec        &mcb_shift_dec_right   &trans
+                &trans &mcb_shift_dec_left &trans          &mcb_left_border  &mcb_right_border                            &trans &trans &trans &mcb_col_width  &trans &trans                          &mcb_top_border        &mcb_bottom_border &mcb_pro_precedents &mcb_pro_dependents    &trans
             >;
         };
 
         spanish {
             display-name = "Spanish";
             bindings = <
-                // Row 0: ¡ on 1 position (same as Colemak)
-                &trans &macro_spanish_exclaim &trans          &trans &trans &trans &trans                                                       &trans &trans &trans         &trans            &trans             &trans                  &trans
-                // Row 1: QWERTY vowels - E on E position, U I O on right top row, ü on Y
-                &trans &trans                 &trans          &macro_e_acute &trans &trans &none                                                &none  &macro_u_diaeresis &macro_u_acute &macro_i_acute &macro_o_acute &trans &trans
-                // Row 2: á on A position (same), rest transparent
-                &trans &macro_a_acute         &trans          &trans &trans &trans &none           &trans &trans &trans &trans                  &none  &trans &trans         &trans            &trans             &trans                  &trans
-                // Row 3: ñ on N position (QWERTY), «» on comma, ¿? on /
-                &trans &trans                 &trans          &trans &trans &trans                        &trans &trans                                &macro_n_tilde &trans &macro_guillemets &trans &macro_spanish_question &trans
-                // Row 4: Thumb row
-                &trans &trans                 &trans          &trans &trans                 &trans &trans &trans &trans &trans &trans                         &trans         &trans            &trans             &trans                  &trans
+                &trans &macro_spanish_exclaim &trans &trans         &trans &trans &trans                                                       &trans &trans             &trans         &trans            &trans             &trans                  &trans
+                &trans &trans                 &trans &macro_e_acute &trans &trans &none                                                        &none  &macro_u_diaeresis &macro_u_acute &macro_i_acute    &macro_o_acute     &trans                  &trans
+                &trans &macro_a_acute         &trans &trans         &trans &trans &none           &trans &trans &trans &trans                  &none  &trans             &trans         &trans            &trans             &trans                  &trans
+                &trans &trans                 &trans &trans         &trans &trans                        &trans &trans                                &macro_n_tilde     &trans         &macro_guillemets &trans             &macro_spanish_question &trans
+                &trans &trans                 &trans &trans         &trans                 &trans &trans &trans &trans &trans &trans                                     &trans         &trans            &trans             &trans                  &trans
             >;
         };
 

@@ -389,53 +389,325 @@ macro_block_comment: macro_block_comment {
 // Excel and Macabacus Macros
 // ═══════════════════════════════════════════════════════════════
 
-// General Number Cycle - LC(LS(N1))
-// Percent Cycle - LC(LS(N2))
-// Multiple Cycle - LC(LS(N3))
-// Date Cycle - LC(LS(N4))
-// Binary Cycle - LC(LS(Y))
+// Number Format Macros
+mcb_num_cycle: mcb_num_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N1))>;
+    display-name = "Number Cycle";
+};
 
-// Increase Decimals - LC(COMMA)
-// Decrease Decimals - LC(DOT)
+mcb_pct_cycle: mcb_pct_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N2))>;
+    display-name = "Percent Cycle";
+};
 
-// Shift Decimals Left - LA(LS(COMMA))
-// Shift Decimals Right - LA(LS(DOT))
+mcb_mult_cycle: mcb_mult_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N3))>;
+    display-name = "Multiple Cycle";
+};
 
-// Blue-Black Toogle - LC(LS(SEMI))
-// Color Cycle - LC(SQT)
-// Fill Cycle - LC(LS(K))
+mcb_date_cycle: mcb_date_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N4))>;
+    display-name = "Date Cycle";
+};
 
-// Autocolor Selection - LC(LA(A))
+mcb_binary_cycle: mcb_binary_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(Y))>;
+    display-name = "Binary Cycle";
+};
 
-// Center Cycle - LC(LS(C))
-// Horizontal Cycle - LC(LS(H))
-// Vertical Cycle - LC(LS(V))
+// Decimal Macros
+mcb_inc_dec: mcb_inc_dec {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(COMMA)>;
+    display-name = "Increase Decimals";
+};
 
-// Outside Borders - LC(LS(N7))
-// No Borders - LC(LS(MINUS))
+mcb_dec_dec: mcb_dec_dec {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(DOT)>;
+    display-name = "Decrease Decimals";
+};
 
-// Fast Fill Right - LC(LS(R))
-// Fast Fill Down - LC(LS(D))
-// Error Wrap - LC(LS(E))
+mcb_shift_dec_left: mcb_shift_dec_left {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LA(LS(COMMA))>;
+    display-name = "Shift Decimals Left";
+};
 
-// Anchor Formula Cycle - LC(F2)
+mcb_shift_dec_right: mcb_shift_dec_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LA(LS(DOT))>;
+    display-name = "Shift Decimals Right";
+};
 
-// Flip Sign - LC(LS(N))
+// Color Macros
+mcb_blue_black: mcb_blue_black {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(SEMI))>;
+    display-name = "Blue-Black Toggle";
+};
 
-// Paste Number Format - LC(LA(F))
-// Paste Exact - LC(LA(E))
+mcb_color_cycle: mcb_color_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(SQT)>;
+    display-name = "Color Cycle";
+};
 
-// Pro Precedents - LC(LS(LBKT))
-// Pro Dependents - LC(LS(RBKT))
+mcb_fill_cycle: mcb_fill_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(K))>;
+    display-name = "Fill Cycle";
+};
 
-// Uniformulas - LC(Q)
+mcb_autocolor: mcb_autocolor {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(A))>;
+    display-name = "Autocolor Selection";
+};
 
-// Smart Print Area - LC(LA(LS(B)))
+// Alignment Macros
+mcb_center_cycle: mcb_center_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(C))>;
+    display-name = "Center Cycle";
+};
 
-// Activate Sheet - LC(LS(T))
+mcb_horiz_cycle: mcb_horiz_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(H))>;
+    display-name = "Horizontal Cycle";
+};
 
-// Row Height Cycle - LA(LS(PG_UP))
-// Column Height Cycle - LC(LA(LS(PG_UP)))
+mcb_vert_cycle: mcb_vert_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(V))>;
+    display-name = "Vertical Cycle";
+};
+
+// Border Macros
+mcb_top_border: mcb_top_border {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(UP)))>;
+    display-name = "Top Border";
+};
+
+mcb_bottom_border: mcb_bottom_border {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(DOWN)))>;
+    display-name = "Bottom Border";
+};
+
+mcb_left_border: mcb_left_border {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(LEFT)))>;
+    display-name = "Left Border";
+};
+
+mcb_right_border: mcb_right_border {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(RIGHT)))>;
+    display-name = "Right Border";
+};
+
+mcb_outside_borders: mcb_outside_borders {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N7))>;
+    display-name = "Outside Borders";
+};
+
+mcb_no_borders: mcb_no_borders {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(MINUS))>;
+    display-name = "No Borders";
+};
+
+// Fill Macros
+mcb_fill_right: mcb_fill_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(R))>;
+    display-name = "Fast Fill Right";
+};
+
+mcb_fill_down: mcb_fill_down {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(D))>;
+    display-name = "Fast Fill Down";
+};
+
+mcb_error_wrap: mcb_error_wrap {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(E))>;
+    display-name = "Error Wrap";
+};
+
+// Formula Macros
+mcb_anchor_cycle: mcb_anchor_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(F2)>;
+    display-name = "Anchor Formula Cycle";
+};
+
+mcb_flip_sign: mcb_flip_sign {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(N))>;
+    display-name = "Flip Sign";
+};
+
+// Paste Macros
+mcb_paste_numfmt: mcb_paste_numfmt {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(F))>;
+    display-name = "Paste Number Format";
+};
+
+mcb_paste_exact: mcb_paste_exact {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(E))>;
+    display-name = "Paste Exact";
+};
+
+// Audit Macros
+mcb_pro_precedents: mcb_pro_precedents {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(LBKT))>;
+    display-name = "Pro Precedents";
+};
+
+mcb_pro_dependents: mcb_pro_dependents {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(RBKT))>;
+    display-name = "Pro Dependents";
+};
+
+mcb_uniformulas: mcb_uniformulas {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(Q)>;
+    display-name = "Uniformulas";
+};
+
+// Print & Export Macros
+mcb_smart_print: mcb_smart_print {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(B)))>;
+    display-name = "Smart Print Area";
+};
+
+mcb_activate_sheet: mcb_activate_sheet {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(T))>;
+    display-name = "Activate Sheet";
+};
+
+// Row/Column Sizing Macros
+mcb_row_height: mcb_row_height {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LA(LS(PG_UP))>;
+    display-name = "Row Height Cycle";
+};
+
+mcb_col_width: mcb_col_width {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(PG_UP)))>;
+    display-name = "Column Width Cycle";
+};
+
+// Export Macros
+mcb_export_match_both: mcb_export_match_both {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(RIGHT))>;
+    display-name = "Export Match Both";
+};
+
+mcb_export_match_none: mcb_export_match_none {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(UP))>;
+    display-name = "Export Match None";
+};
+
+mcb_quick_save: mcb_quick_save {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(S))>;
+    display-name = "Quick Save";
+};
+
+// Sequential Keypresses (Excel Ribbon Navigation)
+mcb_expand_grp: mcb_expand_grp {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <50>;
+    tap-ms = <50>;
+    bindings = <&kp LALT>, <&kp A>, <&kp J>;
+    display-name = "Expand Column/Row";
+};
+
+mcb_collapse_grp: mcb_collapse_grp {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <50>;
+    tap-ms = <50>;
+    bindings = <&kp LALT>, <&kp A>, <&kp H>;
+    display-name = "Collapse Column/Row";
+};
+
+mcb_super_find: mcb_super_find {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <50>;
+    tap-ms = <50>;
+    bindings = <&kp LALT>, <&kp X>, <&kp N>;
+    display-name = "Super Find";
+};
+
+mcb_insert_note: mcb_insert_note {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LS(F2)>;
+    display-name = "Insert Note";
+};
 
 // ═══════════════════════════════════════════════════════════════
 // Spanish Character Macros (US-International dead key method)
