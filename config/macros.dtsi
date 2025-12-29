@@ -458,7 +458,7 @@ mcb_shift_dec_right: mcb_shift_dec_right {
 mcb_blue_black: mcb_blue_black {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LS(SEMI))>;
+    bindings = <&kp LC(SEMI)>;
     display-name = "Blue-Black Toggle";
 };
 
