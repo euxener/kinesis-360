@@ -45,6 +45,13 @@ hmr: homerow_mods_right {
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
 };
+
+td_caps: tap_dance_caps {
+    compatible = "zmk,behavior-tap-dance";
+    #binding-cells = <0>;
+    tapping-term-ms = <200>;
+    bindings = <&none>, <&kp CAPS>;
+};
     };
 
     keymap {
@@ -53,33 +60,33 @@ hmr: homerow_mods_right {
         default_layer {
             display-name = "Base (QWERTY)";
             bindings = <
-                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                           &mo 3 &kp N6 &kp N7       &kp N8      &kp N9      &kp N0          &kp MINUS
-                &kp TAB   &kp Q        &kp W       &kp E       &kp R        &kp T  &none                                                            &none &kp Y  &kp U        &kp I       &kp O       &kp P           &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT S &hml LGUI D &hml LSHFT F &kp G  &none               &mo 4   &mo 5    &mo 5     &mo 4             &none &kp H  &hmr RSHFT J &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp V        &kp B                              &mo 6    &kp PG_UP                         &kp N  &kp M        &kp COMMA   &kp DOT     &kp FSLH        &kp RSHFT
-                &mo 2     &kp GRAVE    &kp CAPS    &kp LEFT    &kp RIGHT                      &kp BSPC &kp DEL &kp END  &kp PG_DN &kp ENTER &kp SPACE            &kp UP       &kp DOWN    &kp LBKT    &kp RBKT        &mo 2
+                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                           &mo 3     &kp N6 &kp N7       &kp N8      &kp N9      &kp N0          &kp MINUS
+                &kp TAB   &kp Q        &kp W       &kp E       &kp R        &kp T  &kp HOME                                                         &kp END   &kp Y  &kp U        &kp I       &kp O       &kp P           &kp BSLH
+                &kp ESC   &hml LCTRL A &hml LALT S &hml LGUI D &hml LSHFT F &kp G  &kp PG_UP               &mo 5   &mo 4 &mo 4 &mo 5                &kp PG_DN &kp H  &hmr RSHFT J &hmr RGUI K &hmr RALT L &hmr RCTRL SEMI &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp V        &kp B                                  &mo 6 &mo 6                                &kp N  &kp M        &kp COMMA   &kp DOT     &kp FSLH        &kp RSHFT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                          &kp BSPC &kp DEL &mo 2 &mo 2 &kp ENTER &kp SPACE                   &kp UP       &kp DOWN    &kp LBKT    &kp RBKT        &kp RCTRL
             >;
         };
 
         keypad {
             display-name = "Kp";
             bindings = <
-                &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                           &mo 3 &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
-                &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &none                                                            &none &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-                &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &none           &mo 4     &mo 5    &mo 5     &mo 4               &none &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
-                &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                            &mo 6    &kp PG_UP                           &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
-                &mo 2     &kp GRAVE &kp CAPS &kp LEFT &kp RIGHT                &kp BSPC &kp DEL   &kp END  &kp PG_DN &kp ENTER &kp KP_N0              &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &mo 2
+                &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                       &mo 3     &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
+                &kp TAB   &kp Q     &kp W    &kp E    &kp R      &kp T  &kp HOME                                                     &kp END   &kp Y  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
+                &kp ESC   &kp A     &kp S    &kp D    &kp F      &kp G  &kp PG_UP          &mo 5   &mo 4  &mo 4  &mo 5               &kp PG_DN &kp H  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+                &kp LSHFT &kp Z     &kp X    &kp C    &kp V      &kp B                             &mo 6  &mo 6                                &kp N  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
+                &kp LCTRL &kp GRAVE &td_caps &kp LEFT &kp RIGHT                   &kp BSPC &kp DEL &mo 2  &mo 2  &kp ENTER &kp KP_N0                  &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &kp RCTRL
             >;
         };
 
         fn {
             display-name = "Fn";
             bindings = <
-                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &tog 1                                                   &mo 3 &kp F7        &kp F8       &kp F9       &kp F10        &kp F11      &kp F12
-                &trans &trans &trans &trans &trans         &trans &none                                                    &none &kp C_AL_CALC &trans       &kp C_BRI_DN &kp C_BRI_UP   &trans       &trans
-                &trans &Win_Lock_PC  &trans &Win_Snip_Tool &trans &trans &none        &trans &trans   &trans &trans        &none &kp C_MUTE    &kp C_VOL_DN &kp C_VOL_UP &Mac_Snip_Tool &Mac_Lock_PC &trans
-                &trans &trans &trans &trans &trans         &trans                            &kp HOME &trans                     &trans        &kp C_PREV   &kp C_PP     &kp C_NEXT     &trans       &trans
-                &trans &trans &trans &trans &trans                             &trans &trans &trans   &trans &trans &trans                     &trans       &trans       &trans         &trans       &trans
+                &kp F1 &kp F2 &kp F3 &kp F4 &kp F5         &kp F6 &tog 1                                                   &mo 3 &kp F7        &kp F8       &kp F9       &kp F10        &kp F11          &kp F12
+                &trans &trans &trans &trans &trans         &trans &none                                                    &none &kp C_AL_CALC &kp C_MUTE   &kp C_VOL_DN &kp C_VOL_UP   &kp C_BRI_DN     &kp C_BRI_UP
+                &trans &sk LCTRL     &sk LALT  &sk LGUI    &sk LSHFT &trans    &none  &trans &trans   &trans &trans        &none &trans        &sk RSHFT    &sk RGUI     &sk RALT       &sk RCTRL        &trans
+                &trans &Win_Lock_PC  &trans &Win_Snip_Tool &trans &trans                            &trans   &trans                     &trans        &kp C_PREV   &kp C_PP     &kp C_NEXT     &Mac_Snip_Tool   &Mac_Lock_PC
+                &trans &trans &trans &trans &trans                             &trans &trans &trans   &trans &trans &trans                     &trans       &trans       &trans         &trans           &trans
             >;
         };
 
