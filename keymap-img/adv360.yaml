@@ -21,8 +21,8 @@ layers:
   - E
   - R
   - T
-  - ''
-  - ''
+  - Home
+  - End
   - Y
   - U
   - I
@@ -35,12 +35,12 @@ layers:
   - {t: D, h: ⌘}
   - {t: F, h: ⇧}
   - G
-  - ''
-  - Sym
-  - Excel
+  - PgUp
   - Excel
   - Sym
-  - ''
+  - Sym
+  - Excel
+  - PgDn
   - H
   - {t: J, h: ⇧}
   - {t: K, h: ⌘}
@@ -54,29 +54,29 @@ layers:
   - V
   - B
   - Spanish
-  - PgUp
+  - Spanish
   - N
   - M
   - ','
   - .
   - /
   - ⇧
-  - Fn
+  - Ctrl
   - '`'
-  - Caps
+  - '&td_caps'
   - ←
   - →
   - ⌫
   - Del
-  - End
-  - PgDn
+  - Fn
+  - Fn
   - ↵
   - ␣
   - ↑
   - ↓
   - '['
   - ']'
-  - Fn
+  - Ctrl
   Keypad:
   - '='
   - '1'
@@ -98,8 +98,8 @@ layers:
   - E
   - R
   - T
-  - ''
-  - ''
+  - Home
+  - End
   - Y
   - KP 7
   - KP 8
@@ -112,12 +112,12 @@ layers:
   - D
   - F
   - G
-  - ''
-  - Sym
-  - Excel
+  - PgUp
   - Excel
   - Sym
-  - ''
+  - Sym
+  - Excel
+  - PgDn
   - H
   - KP 4
   - KP 5
@@ -131,29 +131,29 @@ layers:
   - V
   - B
   - Spanish
-  - PgUp
+  - Spanish
   - N
   - KP 1
   - KP 2
   - KP 3
   - ↵
   - ⇧
-  - Fn
+  - Ctrl
   - '`'
-  - Caps
+  - '&td_caps'
   - ←
   - →
   - ⌫
   - Del
-  - End
-  - PgDn
+  - Fn
+  - Fn
   - ↵
   - KP 0
   - ↑
   - ↓
   - .
   - ']'
-  - Fn
+  - Ctrl
   Fn:
   - F1
   - F2
@@ -178,10 +178,28 @@ layers:
   - ''
   - ''
   - Calc
-  - {t: ▽, type: trans}
+  - Mute
+  - Vol-
+  - Vol+
   - Bri-
   - Bri+
   - {t: ▽, type: trans}
+  - {t: Ctrl, h: sticky}
+  - {t: Alt, h: sticky}
+  - {t: ⌘, h: sticky}
+  - {t: ⇧, h: sticky}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ''
+  - {t: ▽, type: trans}
+  - {t: ⇧, h: sticky}
+  - {t: ⌘, h: sticky}
+  - {t: Alt, h: sticky}
+  - {t: Ctrl, h: sticky}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Win Lock
@@ -189,32 +207,14 @@ layers:
   - Win Snip
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - Mute
-  - Vol-
-  - Vol+
-  - Mac Snip
-  - Mac Lock
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Home
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - Prev
   - Play
   - Next
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - Mac Snip
+  - Mac Lock
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
