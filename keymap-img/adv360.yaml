@@ -406,8 +406,8 @@ layers:
   - '&mcb_error_wrap'
   - '&mcb_fill_right'
   - '&mcb_activate_sheet'
-  - ''
-  - ''
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - '&mcb_binary_cycle'
   - '&mcb_paste_exact'
   - '&mcb_insert_note'
@@ -420,12 +420,12 @@ layers:
   - '&mcb_fill_down'
   - '&mcb_paste_numfmt'
   - '&mcb_expand_grp'
-  - ''
+  - '&mcb_row_height'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - ''
+  - '&mcb_col_width'
   - '&mcb_horiz_cycle'
   - '&mcb_collapse_grp'
   - '&mcb_fill_cycle'
@@ -439,7 +439,7 @@ layers:
   - '&mcb_vert_cycle'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_row_height'
+  - {t: ▽, type: trans}
   - '&mcb_flip_sign'
   - '&mcb_export_match_both'
   - '&mcb_inc_dec'
@@ -454,7 +454,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_col_width'
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - '&mcb_top_border'
