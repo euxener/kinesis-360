@@ -18,22 +18,22 @@ layers:
   - ⇥
   - Q
   - W
-  - E
-  - R
-  - T
+  - F
+  - P
+  - B
   - Home
   - End
-  - Y
+  - J
+  - L
   - U
-  - I
-  - O
-  - P
+  - Y
+  - ;
   - \
   - Esc
   - {t: A, h: Ctrl}
-  - {t: S, h: Alt}
-  - {t: D, h: ⌘}
-  - {t: F, h: ⇧}
+  - {t: R, h: Alt}
+  - {t: S, h: ⌘}
+  - {t: T, h: ⇧}
   - G
   - PgUp
   - Excel
@@ -41,22 +41,22 @@ layers:
   - Sym
   - Excel
   - PgDn
-  - H
-  - {t: J, h: ⇧}
-  - {t: K, h: ⌘}
-  - {t: L, h: Alt}
-  - {t: ;, h: Ctrl}
+  - M
+  - {t: N, h: ⇧}
+  - {t: E, h: ⌘}
+  - {t: I, h: Alt}
+  - {t: O, h: Ctrl}
   - ''''
   - ⇧
   - Z
   - X
   - C
+  - D
   - V
-  - B
   - Spanish
   - Spanish
-  - N
-  - M
+  - K
+  - H
   - ','
   - .
   - /
@@ -95,12 +95,12 @@ layers:
   - ⇥
   - Q
   - W
-  - E
-  - R
-  - T
+  - F
+  - P
+  - B
   - Home
   - End
-  - Y
+  - J
   - KP 7
   - KP 8
   - KP 9
@@ -108,9 +108,9 @@ layers:
   - \
   - Esc
   - A
+  - R
   - S
-  - D
-  - F
+  - T
   - G
   - PgUp
   - Excel
@@ -118,7 +118,7 @@ layers:
   - Sym
   - Excel
   - PgDn
-  - H
+  - M
   - KP 4
   - KP 5
   - KP 6
@@ -128,11 +128,11 @@ layers:
   - Z
   - X
   - C
+  - D
   - V
-  - B
   - Spanish
   - Spanish
-  - N
+  - K
   - KP 1
   - KP 2
   - KP 3
@@ -480,15 +480,15 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - é
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
   - ''
-  - ü
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - ú
-  - í
-  - ó
+  - ü
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -504,20 +504,20 @@ layers:
   - {t: ▽, type: trans}
   - ''
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - ñ
+  - é
+  - í
+  - ó
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - «»
   - {t: ▽, type: trans}
