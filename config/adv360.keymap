@@ -62,7 +62,7 @@ td_caps: tap_dance_caps {
             bindings = <
                 &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                      &mo 3     &kp N6 &kp N7       &kp N8      &kp N9      &kp N0          &kp MINUS
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp HOME                                                    &kp END   &kp J  &kp L        &kp U       &kp Y       &kp SEMI        &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_UP          &mo 5   &mo 4 &mo 4 &mo 5                &kp PG_DN &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O    &kp SQT
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_UP          &mo 4   &mo 5 &mo 5 &mo 4                &kp PG_DN &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O    &kp SQT
                 &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                             &mo 6 &mo 6                                &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH        &kp RSHFT
                 &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                     &kp BSPC &kp DEL &mo 2 &mo 2 &kp ENTER &kp SPACE                   &kp UP       &kp DOWN    &kp LBKT    &kp RBKT        &kp RCTRL
             >;
@@ -73,7 +73,7 @@ td_caps: tap_dance_caps {
             bindings = <
                 &kp EQUAL &kp N1    &kp N2   &kp N3   &kp N4     &kp N5 &trans                                                       &mo 3     &kp N6 &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &kp MINUS
                 &kp TAB   &kp Q     &kp W    &kp F    &kp P      &kp B  &kp HOME                                                     &kp END   &kp J  &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &kp BSLH
-                &kp ESC   &kp A     &kp R    &kp S    &kp T      &kp G  &kp PG_UP          &mo 5   &mo 4  &mo 4  &mo 5               &kp PG_DN &kp M  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
+                &kp ESC   &kp A     &kp R    &kp S    &kp T      &kp G  &kp PG_UP          &mo 4   &mo 5  &mo 5  &mo 4               &kp PG_DN &kp M  &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &kp SQT
                 &kp LSHFT &kp Z     &kp X    &kp C    &kp D      &kp V                             &mo 6  &mo 6                                &kp K  &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &kp RSHFT
                 &kp LCTRL &kp GRAVE &td_caps &kp LEFT &kp RIGHT                   &kp BSPC &kp DEL &mo 2  &mo 2  &kp ENTER &kp KP_N0                  &kp UP     &kp DOWN     &kp KP_DOT    &kp RBKT        &kp RCTRL
             >;
