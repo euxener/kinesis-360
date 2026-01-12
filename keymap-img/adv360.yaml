@@ -387,80 +387,80 @@ layers:
   - {t: ▽, type: trans}
   Excel:
   - {t: ▽, type: trans}
-  - '&mcb_num_cycle'
-  - '&mcb_pct_cycle'
-  - '&mcb_mult_cycle'
-  - '&mcb_date_cycle'
-  - '&mcb_anchor_cycle'
+  - '#Cyc'
+  - '%Cyc'
+  - ×Cyc
+  - Date
+  - $Cyc
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_outside_borders'
+  - □Bdr
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_export_match_none'
-  - '&mcb_no_borders'
+  - ExpNone
+  - ╳Bdr
   - {t: ▽, type: trans}
-  - '&mcb_uniformulas'
+  - UniFrm
   - {t: ▽, type: trans}
-  - '&mcb_error_wrap'
-  - '&mcb_fill_right'
-  - '&mcb_activate_sheet'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mcb_binary_cycle'
-  - '&mcb_paste_exact'
-  - '&mcb_insert_note'
+  - PstFmt
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_autocolor'
-  - '&mcb_quick_save'
-  - '&mcb_fill_down'
-  - '&mcb_paste_numfmt'
-  - '&mcb_expand_grp'
-  - '&mcb_row_height'
+  - Collaps
+  - {t: ▽, type: trans}
+  - PstExct
+  - Bin
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - AutoClr
+  - Fill→
+  - Save
+  - ActSht
+  - Expand
+  - RowH
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_col_width'
-  - '&mcb_horiz_cycle'
-  - '&mcb_collapse_grp'
-  - '&mcb_fill_cycle'
+  - ColW
+  - ExpBoth
+  - ±
+  - ErrWrap
+  - Note
+  - Blu/Blk
+  - Color
   - {t: ▽, type: trans}
-  - '&mcb_blue_black'
-  - '&mcb_color_cycle'
-  - {t: ▽, type: trans}
-  - '&mcb_smart_print'
-  - '&mcb_super_find'
-  - '&mcb_center_cycle'
-  - '&mcb_vert_cycle'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&mcb_flip_sign'
-  - '&mcb_export_match_both'
-  - '&mcb_inc_dec'
-  - '&mcb_dec_dec'
-  - '&mcb_shift_dec_right'
+  - Print
+  - Find
+  - Center
+  - Fill↓
+  - V-Align
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_shift_dec_left'
+  - FillClr
+  - H-Align
+  - +Dec
+  - -Dec
+  - Dec→
   - {t: ▽, type: trans}
-  - '&mcb_left_border'
-  - '&mcb_right_border'
   - {t: ▽, type: trans}
+  - Dec←
   - {t: ▽, type: trans}
+  - Bdr←
+  - Bdr→
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - '&mcb_top_border'
-  - '&mcb_bottom_border'
-  - '&mcb_pro_precedents'
-  - '&mcb_pro_dependents'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Bdr↑
+  - Bdr↓
+  - Prec
+  - Deps
   - {t: ▽, type: trans}
   Spanish:
   - {t: ▽, type: trans}
