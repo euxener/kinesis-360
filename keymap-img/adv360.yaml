@@ -412,7 +412,7 @@ layers:
   - {t: ▽, type: trans}
   - PstExct
   - Bin
-  - {t: ▽, type: trans}
+  - Blu/Blk
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - AutoClr
@@ -430,7 +430,7 @@ layers:
   - ±
   - ErrWrap
   - Note
-  - Blu/Blk
+  - {t: ▽, type: trans}
   - Color
   - {t: ▽, type: trans}
   - Print
