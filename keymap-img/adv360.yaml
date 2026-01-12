@@ -36,10 +36,10 @@ layers:
   - {t: T, h: ⇧}
   - G
   - PgUp
-  - Excel
-  - Sym
   - Sym
   - Excel
+  - Excel
+  - Sym
   - PgDn
   - M
   - {t: N, h: ⇧}
@@ -113,10 +113,10 @@ layers:
   - T
   - G
   - PgUp
-  - Excel
-  - Sym
   - Sym
   - Excel
+  - Excel
+  - Sym
   - PgDn
   - M
   - KP 4

@@ -180,22 +180,22 @@ rect.combo {
 </g>
 <g transform="translate(395, 280) rotate(15.0)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#Excel">
-<text x="0" y="0" class="key tap layer-activator">Excel</text>
-</a></g>
+<text x="0" y="0" class="key tap">Sym</text>
+</g>
 <g transform="translate(449, 295) rotate(15.0)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Sym</text>
-</g>
+<a href="#Excel">
+<text x="0" y="0" class="key tap layer-activator">Excel</text>
+</a></g>
 <g transform="translate(559, 295) rotate(-15.0)" class="key keypos-37">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Sym</text>
-</g>
-<g transform="translate(613, 280) rotate(-15.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#Excel">
 <text x="0" y="0" class="key tap layer-activator">Excel</text>
 </a></g>
+<g transform="translate(613, 280) rotate(-15.0)" class="key keypos-38">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Sym</text>
+</g>
 <g transform="translate(630, 140)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">PgDn</text>
@@ -506,22 +506,22 @@ rect.combo {
 </g>
 <g transform="translate(395, 280) rotate(15.0)" class="key keypos-35">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<a href="#Excel">
-<text x="0" y="0" class="key tap layer-activator">Excel</text>
-</a></g>
+<text x="0" y="0" class="key tap">Sym</text>
+</g>
 <g transform="translate(449, 295) rotate(15.0)" class="key keypos-36">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Sym</text>
-</g>
+<a href="#Excel">
+<text x="0" y="0" class="key tap layer-activator">Excel</text>
+</a></g>
 <g transform="translate(559, 295) rotate(-15.0)" class="key keypos-37">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
-<text x="0" y="0" class="key tap">Sym</text>
-</g>
-<g transform="translate(613, 280) rotate(-15.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <a href="#Excel">
 <text x="0" y="0" class="key tap layer-activator">Excel</text>
 </a></g>
+<g transform="translate(613, 280) rotate(-15.0)" class="key keypos-38">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap">Sym</text>
+</g>
 <g transform="translate(630, 140)" class="key keypos-39">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">PgDn</text>
