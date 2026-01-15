@@ -745,7 +745,7 @@ mcb_delete_row: mcb_delete_row {
     display-name = "Delete Row";
 };
 
-mcb_delele_col: mcb_delete_col {
+mcb_delete_col: mcb_delete_col {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings = <&kp LC(LA(LS(DELETE)))>;
