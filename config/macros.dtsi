@@ -709,6 +709,7 @@ mcb_insert_note: mcb_insert_note {
     display-name = "Insert Note";
 };
 
+// Miscellaneous macros
 mcb_zoom_in: mcb_zoom_in {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
@@ -721,6 +722,34 @@ mcb_zoom_out: mcb_zoom_out {
     #binding-cells = <0>;
     bindings = <&kp LC(LS(MINUS))>;
     display-name = "Zoom Out";
+};
+
+mcb_insert_row: mcb_insert_row {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LA(LS(INSERT))>;
+    display-name = "Insert Row";
+};
+
+mcb_insert_col: mcb_insert_col {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(INSERT)))>;
+    display-name = "Insert Column";
+};
+
+mcb_delete_row: mcb_delete_row {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LA(LS(DELETE))>;
+    display-name = "Delete Row";
+};
+
+mcb_delele_col: mcb_delete_col {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(DELETE)))>;
+    display-name = "Delete Column";
 };
 
 // ═══════════════════════════════════════════════════════════════
