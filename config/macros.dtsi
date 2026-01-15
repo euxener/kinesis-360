@@ -712,14 +712,14 @@ mcb_insert_note: mcb_insert_note {
 mcb_zoom_in: mcb_zoom_in {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LA(EQUAL))>;
+    bindings = <&kp LC(LS(EQUAL))>;
     display-name = "Zoom In";
 };
 
 mcb_zoom_out: mcb_zoom_out {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LA(MINUS))>;
+    bindings = <&kp LC(LS(MINUS))>;
     display-name = "Zoom Out";
 };
 
