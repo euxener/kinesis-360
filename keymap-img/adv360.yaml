@@ -406,8 +406,8 @@ layers:
   - PstFmt
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mcb_zoom_in'
+  - '&mcb_zoom_out'
   - Collaps
   - {t: ▽, type: trans}
   - PstExct
