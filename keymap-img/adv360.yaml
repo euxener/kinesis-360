@@ -404,12 +404,12 @@ layers:
   - UniFrm
   - {t: ▽, type: trans}
   - PstFmt
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - '&mcb_delete_row'
+  - '&mcb_insert_row'
   - '&mcb_zoom_in'
   - '&mcb_zoom_out'
-  - Collaps
-  - {t: ▽, type: trans}
+  - '&mcb_insert_col'
+  - '&mcb_delete_col'
   - PstExct
   - Bin
   - Blu/Blk
