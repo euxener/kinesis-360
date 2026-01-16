@@ -128,7 +128,7 @@ parse_config:
     "&mcb_left_border": "Bdr←"
     "&mcb_right_border": "Bdr→"
     "&mcb_outside_borders": "□Bdr"
-    "&mcb_no_borders": "╳Bdr"
+    "&mcb_inside_borders": "┼Bdr"
     "&mcb_fill_right": "Fill→"
     "&mcb_fill_down": "Fill↓"
     "&mcb_error_wrap": "ErrWrap"
@@ -149,6 +149,12 @@ parse_config:
     "&mcb_collapse_grp": "Collaps"
     "&mcb_super_find": "Find"
     "&mcb_insert_note": "Note"
+    "&mcb_zoom_in": "Zoom+"
+    "&mcb_zoom_out": "Zoom-"
+    "&mcb_insert_row": "Ins Row"
+    "&mcb_delete_row": "Del Row"
+    "&mcb_insert_col": "Ins Col"
+    "&mcb_delete_col": "Del Col"
 
     # System
     "&studio_unlock": "Studio"
