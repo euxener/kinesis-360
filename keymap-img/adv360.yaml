@@ -396,7 +396,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - □Bdr
-  - '#Bdr'
+  - '&mcb_inside_borders'
   - {t: ▽, type: trans}
   - ExpNone
   - {t: ▽, type: trans}
@@ -404,12 +404,12 @@ layers:
   - UniFrm
   - {t: ▽, type: trans}
   - PstFmt
-  - '-Row'
-  - '+Row'
-  - Zoom+
-  - Zoom-
-  - '+Col'
-  - '-Col'
+  - '&mcb_delete_row'
+  - '&mcb_insert_row'
+  - '&mcb_zoom_in'
+  - '&mcb_zoom_out'
+  - '&mcb_insert_col'
+  - '&mcb_delete_col'
   - PstExct
   - Bin
   - Blu/Blk

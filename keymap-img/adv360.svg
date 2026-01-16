@@ -1637,9 +1637,9 @@ rect.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">□Bdr</text>
 </g>
-<g transform="translate(798, 28)" class="key trans keypos-10">
-<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(798, 28)" class="key keypos-10">
+<rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
+<text x="0" y="0" class="key tap"><tspan style="font-size: 64%">&amp;mcb_insid…</tspan></text>
 </g>
 <g transform="translate(854, 28)" class="key trans keypos-11">
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key trans"/>
@@ -1649,9 +1649,9 @@ rect.combo {
 <rect rx="6" ry="6" x="-26" y="-26" width="52" height="52" class="key"/>
 <text x="0" y="0" class="key tap">ExpNone</text>
 </g>
-<g transform="translate(973, 42)" class="key keypos-13">
-<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key"/>
-<text x="0" y="0" class="key tap">╳Bdr</text>
+<g transform="translate(973, 42)" class="key trans keypos-13">
+<rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(35, 98)" class="key trans keypos-14">
 <rect rx="6" ry="6" x="-33" y="-26" width="66" height="52" class="key trans"/>
