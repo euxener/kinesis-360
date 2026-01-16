@@ -541,11 +541,11 @@ mcb_outside_borders: mcb_outside_borders {
     display-name = "Outside Borders";
 };
 
-mcb_no_borders: mcb_no_borders {
+mcb_inside_borders: mcb_inside_borders {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LS(MINUS))>;
-    display-name = "No Borders";
+    bindings = <&kp LC(LA(LS(N8))>;
+    display-name = "Inside Borders";
 };
 
 // Fill Macros

@@ -396,20 +396,20 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - □Bdr
-  - {t: ▽, type: trans}
+  - '#Bdr'
   - {t: ▽, type: trans}
   - ExpNone
-  - ╳Bdr
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - UniFrm
   - {t: ▽, type: trans}
   - PstFmt
-  - '&mcb_delete_row'
-  - '&mcb_insert_row'
-  - '&mcb_zoom_in'
-  - '&mcb_zoom_out'
-  - '&mcb_insert_col'
-  - '&mcb_delete_col'
+  - '-Row'
+  - '+Row'
+  - Zoom+
+  - Zoom-
+  - '+Col'
+  - '-Col'
   - PstExct
   - Bin
   - Blu/Blk

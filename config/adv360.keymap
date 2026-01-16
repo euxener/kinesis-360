@@ -115,11 +115,11 @@ td_caps: tap_dance_caps {
         excel {
             display-name = "Excel";
             bindings = <
-                &trans &mcb_num_cycle      &mcb_pct_cycle     &mcb_mult_cycle      &mcb_date_cycle      &mcb_anchor_cycle  &trans                                                         &trans         &trans                 &mcb_outside_borders &trans             &trans              &mcb_export_match_none &mcb_no_borders
-                &trans &mcb_uniformulas    &trans             &mcb_paste_numfmt    &mcb_delete_row      &mcb_insert_row    &mcb_zoom_in                                                   &mcb_zoom_out  &mcb_insert_col        &mcb_delete_col      &mcb_paste_exact   &mcb_binary_cycle   &mcb_blue_black        &trans
-                &trans &mcb_autocolor      &mcb_fill_right    &mcb_quick_save      &mcb_activate_sheet  &mcb_expand_grp    &mcb_row_height        &trans &trans &trans &trans             &mcb_col_width &mcb_export_match_both &mcb_flip_sign       &mcb_error_wrap    &mcb_insert_note    &trans                 &mcb_color_cycle
-                &trans &mcb_smart_print    &mcb_super_find    &mcb_center_cycle    &mcb_fill_down       &mcb_vert_cycle                                  &trans &trans                                   &mcb_fill_cycle        &mcb_horiz_cycle     &mcb_inc_dec       &mcb_dec_dec        &mcb_shift_dec_right   &trans
-                &trans &mcb_shift_dec_left &trans             &mcb_left_border     &mcb_right_border                                       &trans &trans &trans &trans &trans &trans                                            &mcb_top_border      &mcb_bottom_border &mcb_pro_precedents &mcb_pro_dependents    &trans
+                &trans &mcb_num_cycle      &mcb_pct_cycle     &mcb_mult_cycle      &mcb_date_cycle      &mcb_anchor_cycle  &trans                                                         &trans         &trans                 &mcb_outside_borders &mcb_inside_borders &trans              &mcb_export_match_none &trans
+                &trans &mcb_uniformulas    &trans             &mcb_paste_numfmt    &mcb_delete_row      &mcb_insert_row    &mcb_zoom_in                                                   &mcb_zoom_out  &mcb_insert_col        &mcb_delete_col      &mcb_paste_exact    &mcb_binary_cycle   &mcb_blue_black        &trans
+                &trans &mcb_autocolor      &mcb_fill_right    &mcb_quick_save      &mcb_activate_sheet  &mcb_expand_grp    &mcb_row_height        &trans &trans &trans &trans             &mcb_col_width &mcb_export_match_both &mcb_flip_sign       &mcb_error_wrap     &mcb_insert_note    &trans                 &mcb_color_cycle
+                &trans &mcb_smart_print    &mcb_super_find    &mcb_center_cycle    &mcb_fill_down       &mcb_vert_cycle                                  &trans &trans                                   &mcb_fill_cycle        &mcb_horiz_cycle     &mcb_inc_dec        &mcb_dec_dec        &mcb_shift_dec_right   &trans
+                &trans &mcb_shift_dec_left &trans             &mcb_left_border     &mcb_right_border                                       &trans &trans &trans &trans &trans &trans                                            &mcb_top_border      &mcb_bottom_border  &mcb_pro_precedents &mcb_pro_dependents    &trans
             >;
         };
 
