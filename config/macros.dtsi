@@ -544,7 +544,7 @@ mcb_outside_borders: mcb_outside_borders {
 mcb_inside_borders: mcb_inside_borders {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LA(LS(N8))>;
+    bindings = <&kp LC(LA(LS(N7)))>;
     display-name = "Inside Borders";
 };
 
