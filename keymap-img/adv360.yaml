@@ -426,7 +426,7 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ColW
-  - ExpBoth
+  - V-Align
   - ±
   - ErrWrap
   - Note
@@ -437,7 +437,7 @@ layers:
   - Find
   - Center
   - Fill↓
-  - V-Align
+  - '&mcb_paste_insert'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - FillClr
