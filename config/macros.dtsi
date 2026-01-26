@@ -752,6 +752,13 @@ mcb_delete_col: mcb_delete_col {
     display-name = "Delete Column";
 };
 
+mcb_paste_insert: mcb_paste_insert {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(I))>;
+    display-name = "Paste Insert";
+};
+
 // ═══════════════════════════════════════════════════════════════
 // Spanish Character Macros (US-International dead key method)
 // ═══════════════════════════════════════════════════════════════
