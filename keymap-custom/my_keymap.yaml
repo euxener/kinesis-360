@@ -1,0 +1,541 @@
+layout: { zmk_keyboard: adv360 }
+layers:
+  Base:
+    - "="
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - Keypad
+    - Mod
+    - "6"
+    - "7"
+    - "8"
+    - "9"
+    - "0"
+    - "-"
+    - ⇥
+    - Q
+    - W
+    - F
+    - P
+    - B
+    - Home
+    - End
+    - J
+    - L
+    - U
+    - Y
+    - ;
+    - \
+    - Esc
+    - { t: A, h: Ctrl }
+    - { t: R, h: Alt }
+    - { t: S, h: ⌘ }
+    - { t: T, h: ⇧ }
+    - G
+    - PgUp
+    - Sym
+    - Excel
+    - Excel
+    - Sym
+    - PgDn
+    - M
+    - { t: N, h: ⇧ }
+    - { t: E, h: ⌘ }
+    - { t: I, h: Alt }
+    - { t: O, h: Ctrl }
+    - "'"
+    - ⇧
+    - Z
+    - X
+    - C
+    - D
+    - V
+    - Spanish
+    - Spanish
+    - K
+    - H
+    - ","
+    - .
+    - /
+    - ⇧
+    - Ctrl
+    - "`"
+    - "TD CAPS"
+    - ←
+    - →
+    - ⌫
+    - Del
+    - Fn
+    - Fn
+    - ↵
+    - ␣
+    - ↑
+    - ↓
+    - "["
+    - "]"
+    - Ctrl
+  Keypad:
+    - "="
+    - "1"
+    - "2"
+    - "3"
+    - "4"
+    - "5"
+    - { t: ▽, type: trans }
+    - Mod
+    - "6"
+    - Num
+    - "="
+    - ÷
+    - ×
+    - "-"
+    - ⇥
+    - Q
+    - W
+    - F
+    - P
+    - B
+    - Home
+    - End
+    - J
+    - KP 7
+    - KP 8
+    - KP 9
+    - "-"
+    - \
+    - Esc
+    - A
+    - R
+    - S
+    - T
+    - G
+    - PgUp
+    - Sym
+    - Excel
+    - Excel
+    - Sym
+    - PgDn
+    - M
+    - KP 4
+    - KP 5
+    - KP 6
+    - +
+    - "'"
+    - ⇧
+    - Z
+    - X
+    - C
+    - D
+    - V
+    - Spanish
+    - Spanish
+    - K
+    - KP 1
+    - KP 2
+    - KP 3
+    - ↵
+    - ⇧
+    - Ctrl
+    - "`"
+    - "CAPS"
+    - ←
+    - →
+    - ⌫
+    - Del
+    - Fn
+    - Fn
+    - ↵
+    - KP 0
+    - ↑
+    - ↓
+    - .
+    - "]"
+    - Ctrl
+  Fn:
+    - F1
+    - F2
+    - F3
+    - F4
+    - F5
+    - F6
+    - Keypad
+    - Mod
+    - F7
+    - F8
+    - F9
+    - F10
+    - F11
+    - F12
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - ""
+    - Calc
+    - Mute
+    - Vol-
+    - Vol+
+    - Bri-
+    - Bri+
+    - { t: ▽, type: trans }
+    - { t: Ctrl, h: sticky }
+    - { t: Alt, h: sticky }
+    - { t: ⌘, h: sticky }
+    - { t: ⇧, h: sticky }
+    - { t: ▽, type: trans }
+    - ""
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - { t: ▽, type: trans }
+    - { t: ⇧, h: sticky }
+    - { t: ⌘, h: sticky }
+    - { t: Alt, h: sticky }
+    - { t: Ctrl, h: sticky }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Win Lock
+    - { t: ▽, type: trans }
+    - Win Snip
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Prev
+    - Play
+    - Next
+    - Mac Snip
+    - Mac Lock
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+  Mod:
+    - ""
+    - { t: BT, h: "0" }
+    - { t: BT, h: "1" }
+    - { t: BT, h: "2" }
+    - { t: BT, h: "3" }
+    - { t: BT, h: "4" }
+    - ""
+    - { t: ▽, type: trans }
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - Boot
+    - Boot
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - Studio
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - BT Clear
+    - ""
+    - Battery
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - Version
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - ""
+    - BL Tog
+    - RGB
+    - BL +
+    - BL -
+    - ""
+    - ""
+    - ""
+  Symbol:
+    - { t: ▽, type: trans }
+    - "!"
+    - "@"
+    - "#"
+    - "$"
+    - "%"
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - "^"
+    - "&"
+    - "*"
+    - "_"
+    - "+"
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - "' '"
+    - '" "'
+    - ( )
+    - "{ }"
+    - "[ ]"
+    - ""
+    - ""
+    - ->
+    - =>
+    - "::"
+    - //
+    - /* */
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - < >
+    - "`"
+    - "~"
+    - ⇧+\
+    - \
+    - ""
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - ==
+    - "!="
+    - <=
+    - ">="
+    - "&&"
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - "||"
+    - ⇧+-
+    - ⇧+,
+    - ⇧+.
+    - ⇧+/
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+  Excel:
+    - { t: ▽, type: trans }
+    - "#Cyc"
+    - "%Cyc"
+    - ×Cyc
+    - Date
+    - $Cyc
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Out Bdr
+    - Ins Bdr
+    - { t: ▽, type: trans }
+    - Exp None
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Uni Frm
+    - { t: ▽, type: trans }
+    - Pst Fmt
+    - Del Row
+    - Ins Row
+    - Zoom+
+    - Zoom-
+    - Ins Col
+    - Del Col
+    - Pst Exct
+    - Bin
+    - Blu Blk
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Auto Clr
+    - Fill→
+    - Save
+    - Act Sheet
+    - Expand
+    - Row H
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Col W
+    - V Align
+    - ±
+    - Err Wrap
+    - Note
+    - { t: ▽, type: trans }
+    - Color
+    - { t: ▽, type: trans }
+    - Print
+    - Find
+    - Center
+    - Fill↓
+    - Paste Ins
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Fill Clr
+    - H Align
+    - +Dec
+    - -Dec
+    - Dec→
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Dec←
+    - { t: ▽, type: trans }
+    - Bdr←
+    - Bdr→
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - Bdr↑
+    - Bdr↓
+    - Prec
+    - Deps
+    - { t: ▽, type: trans }
+  Spanish:
+    - { t: ▽, type: trans }
+    - ¡!
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - ""
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ú
+    - ü
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - á
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - ""
+    - { t: ▽, type: trans }
+    - ñ
+    - é
+    - í
+    - ó
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - «»
+    - { t: ▽, type: trans }
+    - ¿?
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
+    - { t: ▽, type: trans }
