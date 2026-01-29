@@ -107,10 +107,10 @@ layers:
   - '-'
   - \
   - Esc
-  - A
-  - R
-  - S
-  - T
+  - {t: A, h: Ctrl}
+  - {t: R, h: Alt}
+  - {t: S, h: ⌘}
+  - {t: T, h: ⇧}
   - G
   - PgUp
   - Sym
@@ -184,10 +184,10 @@ layers:
   - Bri-
   - Bri+
   - {t: ▽, type: trans}
-  - {t: Ctrl, h: sticky}
-  - {t: Alt, h: sticky}
-  - {t: ⌘, h: sticky}
-  - {t: ⇧, h: sticky}
+  - '&hml LCTRL'
+  - '&hml LALT'
+  - '&hml LGUI'
+  - '&hml LSHFT'
   - {t: ▽, type: trans}
   - ''
   - {t: ▽, type: trans}
@@ -196,10 +196,10 @@ layers:
   - {t: ▽, type: trans}
   - ''
   - {t: ▽, type: trans}
-  - {t: ⇧, h: sticky}
-  - {t: ⌘, h: sticky}
-  - {t: Alt, h: sticky}
-  - {t: Ctrl, h: sticky}
+  - '&hmr RSHFT'
+  - '&hmr RGUI'
+  - '&hmr RALT'
+  - '&hmr RCTRL'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - WinLock
