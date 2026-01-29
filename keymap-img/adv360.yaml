@@ -184,10 +184,10 @@ layers:
   - Bri-
   - Bri+
   - {t: ▽, type: trans}
-  - '&hml LCTRL'
-  - '&hml LALT'
-  - '&hml LGUI'
-  - '&hml LSHFT'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ''
   - {t: ▽, type: trans}
@@ -196,10 +196,10 @@ layers:
   - {t: ▽, type: trans}
   - ''
   - {t: ▽, type: trans}
-  - '&hmr RSHFT'
-  - '&hmr RGUI'
-  - '&hmr RALT'
-  - '&hmr RCTRL'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - WinLock
