@@ -25,10 +25,10 @@
 hml: homerow_mods_left {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
-    tapping-term-ms = <240>;
+    tapping-term-ms = <280>;
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <120>;
-    flavor = "tap-preferred";
+    require-prior-idle-ms = <150>;
+    flavor = "balanced";
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_R THUMBS>;
     hold-trigger-on-release;
@@ -37,10 +37,10 @@ hml: homerow_mods_left {
 hmr: homerow_mods_right {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
-    tapping-term-ms = <240>;
+    tapping-term-ms = <280>;
     quick-tap-ms = <175>;
-    require-prior-idle-ms = <120>;
-    flavor = "tap-preferred";
+    require-prior-idle-ms = <150>;
+    flavor = "balanced";
     bindings = <&kp>, <&kp>;
     hold-trigger-key-positions = <KEYS_L THUMBS>;
     hold-trigger-on-release;
