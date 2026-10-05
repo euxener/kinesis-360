@@ -1,0 +1,158 @@
+// ═══════════════════════════════════════════════════════════════
+// Programming macros
+// Version: 0.1
+// Date: 05/Oct/2026
+// ═══════════════════════════════════════════════════════════════
+
+macro_quotes: macro_quotes {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp SPACE>, <&kp SQT>, <&kp SPACE>, <&kp LEFT>;
+    display-name = "Single Quotes";
+};
+
+macro_dquotes: macro_dquotes {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp DQT>, <&kp SPACE>, <&kp DQT>, <&kp SPACE>, <&kp LEFT>;
+    display-name = "Double Quotes";
+};
+
+macro_braces: macro_braces {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+    display-name = "Curly Braces";
+};
+
+macro_parens: macro_parens {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
+    display-name = "Parentheses";
+};
+
+macro_brackets: macro_brackets {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
+    display-name = "Brackets";
+};
+
+macro_angles: macro_angles {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>, <&kp LEFT>;
+    display-name = "Angle Brackets";
+};
+
+macro_arrow: macro_arrow {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp MINUS>, <&kp LS(DOT)>;
+    display-name = "Arrow";
+};
+
+macro_fat_arrow: macro_fat_arrow {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp EQUAL>, <&kp LS(DOT)>;
+    display-name = "Fat Arrow";
+};
+
+macro_eq: macro_eq {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp EQUAL>, <&kp EQUAL>;
+    display-name = "Equals";
+};
+
+macro_neq: macro_neq {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(N1)>, <&kp EQUAL>;
+    display-name = "Not Equals";
+};
+
+macro_lte: macro_lte {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(COMMA)>, <&kp EQUAL>;
+    display-name = "Less or Equal";
+};
+
+macro_gte: macro_gte {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(DOT)>, <&kp EQUAL>;
+    display-name = "Greater or Equal";
+};
+
+macro_and: macro_and {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(N7)>, <&kp LS(N7)>;
+    display-name = "Logical AND";
+};
+
+macro_or: macro_or {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(BSLH)>, <&kp LS(BSLH)>;
+    display-name = "Logical OR";
+};
+
+macro_scope: macro_scope {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(SEMI)>, <&kp LS(SEMI)>;
+    display-name = "Scope";
+};
+
+macro_line_comment: macro_line_comment {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp FSLH>, <&kp FSLH>, <&kp SPACE>;
+    display-name = "Line Comment";
+};
+
+macro_block_comment: macro_block_comment {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>, <&kp LEFT>;
+    display-name = "Block Comment";
+};

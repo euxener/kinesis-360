@@ -1,0 +1,14 @@
+// ═══════════════════════════════════════════════════════════════
+// Basic macros
+// Version: 0.1
+// Date: 05/Oct/2026
+// ═══════════════════════════════════════════════════════════════
+
+Double_Click: Double_Click {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&mkp MB1>, <&mkp MB1>;
+    display-name = "Double Click";
+};
