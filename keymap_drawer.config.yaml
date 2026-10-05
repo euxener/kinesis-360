@@ -120,9 +120,9 @@ parse_config:
 
     # Macros - OS shortcuts
     "&Win_Lock_PC": { t: '$$mdi:lock$$', h: Win }
-    "&Win_Snip_Tool": { t: '$$mdi:scissors-cutting$$', h: Win }
+    "&Win_Snip_Tool": { t: '$$mdi:camera$$', h: Win }
     "&Mac_Lock_PC": { t: '$$mdi:lock$$', h: Mac }
-    "&Mac_Snip_Tool": { t: '$$mdi:scissors-cutting$$', h: Mac }
+    "&Mac_Snip_Tool": { t: '$$mdi:camera$$', h: Mac }
     "&macro_ver": "Version"
     "&Double_Click": { t: '$$mdi:mouse$$', h: 2× click }
 
