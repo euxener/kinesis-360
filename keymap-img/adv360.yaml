@@ -203,9 +203,9 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: '$$mdi:lock$$', h: Win}
-  - {t: '$$mdi:scissors-cutting$$', h: Win}
-  - {t: '$$mdi:scissors-cutting$$', h: Mac}
+  - {t: '$$mdi:camera$$', h: Win}
   - {t: '$$mdi:lock$$', h: Mac}
+  - {t: '$$mdi:camera$$', h: Mac}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
