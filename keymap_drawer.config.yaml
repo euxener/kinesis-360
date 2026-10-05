@@ -3,20 +3,17 @@
 
 draw_config:
   # Key size and spacing
-  key_w: 60
-  key_h: 56
+  key_w: 66
+  key_h: 60
   split_gap: 30
 
   # Styling
   outer_pad_w: 10
   outer_pad_h: 10
 
-  # Font settings
-  key_font_size: 14
-  header_font_size: 16
-
-  # Colors - dark theme
-  svg_style: |
+  # Dark theme on top of keymap-drawer's built-in style. svg_extra_style, not
+  # svg_style: svg_style replaces the built-in one and drops its text centering
+  svg_extra_style: |
     svg {
       font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #1a1a2e;
@@ -35,6 +32,7 @@ draw_config:
     }
     text.label {
       fill: #00d9ff;
+      stroke: #1a1a2e;
     }
     text.tap {
       font-size: 13px;
@@ -59,13 +57,13 @@ parse_config:
     # highlights the held key on each layer; a fixed label here would undo both
 
     # Programming macros added with the six-layer plan
-    "&pm_squotes": "' '"
-    "&pm_dquotes": '" "'
-    "&pm_backticks": "` `"
+    "&pm_squotes": "''"
+    "&pm_dquotes": '""'
+    "&pm_backticks": "``"
     "&pm_fence": "```"
     "&pm_strict_eq": "==="
     "&pm_strict_neq": "!=="
-    "&pm_shell_var": "${ }"
+    "&pm_shell_var": "${}"
     "&pm_parent_dir": "../"
     "&pm_home_dir": "~/"
     # Right Alt is the accent key (Right Option on macOS, AltGr on Linux): the
@@ -92,10 +90,10 @@ parse_config:
     "&kp LS(N0)": ")"
 
     # Macros - Programming
-    "&pm_parens": "( )"
-    "&pm_braces": "{ }"
-    "&pm_brackets": "[ ]"
-    "&pm_angles": "< >"
+    "&pm_parens": "()"
+    "&pm_braces": "{}"
+    "&pm_brackets": "[]"
+    "&pm_angles": "<>"
     "&pm_arrow": "->"
     "&pm_fat_arrow": "=>"
     "&pm_eq": "=="
@@ -106,7 +104,7 @@ parse_config:
     "&pm_or": "||"
     "&pm_scope": "::"
     "&pm_line_comment": "//"
-    "&pm_block_comment": "/* */"
+    "&pm_block_comment": "/**/"
 
     # Macros - Spanish
 
