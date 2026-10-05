@@ -170,12 +170,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Prev
-  - Play
-  - Next
-  - Vol-
-  - Vol+
-  - Mute
+  - $$mdi:skip-previous$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-next$$
+  - $$mdi:volume-minus$$
+  - $$mdi:volume-plus$$
+  - $$mdi:volume-mute$$
   - {t: ▽, type: trans}
   - Home
   - PgDn
@@ -202,16 +202,16 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - WinLock
-  - WinSnip
-  - MacSnip
-  - MacLock
+  - {t: '$$mdi:lock$$', h: Win}
+  - {t: '$$mdi:scissors-cutting$$', h: Win}
+  - {t: '$$mdi:scissors-cutting$$', h: Mac}
+  - {t: '$$mdi:lock$$', h: Mac}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - Bri-
-  - Bri+
+  - $$mdi:brightness-5$$
+  - $$mdi:brightness-7$$
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
