@@ -15,8 +15,13 @@ draw_config:
   # svg_style: svg_style replaces the built-in one and drops its text centering
   svg_extra_style: |
     svg {
-      font-family: "Inter", "Helvetica Neue", Helvetica, Arial, sans-serif;
       background-color: #1a1a2e;
+    }
+    /* On text, not svg: the built-in style sets the font on text. Ubuntu's
+       fonts-jetbrains-mono is "JetBrains Mono", Omarchy ships the Nerd build.
+       Same list in bin/cheatsheet.py */
+    text {
+      font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
     }
     rect.key {
       fill: #16213e;

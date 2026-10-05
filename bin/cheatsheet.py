@@ -18,9 +18,11 @@ import yaml
 ROOT = pathlib.Path(__file__).resolve().parent.parent
 PAPER = {"letter": (11.0, 8.5), "a4": (297 / 25.4, 210 / 25.4)}  # landscape, inches
 MARGIN = 0.4  # inches
+DRAWER = "keymap-drawer==0.23.0"  # same version as .github/workflows/draw-keymap.yml
 # Most used first; the combo diagram is drawn with the Base layer
 PAGES = [("Base (Colemak-DH)", "Sym"), ("Num+Fn", "Nav"), ("Excel", "Mod")]
 PRINT_STYLE = """
+text { font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace; }
 rect.key.held { fill: #c8c8c8; }
 text.hold { fill: #a0001c; }
 text.label { font-size: 18px; }
@@ -28,7 +30,7 @@ text.label { font-size: 18px; }
 
 
 def drawer(config, *args):
-    cmd = ["uvx", "-q", "--from", "keymap-drawer", "keymap", "-c", str(config), *args]
+    cmd = ["uvx", "-q", "--from", DRAWER, "keymap", "-c", str(config), *args]
     return subprocess.run(cmd, check=True, capture_output=True, text=True).stdout
 
 
