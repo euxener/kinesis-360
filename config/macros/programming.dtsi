@@ -156,7 +156,8 @@ pm_dquotes: pm_dquotes {
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
-    display-name = "\"\"";
+    // “” not "\"\"": Zephyr 3.5 copies display-name into CMake unescaped
+    display-name = "“”";
 };
 
 pm_backticks: pm_backticks {
