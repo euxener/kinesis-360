@@ -16,7 +16,7 @@ on:
 jobs:
   draw:
     # Pinned: the release commit and the same PyPI version, bump both together
-    # (and DRAWER in bin/cheatsheet.py, KEYMAP_DRAWER below)
+    # (and DRAWER in bin/cheatsheet.py)
     uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@a44809b8cc718cbff646641f49a8f71a9368336d # v0.23.0
     with:
       install_version: "0.23.0"
@@ -31,8 +31,6 @@ jobs:
     needs: draw
     if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
-    env:
-      KEYMAP_DRAWER: keymap-drawer==0.23.0
     permissions:
       contents: write
     steps:
@@ -42,13 +40,8 @@ jobs:
       - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
       - name: Install librsvg, poppler and JetBrains Mono
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends librsvg2-bin poppler-utils fonts-jetbrains-mono
-      - name: Render the cheatsheet
+      - name: Render keymap-custom (my_keymap.yaml/svg/png, cheatsheet.pdf)
         run: bin/cheatsheet.py letter
-      - name: Render my_keymap (yaml, svg, png on the theme's background)
-        run: |
-          uvx --from "$KEYMAP_DRAWER" keymap -c keymap_drawer.config.yaml parse -z config/adv360.keymap > keymap-custom/my_keymap.yaml
-          uvx --from "$KEYMAP_DRAWER" keymap -c keymap_drawer.config.yaml draw keymap-custom/my_keymap.yaml > keymap-custom/my_keymap.svg
-          rsvg-convert -b '#1a1a2e' keymap-custom/my_keymap.svg -o keymap-custom/my_keymap.png
       - uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
         with:
           commit_message: keymap-custom render

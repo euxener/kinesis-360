@@ -5,6 +5,8 @@ draw_config:
   # Key size and spacing
   key_w: 66
   key_h: 60
+  # $$mdi:...$$ icons (media, lock, snip), drawn at roughly the legend's height
+  glyph_tap_size: 18
   split_gap: 30
 
   # Styling
@@ -33,6 +35,9 @@ draw_config:
       fill: #533483;
     }
     text {
+      fill: #e4e4e4;
+    }
+    use.glyph {
       fill: #e4e4e4;
     }
     text.label {
@@ -114,12 +119,12 @@ parse_config:
     # Macros - Spanish
 
     # Macros - OS shortcuts
-    "&Win_Lock_PC": "WinLock"
-    "&Win_Snip_Tool": "WinSnip"
-    "&Mac_Lock_PC": "MacLock"
-    "&Mac_Snip_Tool": "MacSnip"
+    "&Win_Lock_PC": { t: '$$mdi:lock$$', h: Win }
+    "&Win_Snip_Tool": { t: '$$mdi:scissors-cutting$$', h: Win }
+    "&Mac_Lock_PC": { t: '$$mdi:lock$$', h: Mac }
+    "&Mac_Snip_Tool": { t: '$$mdi:scissors-cutting$$', h: Mac }
     "&macro_ver": "Version"
-    "&Double_Click": "2xClick"
+    "&Double_Click": { t: '$$mdi:mouse$$', h: 2× click }
 
     # Macros - Excel/Macabacus
     "&mcb_num_cycle": { t: '#', h: 'format' }
@@ -184,14 +189,14 @@ parse_config:
     "&rgb_ug RGB_TOG": "RGB"
 
     # Common keys
-    "&kp C_VOL_UP": "Vol+"
-    "&kp C_VOL_DN": "Vol-"
-    "&kp C_MUTE": "Mute"
-    "&kp C_PP": "Play"
-    "&kp C_PREV": "Prev"
-    "&kp C_NEXT": "Next"
-    "&kp C_BRI_UP": "Bri+"
-    "&kp C_BRI_DN": "Bri-"
+    "&kp C_VOL_UP": '$$mdi:volume-plus$$'
+    "&kp C_VOL_DN": '$$mdi:volume-minus$$'
+    "&kp C_MUTE": '$$mdi:volume-mute$$'
+    "&kp C_PP": '$$mdi:play-pause$$'
+    "&kp C_PREV": '$$mdi:skip-previous$$'
+    "&kp C_NEXT": '$$mdi:skip-next$$'
+    "&kp C_BRI_UP": '$$mdi:brightness-7$$'
+    "&kp C_BRI_DN": '$$mdi:brightness-5$$'
     "&kp C_AL_CALC": "Calc"
 
   # ZMK behavior mappings
