@@ -1,13 +1,13 @@
 layout: {zmk_keyboard: adv360}
 layers:
-  Base:
+  Base (Colemak-DH):
   - '='
   - '1'
   - '2'
   - '3'
   - '4'
   - '5'
-  - Keypad
+  - {t: Num+Fn, h: toggle}
   - Mod
   - '6'
   - '7'
@@ -44,7 +44,7 @@ layers:
   - M
   - {t: N, h: ⇧}
   - {t: E, h: ⌘}
-  - {t: I, h: Alt}
+  - {t: I, h: AltGr}
   - {t: O, h: Ctrl}
   - ''''
   - ⇧
@@ -53,8 +53,8 @@ layers:
   - C
   - D
   - V
-  - Spanish
-  - Spanish
+  - Num+Fn
+  - Num+Fn
   - K
   - H
   - ','
@@ -68,101 +68,30 @@ layers:
   - →
   - ⌫
   - Del
-  - Fn
-  - Fn
+  - Nav
+  - Nav
   - ↵
   - ␣
   - ↑
   - ↓
   - '['
   - ']'
-  - Ctrl
-  Keypad:
-  - '='
-  - '1'
-  - '2'
-  - '3'
-  - '4'
-  - '5'
-  - {t: ▽, type: trans}
-  - Mod
-  - '6'
-  - Num
-  - '='
-  - ÷
-  - ×
-  - '-'
-  - ⇥
-  - Q
-  - W
-  - F
-  - P
-  - B
-  - Home
-  - End
-  - J
-  - KP 7
-  - KP 8
-  - KP 9
-  - '-'
-  - \
-  - Esc
-  - {t: A, h: Ctrl}
-  - {t: R, h: Alt}
-  - {t: S, h: ⌘}
-  - {t: T, h: ⇧}
-  - G
-  - PgUp
-  - Sym
-  - Excel
-  - Excel
-  - Sym
-  - PgDn
-  - M
-  - KP 4
-  - KP 5
-  - KP 6
-  - +
-  - ''''
-  - ⇧
-  - Z
-  - X
-  - C
-  - D
-  - V
-  - Spanish
-  - Spanish
-  - K
-  - KP 1
-  - KP 2
-  - KP 3
-  - ↵
-  - ⇧
-  - Ctrl
-  - '`'
-  - '&td_caps'
-  - ←
-  - →
-  - ⌫
-  - Del
-  - Fn
-  - Fn
-  - ↵
-  - KP 0
-  - ↑
-  - ↓
-  - .
-  - ']'
-  - Ctrl
-  Fn:
+  - AltGr
+  Num+Fn:
   - F1
   - F2
   - F3
   - F4
   - F5
   - F6
-  - Keypad
-  - Mod
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Num
+  - '='
+  - ÷
+  - ×
+  - {t: ▽, type: trans}
   - F7
   - F8
   - F9
@@ -172,29 +101,16 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - KP 7
+  - KP 8
+  - KP 9
+  - '-'
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - ''
-  - Calc
-  - Mute
-  - Vol-
-  - Vol+
-  - Bri-
-  - Bri+
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
+  - Ctrl
+  - Alt
+  - ⌘
+  - ⇧
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -202,9 +118,53 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - WinLock
   - {t: ▽, type: trans}
-  - WinSnip
+  - KP 4
+  - KP 5
+  - KP 6
+  - +
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - KP 1
+  - KP 2
+  - KP 3
+  - ↵
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - KP 0
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - .
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  Nav:
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -213,16 +173,56 @@ layers:
   - Prev
   - Play
   - Next
+  - Vol-
+  - Vol+
+  - Mute
+  - {t: ▽, type: trans}
+  - Home
+  - PgDn
+  - PgUp
+  - End
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - Ctrl
+  - Alt
+  - ⌘
+  - ⇧
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ←
+  - ↓
+  - ↑
+  - →
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - WinLock
+  - WinSnip
   - MacSnip
   - MacLock
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - Bri-
+  - Bri+
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -239,7 +239,7 @@ layers:
   - {t: BT, h: '3'}
   - {t: BT, h: '4'}
   - ''
-  - {t: ▽, type: trans}
+  - {type: held}
   - ''
   - ''
   - ''
@@ -308,66 +308,72 @@ layers:
   - ''
   - ''
   - ''
-  Symbol:
-  - {t: ▽, type: trans}
-  - EXCL
-  - AT
-  - HASH
-  - DLLR
-  - PRCNT
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ^
-  - AMPS
-  - ASTRK
-  - UNDER
-  - PLUS
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''' '''
-  - '" "'
-  - ( )
-  - '{ }'
-  - '[ ]'
-  - ''
-  - ''
+  Sym:
+  - ===
   - ->
   - =>
   - '::'
-  - //
-  - /* */
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - < >
-  - '`'
-  - '~'
-  - Sft+\
-  - \
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
   - ==
   - '!='
+  - '` `'
+  - < >
   - <=
   - '>='
   - '&&'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - '||'
-  - Sft+-
-  - Sft+,
-  - Sft+.
-  - Sft+/
+  - //
+  - /* */
+  - '!=='
+  - '!'
+  - '?'
+  - '['
+  - ']'
+  - '#'
+  - ''' '''
+  - ( )
+  - '='
+  - <
+  - '>'
+  - '|'
+  - \
+  - '[ ]'
+  - {t: ▽, type: trans}
+  - ':'
+  - '"'
+  - '{'
+  - '}'
+  - '@'
+  - '" "'
+  - {type: held}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '{ }'
+  - /
+  - ^
+  - $
+  - '%'
+  - ''''
+  - '```'
+  - {t: ▽, type: trans}
+  - '~'
+  - '`'
+  - (
+  - )
+  - '&'
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - '-'
+  - _
+  - +
+  - '*'
+  - ;
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
+  - ${ }
+  - ../
+  - ~/
+  - :%s/
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
@@ -375,18 +381,12 @@ layers:
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - :=
+  - <-
+  - '|>'
   - {t: ▽, type: trans}
   Excel:
-  - {t: ▽, type: trans}
+  - DelRow
   - '#Cyc'
   - '%Cyc'
   - ×Cyc
@@ -399,17 +399,17 @@ layers:
   - InsBdr
   - {t: ▽, type: trans}
   - ExpNone
-  - {t: ▽, type: trans}
+  - DelCol
   - {t: ▽, type: trans}
   - UniFrm
   - {t: ▽, type: trans}
   - PstFmt
-  - DelRow
   - InsRow
   - Zoom+
+  - {t: ▽, type: trans}
+  - {t: ▽, type: trans}
   - Zoom-
   - InsCol
-  - DelCol
   - PstExct
   - Bin
   - Blu/Blk
@@ -422,7 +422,7 @@ layers:
   - Expand
   - RowH
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - {type: held}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
   - ColW
@@ -462,80 +462,7 @@ layers:
   - Prec
   - Deps
   - {t: ▽, type: trans}
-  Spanish:
-  - {t: ▽, type: trans}
-  - ¡!
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ú
-  - ü
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - á
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - ''
-  - {t: ▽, type: trans}
-  - ñ
-  - é
-  - í
-  - ó
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - «»
-  - {t: ▽, type: trans}
-  - ¿?
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+combos:
+- p: [32, 33]
+  k: ':'
+  l: [Base (Colemak-DH)]
