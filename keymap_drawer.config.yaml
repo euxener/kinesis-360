@@ -71,6 +71,8 @@ parse_config:
     # Right Alt is the accent key (Right Option on macOS, AltGr on Linux): the
     # bottom-right corner, 75, and I's hold (keymap-drawer labels hold-tap holds as &kp too)
     "&kp RALT": "AltGr"
+    # Tap does nothing, a double tap toggles Caps Lock (td_caps in the keymap)
+    "&td_caps": { t: "Caps", s: "2×" }
     "&pm_substitute": ":%s/"
     "&pm_go_assign": ":="
     "&pm_go_chan": "<-"
@@ -117,56 +119,56 @@ parse_config:
     "&Double_Click": "2xClick"
 
     # Macros - Excel/Macabacus
-    "&mcb_num_cycle": "#Cyc"
-    "&mcb_pct_cycle": "%Cyc"
-    "&mcb_mult_cycle": "×Cyc"
-    "&mcb_date_cycle": "Date"
-    "&mcb_anchor_cycle": "$Cyc"
-    "&mcb_binary_cycle": "Bin"
-    "&mcb_inc_dec": "+Dec"
-    "&mcb_dec_dec": "-Dec"
-    "&mcb_shift_dec_left": "Dec←"
-    "&mcb_shift_dec_right": "Dec→"
-    "&mcb_blue_black": "Blu/Blk"
-    "&mcb_color_cycle": "Color"
-    "&mcb_fill_cycle": "Fill"
-    "&mcb_autocolor": "AuColor"
-    "&mcb_center_cycle": "Center"
-    "&mcb_horiz_cycle": "H-Align"
-    "&mcb_vert_cycle": "V-Align"
-    "&mcb_top_border": "Bdr↑"
-    "&mcb_bottom_border": "Bdr↓"
-    "&mcb_left_border": "Bdr←"
-    "&mcb_right_border": "Bdr→"
-    "&mcb_outside_borders": "OutBdr"
-    "&mcb_inside_borders": "InsBdr"
-    "&mcb_fill_right": "Fill→"
-    "&mcb_fill_down": "Fill↓"
-    "&mcb_error_wrap": "ErrWr"
-    "&mcb_flip_sign": "±"
-    "&mcb_paste_numfmt": "PstFmt"
-    "&mcb_paste_exact": "PstExct"
-    "&mcb_pro_precedents": "Prec"
-    "&mcb_pro_dependents": "Deps"
-    "&mcb_uniformulas": "UniFrm"
-    "&mcb_smart_print": "SmaPrnt"
-    "&mcb_activate_sheet": "ActSht"
-    "&mcb_row_height": "RowH"
-    "&mcb_col_width": "ColW"
-    "&mcb_export_match_both": "ExpBoth"
-    "&mcb_export_match_none": "ExpNone"
-    "&mcb_quick_save": "Save"
-    "&mcb_expand_grp": "Expand"
-    "&mcb_collapse_grp": "Collaps"
-    "&mcb_super_find": "Find"
-    "&mcb_insert_note": "Note"
-    "&mcb_zoom_in": "Zoom+"
-    "&mcb_zoom_out": "Zoom-"
-    "&mcb_insert_row": "InsRow"
-    "&mcb_delete_row": "DelRow"
-    "&mcb_insert_col": "InsCol"
-    "&mcb_delete_col": "DelCol"
-    "&mcb_paste_insert": "PstIns"
+    "&mcb_num_cycle": { t: '#', h: 'format' }
+    "&mcb_pct_cycle": { t: '%', h: 'format' }
+    "&mcb_mult_cycle": { t: '×', h: 'format' }
+    "&mcb_date_cycle": { t: 'Date', h: 'format' }
+    "&mcb_anchor_cycle": { t: '$', h: 'anchor' }
+    "&mcb_binary_cycle": { t: 'Y/N', h: 'format' }
+    "&mcb_inc_dec": { t: '.0+', h: 'decimal' }
+    "&mcb_dec_dec": { t: '.0−', h: 'decimal' }
+    "&mcb_shift_dec_left": { t: '←.', h: 'decimal' }
+    "&mcb_shift_dec_right": { t: '.→', h: 'decimal' }
+    "&mcb_blue_black": { t: 'B/K', h: 'font' }
+    "&mcb_color_cycle": { t: 'Font', h: 'color' }
+    "&mcb_fill_cycle": { t: 'Fill', h: 'color' }
+    "&mcb_autocolor": { t: 'Auto', h: 'color' }
+    "&mcb_center_cycle": { t: 'Ctr', h: 'align' }
+    "&mcb_horiz_cycle": { t: '↔', h: 'align' }
+    "&mcb_vert_cycle": { t: '↕', h: 'align' }
+    "&mcb_top_border": { t: '▔', h: 'border' }
+    "&mcb_bottom_border": { t: '▁', h: 'border' }
+    "&mcb_left_border": { t: '▏', h: 'border' }
+    "&mcb_right_border": { t: '▕', h: 'border' }
+    "&mcb_outside_borders": { t: '□', h: 'border' }
+    "&mcb_inside_borders": { t: '⊞', h: 'border' }
+    "&mcb_fill_right": { t: '→', h: 'fill' }
+    "&mcb_fill_down": { t: '↓', h: 'fill' }
+    "&mcb_error_wrap": { t: 'Err', h: 'wrap' }
+    "&mcb_flip_sign": { t: '±', h: 'formula' }
+    "&mcb_paste_numfmt": { t: 'Fmt', h: 'paste' }
+    "&mcb_paste_exact": { t: '=', h: 'paste' }
+    "&mcb_pro_precedents": { t: '←ƒ', h: 'trace' }
+    "&mcb_pro_dependents": { t: 'ƒ→', h: 'trace' }
+    "&mcb_uniformulas": { t: 'Uni', h: 'formula' }
+    "&mcb_smart_print": { t: 'Print', h: 'area' }
+    "&mcb_activate_sheet": { t: 'A1', h: 'sheets' }
+    "&mcb_row_height": { t: 'Row↕', h: 'size' }
+    "&mcb_col_width": { t: 'Col↔', h: 'size' }
+    "&mcb_export_match_both": { t: 'Both', h: 'export' }
+    "&mcb_export_match_none": { t: 'None', h: 'export' }
+    "&mcb_quick_save": { t: 'Save', h: 'file' }
+    "&mcb_expand_grp": { t: '+Grp', h: 'outline' }
+    "&mcb_collapse_grp": { t: '−Grp', h: 'outline' }
+    "&mcb_super_find": { t: 'Find', h: 'super' }
+    "&mcb_insert_note": { t: 'Note', h: 'insert' }
+    "&mcb_zoom_in": { t: '+', h: 'zoom' }
+    "&mcb_zoom_out": { t: '−', h: 'zoom' }
+    "&mcb_insert_row": { t: '+Row', h: 'insert' }
+    "&mcb_delete_row": { t: '−Row', h: 'delete' }
+    "&mcb_insert_col": { t: '+Col', h: 'insert' }
+    "&mcb_delete_col": { t: '−Col', h: 'delete' }
+    "&mcb_paste_insert": { t: 'Ins', h: 'paste' }
 
     # System
     "&studio_unlock": "Studio"
