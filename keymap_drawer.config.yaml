@@ -55,47 +55,58 @@ draw_config:
 parse_config:
   # Mapping for special keys to display nicely
   raw_binding_map:
-    # Layer keys
-    "&mo 2": "Fn"
-    "&mo 3": "Mod"
-    "&mo 4": "Sym"
-    "&mo 5": "Excel"
-    "&mo 6": "Spanish"
-    "&tog 1": "Keypad"
+    # Layer keys: none here. keymap-drawer names &mo/&tog after the layer they reach and
+    # highlights the held key on each layer; a fixed label here would undo both
+
+    # Programming macros added with the six-layer plan
+    "&pm_squotes": "' '"
+    "&pm_dquotes": '" "'
+    "&pm_backticks": "` `"
+    "&pm_fence": "```"
+    "&pm_strict_eq": "==="
+    "&pm_strict_neq": "!=="
+    "&pm_shell_var": "${ }"
+    "&pm_parent_dir": "../"
+    "&pm_home_dir": "~/"
+    # Right Alt is the accent key (Right Option on macOS, AltGr on Linux): the
+    # bottom-right corner, 75, and I's hold (keymap-drawer labels hold-tap holds as &kp too)
+    "&kp RALT": "AltGr"
+    "&pm_substitute": ":%s/"
+    "&pm_go_assign": ":="
+    "&pm_go_chan": "<-"
+    "&pm_pipe": "|>"
+
+    # Shifted symbols, written as LS(...) in the keymap
+    "&kp LS(FSLH)": "?"
+    "&kp LS(SEMI)": ":"
+    "&kp LS(SQT)": "\""
+    "&kp LS(LBKT)": "{"
+    "&kp LS(RBKT)": "}"
+    "&kp LS(COMMA)": "<"
+    "&kp LS(DOT)": ">"
+    "&kp LS(BSLH)": "|"
+    "&kp LS(GRAVE)": "~"
+    "&kp LS(N9)": "("
+    "&kp LS(N0)": ")"
 
     # Macros - Programming
-    "&macro_quotes": "' '"
-    "&macro_dquotes": '" "'
-    "&macro_parens": "( )"
-    "&macro_braces": "{ }"
-    "&macro_brackets": "[ ]"
-    "&macro_angles": "< >"
-    "&macro_grave": "`"
-    "&macro_tilde": "~"
-    "&macro_caret": "^"
-    "&macro_arrow": "->"
-    "&macro_fat_arrow": "=>"
-    "&macro_eq": "=="
-    "&macro_neq": "!="
-    "&macro_lte": "<="
-    "&macro_gte": ">="
-    "&macro_and": "&&"
-    "&macro_or": "||"
-    "&macro_scope": "::"
-    "&macro_line_comment": "//"
-    "&macro_block_comment": "/* */"
+    "&pm_parens": "( )"
+    "&pm_braces": "{ }"
+    "&pm_brackets": "[ ]"
+    "&pm_angles": "< >"
+    "&pm_arrow": "->"
+    "&pm_fat_arrow": "=>"
+    "&pm_eq": "=="
+    "&pm_neq": "!="
+    "&pm_lte": "<="
+    "&pm_gte": ">="
+    "&pm_and": "&&"
+    "&pm_or": "||"
+    "&pm_scope": "::"
+    "&pm_line_comment": "//"
+    "&pm_block_comment": "/* */"
 
     # Macros - Spanish
-    "&macro_a_acute": "á"
-    "&macro_e_acute": "é"
-    "&macro_i_acute": "í"
-    "&macro_o_acute": "ó"
-    "&macro_u_acute": "ú"
-    "&macro_u_diaeresis": "ü"
-    "&macro_n_tilde": "ñ"
-    "&macro_spanish_question": "¿?"
-    "&macro_spanish_exclaim": "¡!"
-    "&macro_guillemets": "«»"
 
     # Macros - OS shortcuts
     "&Win_Lock_PC": "WinLock"
@@ -181,6 +192,18 @@ parse_config:
   # ZMK behavior mappings
   zmk_combos: {}
   zmk_keycode_map:
+    EXCL: "!"
+    HASH: "#"
+    AT: "@"
+    CARET: "^"
+    DLLR: "$"
+    PRCNT: "%"
+    AMPS: "&"
+    UNDER: "_"
+    PLUS: "+"
+    ASTRK: "*"
+    GRAVE: "`"
+    FSLH: "/"
     BSPC: "⌫"
     DEL: "Del"
     RET: "↵"

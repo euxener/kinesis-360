@@ -4,155 +4,256 @@
 // Date: 05/Oct/2026
 // ═══════════════════════════════════════════════════════════════
 
-macro_quotes: macro_quotes {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp SQT>, <&kp SPACE>, <&kp SQT>, <&kp SPACE>, <&kp LEFT>;
-    display-name = "Single Quotes";
-};
-
-macro_dquotes: macro_dquotes {
-    compatible = "zmk,behavior-macro";
-    #binding-cells = <0>;
-    wait-ms = <30>;
-    tap-ms = <40>;
-    bindings = <&kp DQT>, <&kp SPACE>, <&kp DQT>, <&kp SPACE>, <&kp LEFT>;
-    display-name = "Double Quotes";
-};
-
-macro_braces: macro_braces {
+pm_braces: pm_braces {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
-    display-name = "Curly Braces";
+    display-name = "{}";
 };
 
-macro_parens: macro_parens {
+pm_parens: pm_parens {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LPAR>, <&kp RPAR>, <&kp LEFT>;
-    display-name = "Parentheses";
+    display-name = "()";
 };
 
-macro_brackets: macro_brackets {
+pm_brackets: pm_brackets {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LBKT>, <&kp RBKT>, <&kp LEFT>;
-    display-name = "Brackets";
+    display-name = "[]";
 };
 
-macro_angles: macro_angles {
+pm_angles: pm_angles {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(COMMA)>, <&kp LS(DOT)>, <&kp LEFT>;
-    display-name = "Angle Brackets";
+    display-name = "<>";
 };
 
-macro_arrow: macro_arrow {
+pm_arrow: pm_arrow {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp MINUS>, <&kp LS(DOT)>;
-    display-name = "Arrow";
+    display-name = "->";
 };
 
-macro_fat_arrow: macro_fat_arrow {
+pm_fat_arrow: pm_fat_arrow {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp EQUAL>, <&kp LS(DOT)>;
-    display-name = "Fat Arrow";
+    display-name = "=>";
 };
 
-macro_eq: macro_eq {
+pm_eq: pm_eq {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp EQUAL>, <&kp EQUAL>;
-    display-name = "Equals";
+    display-name = "==";
 };
 
-macro_neq: macro_neq {
+pm_neq: pm_neq {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(N1)>, <&kp EQUAL>;
-    display-name = "Not Equals";
+    display-name = "!=";
 };
 
-macro_lte: macro_lte {
+pm_lte: pm_lte {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(COMMA)>, <&kp EQUAL>;
-    display-name = "Less or Equal";
+    display-name = "<=";
 };
 
-macro_gte: macro_gte {
+pm_gte: pm_gte {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(DOT)>, <&kp EQUAL>;
-    display-name = "Greater or Equal";
+    display-name = ">=";
 };
 
-macro_and: macro_and {
+pm_and: pm_and {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(N7)>, <&kp LS(N7)>;
-    display-name = "Logical AND";
+    display-name = "&&";
 };
 
-macro_or: macro_or {
+pm_or: pm_or {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(BSLH)>, <&kp LS(BSLH)>;
-    display-name = "Logical OR";
+    display-name = "||";
 };
 
-macro_scope: macro_scope {
+pm_scope: pm_scope {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp LS(SEMI)>, <&kp LS(SEMI)>;
-    display-name = "Scope";
+    display-name = "::";
 };
 
-macro_line_comment: macro_line_comment {
+pm_line_comment: pm_line_comment {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp FSLH>, <&kp FSLH>, <&kp SPACE>;
-    display-name = "Line Comment";
+    display-name = "//";
 };
 
-macro_block_comment: macro_block_comment {
+pm_block_comment: pm_block_comment {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     wait-ms = <30>;
     tap-ms = <40>;
     bindings = <&kp FSLH>, <&kp LS(N8)>, <&kp SPACE>, <&kp LS(N8)>, <&kp FSLH>, <&kp LEFT>, <&kp LEFT>, <&kp LEFT>;
-    display-name = "Block Comment";
+    display-name = "/* */";
+};
+
+// Added with the six-layer plan. Plain keys, no dead keys:
+// the pairs end with Left, so the cursor lands inside
+pm_squotes: pm_squotes {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp SQT>, <&kp SQT>, <&kp LEFT>;
+    display-name = "''";
+};
+
+pm_dquotes: pm_dquotes {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp DQT>, <&kp DQT>, <&kp LEFT>;
+    display-name = "\"\"";
+};
+
+pm_backticks: pm_backticks {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp GRAVE>, <&kp GRAVE>, <&kp LEFT>;
+    display-name = "``";
+};
+
+pm_fence: pm_fence {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp GRAVE>, <&kp GRAVE>, <&kp GRAVE>;
+    display-name = "```";
+};
+
+pm_strict_eq: pm_strict_eq {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp EQUAL>, <&kp EQUAL>, <&kp EQUAL>;
+    display-name = "===";
+};
+
+pm_strict_neq: pm_strict_neq {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp EXCL>, <&kp EQUAL>, <&kp EQUAL>;
+    display-name = "!==";
+};
+
+pm_shell_var: pm_shell_var {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp DLLR>, <&kp LBRC>, <&kp RBRC>, <&kp LEFT>;
+    display-name = "${}";
+};
+
+pm_parent_dir: pm_parent_dir {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp DOT>, <&kp DOT>, <&kp FSLH>;
+    display-name = "../";
+};
+
+pm_home_dir: pm_home_dir {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(GRAVE)>, <&kp FSLH>;
+    display-name = "~/";
+};
+
+pm_substitute: pm_substitute {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(SEMI)>, <&kp PRCNT>, <&kp S>, <&kp FSLH>;
+    display-name = ":%s/";
+};
+
+pm_go_assign: pm_go_assign {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(SEMI)>, <&kp EQUAL>;
+    display-name = ":=";
+};
+
+pm_go_chan: pm_go_chan {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(COMMA)>, <&kp MINUS>;
+    display-name = "<-";
+};
+
+pm_pipe: pm_pipe {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LS(BSLH)>, <&kp LS(DOT)>;
+    display-name = "|>";
 };
