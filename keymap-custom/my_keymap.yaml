@@ -444,10 +444,10 @@ layers:
   - {t: ↔, h: align}
   - {t: .0+, h: decimal}
   - {t: .0−, h: decimal}
+  - {t: ←., h: decimal}
   - {t: .→, h: decimal}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ←., h: decimal}
   - {t: ▽, type: trans}
   - {t: ▏, h: border}
   - {t: ▕, h: border}

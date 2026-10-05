@@ -1,3 +1,4 @@
 /firmware/*.uf2
 .DS_Store
 .DS_Store
+/keymap-custom/cheatsheet.pdf

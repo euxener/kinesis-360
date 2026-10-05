@@ -9,7 +9,7 @@ SELINUX1 := :z
 SELINUX2 := ,z
 endif
 
-.PHONY: all left clean_firmware clean_image clean
+.PHONY: all left cheatsheet clean_firmware clean_image clean
 
 all:
 	$(shell bin/get_version_local.sh clique >> /dev/null)
@@ -42,3 +42,7 @@ clean_image:
 	$(DOCKER) image rm zmk docker.io/zmkfirmware/zmk-build-arm:stable
 
 clean: clean_firmware clean_image
+
+# Print-ready keymap cheatsheet: make cheatsheet [PAPER=a4]
+cheatsheet:
+	bin/cheatsheet.py $(or $(PAPER),letter)
