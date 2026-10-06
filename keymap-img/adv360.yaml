@@ -386,7 +386,7 @@ layers:
   - '|>'
   - {t: ▽, type: trans}
   Excel:
-  - {t: −Row, h: delete}
+  - {t: ▽, type: trans}
   - {t: '#', h: format}
   - {t: '%', h: format}
   - {t: ×, h: format}
@@ -394,22 +394,22 @@ layers:
   - {t: $, h: anchor}
   - {t: ▽, type: trans}
   - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
   - {t: □, h: border}
   - {t: ⊞, h: border}
+  - {t: '$$mdi:border-none-variant$$', h: border}
   - {t: ▽, type: trans}
-  - {t: None, h: export}
+  - {t: −Row, h: delete}
   - {t: −Col, h: delete}
   - {t: ▽, type: trans}
   - {t: Uni, h: formula}
-  - {t: ▽, type: trans}
+  - {t: '$$mdi:fullscreen$$', h: view}
   - {t: Fmt, h: paste}
-  - {t: +Row, h: insert}
-  - {t: +, h: zoom}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: −, h: zoom}
   - {t: +Col, h: insert}
+  - {t: +Row, h: insert}
+  - {t: ←, h: sheets}
+  - {t: →, h: sheets}
+  - {t: +, h: zoom}
+  - {t: −, h: zoom}
   - {t: '=', h: paste}
   - {t: Y/N, h: format}
   - {t: B/K, h: font}
