@@ -398,8 +398,8 @@ layers:
   - {t: ⊞, h: border}
   - {t: '$$mdi:border-none-variant$$', h: border}
   - {t: ▽, type: trans}
-  - {t: −Row, h: delete}
   - {t: −Col, h: delete}
+  - {t: −Row, h: delete}
   - {t: ▽, type: trans}
   - {t: Uni, h: formula}
   - {t: '$$mdi:fullscreen$$', h: view}
