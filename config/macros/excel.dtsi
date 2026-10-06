@@ -163,6 +163,13 @@ mcb_inside_borders: mcb_inside_borders {
     display-name = "Inside Borders";
 };
 
+mcb_no_borders: mcb_no_borders {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(MINUS))>;
+    display-name = "No Borders";
+};
+
 // Fill Macros
 mcb_fill_right: mcb_fill_right {
     compatible = "zmk,behavior-macro";
@@ -214,6 +221,14 @@ mcb_paste_exact: mcb_paste_exact {
     bindings = <&kp LC(LA(E))>;
     display-name = "Paste Exact";
 };
+
+mcb_paste_insert: mcb_paste_insert {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(I))>;
+    display-name = "Paste Insert";
+};
+
 
 // Audit Macros
 mcb_pro_precedents: mcb_pro_precedents {
@@ -328,14 +343,14 @@ mcb_insert_note: mcb_insert_note {
 mcb_zoom_in: mcb_zoom_in {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LS(EQUAL))>;
+    bindings = <&kp LC(LA(EQUAL))>;
     display-name = "Zoom In";
 };
 
 mcb_zoom_out: mcb_zoom_out {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LS(MINUS))>;
+    bindings = <&kp LC(LA(MINUS))>;
     display-name = "Zoom Out";
 };
 
@@ -367,10 +382,23 @@ mcb_delete_col: mcb_delete_col {
     display-name = "Delete Column";
 };
 
-mcb_paste_insert: mcb_paste_insert {
+mcb_next_sheet: mcb_next_sheet {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
-    bindings = <&kp LC(LA(I))>;
-    display-name = "Paste Insert";
+    bindings = <&kp LC(LA(PG_DN))>;
+    display-name = "Next Sheet";
 };
 
+mcb_last_sheet: mcb_last_sheet {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(PG_UP))>;
+    display-name = "Last Sheet";
+};
+
+mcb_max_view: mcb_max_view {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(LS(W)))>;
+    display-name = "Max View";
+};

@@ -150,6 +150,7 @@ parse_config:
     "&mcb_right_border": { t: '▕', h: 'border' }
     "&mcb_outside_borders": { t: '□', h: 'border' }
     "&mcb_inside_borders": { t: '⊞', h: 'border' }
+    "&mcb_no_borders": { t: '$$mdi:border-none-variant$$', h: 'border' }
     "&mcb_fill_right": { t: '→', h: 'fill' }
     "&mcb_fill_down": { t: '↓', h: 'fill' }
     "&mcb_error_wrap": { t: 'Err', h: 'wrap' }
@@ -161,6 +162,8 @@ parse_config:
     "&mcb_uniformulas": { t: 'Uni', h: 'formula' }
     "&mcb_smart_print": { t: 'Print', h: 'area' }
     "&mcb_activate_sheet": { t: 'A1', h: 'sheets' }
+    "&mcb_next_sheet": { t: '→', h: 'sheets' }
+    "&mcb_last_sheet": { t: '←', h: 'sheets' }
     "&mcb_row_height": { t: 'Row↕', h: 'size' }
     "&mcb_col_width": { t: 'Col↔', h: 'size' }
     "&mcb_export_match_both": { t: 'Both', h: 'export' }
@@ -172,6 +175,7 @@ parse_config:
     "&mcb_insert_note": { t: 'Note', h: 'insert' }
     "&mcb_zoom_in": { t: '+', h: 'zoom' }
     "&mcb_zoom_out": { t: '−', h: 'zoom' }
+    "&mcb_max_view": { t: '$$mdi:fullscreen$$', h: 'view' }
     "&mcb_insert_row": { t: '+Row', h: 'insert' }
     "&mcb_delete_row": { t: '−Row', h: 'delete' }
     "&mcb_insert_col": { t: '+Col', h: 'insert' }
