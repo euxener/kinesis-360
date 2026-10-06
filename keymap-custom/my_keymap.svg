@@ -1,5 +1,8 @@
 <svg width="1105" height="3185" viewBox="0 0 1105 3185" class="keymap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 <defs>/* start glyphs */
+<svg id="mdi:border-none-variant" viewBox="0 0 24 24">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-border-none-variant" viewBox="0 0 24 24"><path d="M15,5H17V3H15M15,21H17V19H15M11,5H13V3H11M19,5H21V3H19M19,9H21V7H19M19,21H21V19H19M19,13H21V11H19M19,17H21V15H19M3,5H5V3H3M3,9H5V7H3M3,13H5V11H3M3,17H5V15H3M3,21H5V19H3M11,21H13V19H11M7,21H9V19H7M7,5H9V3H7V5Z" /></svg>
+</svg>
 <svg id="mdi:brightness-5" viewBox="0 0 24 24">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-brightness-5" viewBox="0 0 24 24"><path d="M12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6A6,6 0 0,1 18,12A6,6 0 0,1 12,18M20,15.31L23.31,12L20,8.69V4H15.31L12,0.69L8.69,4H4V8.69L0.69,12L4,15.31V20H8.69L12,23.31L15.31,20H20V15.31Z" /></svg>
 </svg>
@@ -8,6 +11,9 @@
 </svg>
 <svg id="mdi:camera" viewBox="0 0 24 24">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-camera" viewBox="0 0 24 24"><path d="M4,4H7L9,2H15L17,4H20A2,2 0 0,1 22,6V18A2,2 0 0,1 20,20H4A2,2 0 0,1 2,18V6A2,2 0 0,1 4,4M12,7A5,5 0 0,0 7,12A5,5 0 0,0 12,17A5,5 0 0,0 17,12A5,5 0 0,0 12,7M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9Z" /></svg>
+</svg>
+<svg id="mdi:fullscreen" viewBox="0 0 24 24">
+<svg xmlns="http://www.w3.org/2000/svg" id="mdi-fullscreen" viewBox="0 0 24 24"><path d="M5,5H10V7H7V10H5V5M14,5H19V10H17V7H14V5M17,14H19V19H14V17H17V14M10,17V19H5V14H7V17H10Z" /></svg>
 </svg>
 <svg id="mdi:lock" viewBox="0 0 24 24">
 <svg xmlns="http://www.w3.org/2000/svg" id="mdi-lock" viewBox="0 0 24 24"><path d="M12,17A2,2 0 0,0 14,15C14,13.89 13.1,13 12,13A2,2 0 0,0 10,15A2,2 0 0,0 12,17M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6A2,2 0 0,1 4,20V10C4,8.89 4.9,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" /></svg>
@@ -1716,10 +1722,9 @@ rect.combo {
 <g transform="translate(10, 2391)" class="layer-Excel">
 <text x="0" y="5" class="label" id="Excel">Excel:</text>
 <g transform="translate(0, 10)">
-<g transform="translate(38, 45)" class="key keypos-0">
-<rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
-<text x="0" y="0" class="key tap">−Row</text>
-<text x="0" y="26" class="key hold">delete</text>
+<g transform="translate(38, 45)" class="key trans keypos-0">
+<rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(105, 45)" class="key keypos-1">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1754,18 +1759,19 @@ rect.combo {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(735, 30)" class="key trans keypos-8">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
-</g>
-<g transform="translate(795, 30)" class="key keypos-9">
+<g transform="translate(735, 30)" class="key keypos-8">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">□</text>
 <text x="0" y="26" class="key hold">border</text>
 </g>
-<g transform="translate(855, 30)" class="key keypos-10">
+<g transform="translate(795, 30)" class="key keypos-9">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">⊞</text>
+<text x="0" y="26" class="key hold">border</text>
+</g>
+<g transform="translate(855, 30)" class="key keypos-10">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:border-none-variant" xlink:href="#mdi:border-none-variant" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:border-none-variant"/>
 <text x="0" y="26" class="key hold">border</text>
 </g>
 <g transform="translate(915, 30)" class="key trans keypos-11">
@@ -1774,8 +1780,8 @@ rect.combo {
 </g>
 <g transform="translate(975, 45)" class="key keypos-12">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">None</text>
-<text x="0" y="26" class="key hold">export</text>
+<text x="0" y="0" class="key tap">−Row</text>
+<text x="0" y="26" class="key hold">delete</text>
 </g>
 <g transform="translate(1042, 45)" class="key keypos-13">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
@@ -1791,9 +1797,10 @@ rect.combo {
 <text x="0" y="0" class="key tap">Uni</text>
 <text x="0" y="26" class="key hold">formula</text>
 </g>
-<g transform="translate(165, 90)" class="key trans keypos-16">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(165, 90)" class="key keypos-16">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<use href="#mdi:fullscreen" xlink:href="#mdi:fullscreen" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:fullscreen"/>
+<text x="0" y="26" class="key hold">view</text>
 </g>
 <g transform="translate(225, 90)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1802,31 +1809,33 @@ rect.combo {
 </g>
 <g transform="translate(285, 90)" class="key keypos-18">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">+Row</text>
+<text x="0" y="0" class="key tap">+Col</text>
 <text x="0" y="26" class="key hold">insert</text>
 </g>
 <g transform="translate(345, 90)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">+</text>
-<text x="0" y="26" class="key hold">zoom</text>
+<text x="0" y="0" class="key tap">+Row</text>
+<text x="0" y="26" class="key hold">insert</text>
 </g>
-<g transform="translate(405, 90)" class="key trans keypos-20">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(405, 90)" class="key keypos-20">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">←</text>
+<text x="0" y="26" class="key hold">sheets</text>
 </g>
-<g transform="translate(675, 90)" class="key trans keypos-21">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(675, 90)" class="key keypos-21">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">→</text>
+<text x="0" y="26" class="key hold">sheets</text>
 </g>
 <g transform="translate(735, 90)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">−</text>
+<text x="0" y="0" class="key tap">+</text>
 <text x="0" y="26" class="key hold">zoom</text>
 </g>
 <g transform="translate(795, 90)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">+Col</text>
-<text x="0" y="26" class="key hold">insert</text>
+<text x="0" y="0" class="key tap">−</text>
+<text x="0" y="26" class="key hold">zoom</text>
 </g>
 <g transform="translate(855, 90)" class="key keypos-24">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
