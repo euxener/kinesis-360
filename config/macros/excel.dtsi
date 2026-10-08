@@ -40,6 +40,20 @@ mcb_binary_cycle: mcb_binary_cycle {
     display-name = "Binary Cycle";
 };
 
+mcb_alt_shade_cycle: mcb_alt_shade_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LA(R))>;
+    display-name = "Alternate Shade Cycle";
+};
+
+mcb_left_indent_cycle: mcb_left_indent_cycle {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LC(LS(I))>;
+    display-name = "Left Indent Cycle";
+};
+
 // Decimal Macros
 mcb_inc_dec: mcb_inc_dec {
     compatible = "zmk,behavior-macro";
@@ -389,11 +403,11 @@ mcb_next_sheet: mcb_next_sheet {
     display-name = "Next Sheet";
 };
 
-mcb_last_sheet: mcb_last_sheet {
+mcb_prev_sheet: mcb_prev_sheet {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;
     bindings = <&kp LC(LA(PG_UP))>;
-    display-name = "Last Sheet";
+    display-name = "Previous Sheet";
 };
 
 mcb_max_view: mcb_max_view {
