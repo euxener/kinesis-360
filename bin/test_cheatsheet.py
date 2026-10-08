@@ -49,6 +49,19 @@ out = cheatsheet.legend(SVG)
 assert out.count('class="legend nvim"') == 1 and "tmux" not in out, out
 assert out.index('class="legend nvim"') < out.index('id="B"'), out
 
+# a key's bottom line moves up, a two-line label above it a little; keys without one stay
+ONE = '<g transform="translate(1, 1)" class="key k"><text x="0" y="0" class="key tap">A</text><text x="0" y="26" class="key hold">b</text></g>'
+TWO = '<g transform="translate(1, 1)" class="key k"><text x="0" y="0" class="key tap">\n<tspan x="0" dy="-0.6em">A</tspan></text><text x="0" y="26" class="key hold">b</text></g>'
+BARE = '<g transform="translate(1, 1)" class="key k"><text x="0" y="0" class="key tap">\n<tspan x="0">A</tspan></text></g>'
+assert 'y="21" class="key hold"' in cheatsheet.tighten(ONE) and 'y="0" class="key tap"' in cheatsheet.tighten(ONE)
+assert 'y="21" class="key hold"' in cheatsheet.tighten(TWO) and 'y="-2" class="key tap"' in cheatsheet.tighten(TWO)
+assert cheatsheet.tighten(BARE) == BARE
+SHRUNK = '<g transform="translate(1, 1)" class="key k"><text x="0" y="0" class="key tap"><tspan style="font-size: 75%">Function</tspan></text><text x="0" y="26" class="key hold">b</text></g>'
+assert 'y="18" class="key hold"' in cheatsheet.tighten(SHRUNK) and 'y="0" class="key tap"' in cheatsheet.tighten(SHRUNK)
+# modifier icons get a larger tspan, the name stays as is
+assert cheatsheet.enlarge_icons('<text x="0" y="0" class="key hold">⌃ Ctrl</text>') == '<text x="0" y="0" class="key hold"><tspan class="modicon ctrl">⌃</tspan> Ctrl</text>'
+assert cheatsheet.enlarge_icons('<text x="0" y="0" class="key hold">⌥ Alt</text>') == '<text x="0" y="0" class="key hold"><tspan class="modicon">⌥</tspan> Alt</text>'
+
 # the real keymap: every key labelled, pages in layer order
 real = cheatsheet.drawer(cheatsheet.CONFIG, "parse", "-z", str(cheatsheet.KEYMAP))
 assert cheatsheet.unlabeled(real) == [], cheatsheet.unlabeled(real)

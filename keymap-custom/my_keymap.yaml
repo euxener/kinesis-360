@@ -36,13 +36,13 @@ layers:
   - \
   - Esc
   - t: A
-    h: Ctrl
+    h: ⌃ Ctrl
   - t: R
-    h: Alt
+    h: ⌥ Alt
   - t: S
-    h: ⌘
+    h: ⌘ Cmd
   - t: T
-    h: ⇧
+    h: ⇧ Shift
   - G
   - PgDn
   - t: Num+Fn
@@ -56,15 +56,15 @@ layers:
   - End
   - M
   - t: N
-    h: ⇧
+    h: ⇧ Shift
   - t: E
-    h: ⌘
+    h: ⌘ Cmd
   - t: I
-    h: AltGr
+    h: ⌥ AltGr
   - t: O
-    h: Ctrl
+    h: ⌃ Ctrl
   - ''''
-  - ⇧
+  - ⇧ Shift
   - Z
   - X
   - C
@@ -79,8 +79,8 @@ layers:
   - ','
   - .
   - /
-  - ⇧
-  - Ctrl
+  - ⇧ Shift
+  - ⌃ Ctrl
   - '`'
   - t: Caps
     s: 2×
@@ -98,7 +98,7 @@ layers:
   - ↑
   - '['
   - ']'
-  - AltGr
+  - ⌥ AltGr
   Num+Fn:
   - F1
   - F2
@@ -137,10 +137,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - Ctrl
-  - Alt
-  - ⌘
-  - ⇧
+  - ⌃ Ctrl
+  - ⌥ Alt
+  - ⌘ Cmd
+  - ⇧ Shift
   - t: ▽
     type: trans
   - t: ▽
@@ -283,10 +283,10 @@ layers:
     type: macro nvim
   - t: ▽
     type: trans
-  - Ctrl
-  - Alt
-  - ⌘
-  - ⇧
+  - ⌃ Ctrl
+  - ⌥ Alt
+  - ⌘ Cmd
+  - ⇧ Shift
   - t: Git UI
     h: C-a g
     type: macro tmux

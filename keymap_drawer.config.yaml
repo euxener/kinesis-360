@@ -73,6 +73,9 @@ draw_config:
     text.hold.nvim, text.legend.nvim { fill: #7ee787; }
     text.hold.tmux, text.legend.tmux { fill: #a5d6ff; }
     text.legend { font-size: 12px; text-anchor: start; }
+    /* modifier icons (bin/cheatsheet.py wraps them): larger than the name next to them */
+    tspan.modicon { font-size: 140%; }
+    tspan.modicon.ctrl { font-size: 220%; baseline-shift: -0.3em; }
     /* layer keys are colored by layer (below), so no underline */
     text.layer-activator {
       text-decoration: none;
@@ -101,7 +104,7 @@ parse_config:
     "&pm_home_dir": "~/"
     # Right Alt is the accent key (Right Option on macOS, AltGr on Linux): the
     # bottom-right corner, 75, and I's hold (keymap-drawer labels hold-tap holds as &kp too)
-    "&kp RALT": "AltGr"
+    "&kp RALT": "⌥ AltGr"
     # Tap does nothing, a double tap toggles Caps Lock (td_caps in the keymap)
     "&td_caps": { t: "Caps", s: "2×" }
     "&pm_substitute": ":%s/"
@@ -306,15 +309,15 @@ parse_config:
     HOME: "Home"
     END: "End"
 
-    # Modifiers (display names)
-    LSHFT: "⇧"
-    RSHFT: "⇧"
-    LCTRL: "Ctrl"
-    RCTRL: "Ctrl"
-    LALT: "Alt"
-    RALT: "Alt"
-    LGUI: "⌘"
-    RGUI: "⌘"
+    # Modifiers: icon and name (GUI: Cmd, as on a Mac; the Super key on Linux)
+    LSHFT: "⇧ Shift"
+    RSHFT: "⇧ Shift"
+    LCTRL: "⌃ Ctrl"
+    RCTRL: "⌃ Ctrl"
+    LALT: "⌥ Alt"
+    RALT: "⌥ Alt"
+    LGUI: "⌘ Cmd"
+    RGUI: "⌘ Cmd"
 
     # Symbols
     MINUS: "-"

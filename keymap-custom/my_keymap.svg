@@ -214,6 +214,9 @@ rect.combo {
 text.hold.nvim, text.legend.nvim { fill: #7ee787; }
 text.hold.tmux, text.legend.tmux { fill: #a5d6ff; }
 text.legend { font-size: 12px; text-anchor: start; }
+/* modifier icons (bin/cheatsheet.py wraps them): larger than the name next to them */
+tspan.modicon { font-size: 140%; }
+tspan.modicon.ctrl { font-size: 220%; baseline-shift: -0.3em; }
 /* layer keys are colored by layer (below), so no underline */
 text.layer-activator {
   text-decoration: none;
@@ -250,7 +253,7 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
 <a href="#NumFn">
 <text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
-</a><text x="0" y="26" class="key layer1 hold">toggle</text>
+</a><text x="0" y="21" class="key layer1 hold">toggle</text>
 </g>
 <g transform="translate(675, 30)" class="key layer3 keypos-7">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer3"/>
@@ -344,22 +347,22 @@ text.layer-activator {
 <g transform="translate(105, 165)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">A</text>
-<text x="0" y="26" class="key hold">Ctrl</text>
+<text x="0" y="21" class="key hold"><tspan class="modicon ctrl">⌃</tspan> Ctrl</text>
 </g>
 <g transform="translate(165, 150)" class="key keypos-30">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">R</text>
-<text x="0" y="26" class="key hold">Alt</text>
+<text x="0" y="21" class="key hold"><tspan class="modicon">⌥</tspan> Alt</text>
 </g>
 <g transform="translate(225, 150)" class="key keypos-31">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">S</text>
-<text x="0" y="26" class="key hold">⌘</text>
+<text x="0" y="21" class="key hold"><tspan class="modicon">⌘</tspan> Cmd</text>
 </g>
 <g transform="translate(285, 150)" class="key keypos-32">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">T</text>
-<text x="0" y="26" class="key hold">⇧</text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%"><tspan class="modicon">⇧</tspan> Shift</tspan></text>
 </g>
 <g transform="translate(345, 150)" class="key keypos-33">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -400,22 +403,22 @@ text.layer-activator {
 <g transform="translate(795, 150)" class="key keypos-41">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">N</text>
-<text x="0" y="26" class="key hold">⇧</text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%"><tspan class="modicon">⇧</tspan> Shift</tspan></text>
 </g>
 <g transform="translate(855, 150)" class="key keypos-42">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">E</text>
-<text x="0" y="26" class="key hold">⌘</text>
+<text x="0" y="21" class="key hold"><tspan class="modicon">⌘</tspan> Cmd</text>
 </g>
 <g transform="translate(915, 150)" class="key keypos-43">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">I</text>
-<text x="0" y="26" class="key hold">AltGr</text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%"><tspan class="modicon">⌥</tspan> AltGr</tspan></text>
 </g>
 <g transform="translate(975, 165)" class="key keypos-44">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">O</text>
-<text x="0" y="26" class="key hold">Ctrl</text>
+<text x="0" y="21" class="key hold"><tspan class="modicon ctrl">⌃</tspan> Ctrl</text>
 </g>
 <g transform="translate(1042, 165)" class="key keypos-45">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
@@ -423,7 +426,9 @@ text.layer-activator {
 </g>
 <g transform="translate(38, 225)" class="key keypos-46">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⇧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⇧</tspan></tspan><tspan x="0" dy="1.2em">Shift</tspan>
+</text>
 </g>
 <g transform="translate(105, 225)" class="key keypos-47">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -477,11 +482,15 @@ text.layer-activator {
 </g>
 <g transform="translate(1042, 225)" class="key keypos-59">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⇧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⇧</tspan></tspan><tspan x="0" dy="1.2em">Shift</tspan>
+</text>
 </g>
 <g transform="translate(38, 285)" class="key keypos-60">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
-<text x="0" y="0" class="key tap">Ctrl</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon ctrl">⌃</tspan></tspan><tspan x="0" dy="1.2em">Ctrl</tspan>
+</text>
 </g>
 <g transform="translate(105, 285)" class="key keypos-61">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -544,7 +553,9 @@ text.layer-activator {
 </g>
 <g transform="translate(1042, 285)" class="key keypos-75">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
-<text x="0" y="0" class="key tap">AltGr</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⌥</tspan></tspan><tspan x="0" dy="1.2em">AltGr</tspan>
+</text>
 </g>
 <g class="combo combopos-0">
 <rect rx="6" ry="6" x="301" y="139" width="28" height="22" class="combo"/>
@@ -583,7 +594,7 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
 <a href="#NumFn">
 <text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
-</a><text x="0" y="26" class="key layer1 hold">toggle</text>
+</a><text x="0" y="21" class="key layer1 hold">toggle</text>
 </g>
 <g transform="translate(675, 30)" class="key trans keypos-7">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -675,19 +686,27 @@ text.layer-activator {
 </g>
 <g transform="translate(105, 165)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">Ctrl</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon ctrl">⌃</tspan></tspan><tspan x="0" dy="1.2em">Ctrl</tspan>
+</text>
 </g>
 <g transform="translate(165, 150)" class="key keypos-30">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">Alt</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⌥</tspan></tspan><tspan x="0" dy="1.2em">Alt</tspan>
+</text>
 </g>
 <g transform="translate(225, 150)" class="key keypos-31">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⌘</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⌘</tspan></tspan><tspan x="0" dy="1.2em">Cmd</tspan>
+</text>
 </g>
 <g transform="translate(285, 150)" class="key keypos-32">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⇧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⇧</tspan></tspan><tspan x="0" dy="1.2em">Shift</tspan>
+</text>
 </g>
 <g transform="translate(345, 150)" class="key trans keypos-33">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -900,30 +919,30 @@ text.layer-activator {
 </g>
 <g transform="translate(735, 30)" class="key macro nvim keypos-8">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Last</tspan><tspan x="0" dy="1.2em">file</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">C- ^</text>
+<text x="0" y="21" class="key macro nvim hold">C- ^</text>
 </g>
 <g transform="translate(795, 30)" class="key macro nvim keypos-9">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">Error</text>
-<text x="0" y="26" class="key macro nvim hold">← [e</text>
+<text x="0" y="21" class="key macro nvim hold">← [e</text>
 </g>
 <g transform="translate(855, 30)" class="key macro nvim keypos-10">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">Error</text>
-<text x="0" y="26" class="key macro nvim hold">]e →</text>
+<text x="0" y="21" class="key macro nvim hold">]e →</text>
 </g>
 <g transform="translate(915, 30)" class="key macro nvim keypos-11">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap"><tspan style="font-size: 75%">Function</tspan></text>
-<text x="0" y="26" class="key macro nvim hold">← [f</text>
+<text x="0" y="18" class="key macro nvim hold">← [f</text>
 </g>
 <g transform="translate(975, 45)" class="key macro nvim keypos-12">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap"><tspan style="font-size: 75%">Function</tspan></text>
-<text x="0" y="26" class="key macro nvim hold">]f →</text>
+<text x="0" y="18" class="key macro nvim hold">]f →</text>
 </g>
 <g transform="translate(1042, 45)" class="key trans keypos-13">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -931,39 +950,39 @@ text.layer-activator {
 </g>
 <g transform="translate(38, 105)" class="key macro tmux keypos-14">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em">Last</tspan><tspan x="0" dy="1.2em">window</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a ⇥</text>
+<text x="0" y="21" class="key macro tmux hold">C-a ⇥</text>
 </g>
 <g transform="translate(105, 105)" class="key macro tmux keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
 <text x="0" y="0" class="key macro tmux tap">Prefix</text>
-<text x="0" y="26" class="key macro tmux hold">C-a</text>
+<text x="0" y="21" class="key macro tmux hold">C-a</text>
 </g>
 <g transform="translate(165, 90)" class="key macro nvim keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">Save</text>
-<text x="0" y="26" class="key macro nvim hold">C-s</text>
+<text x="0" y="21" class="key macro nvim hold">C-s</text>
 </g>
 <g transform="translate(225, 90)" class="key macro tmux keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em" style="font-size: 86%">Open</tspan><tspan x="0" dy="1.2em" style="font-size: 86%">project</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a f</text>
+<text x="0" y="21" class="key macro tmux hold">C-a f</text>
 </g>
 <g transform="translate(285, 90)" class="key macro tmux keypos-18">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
 <text x="0" y="0" class="key macro tmux tap">Scroll</text>
-<text x="0" y="26" class="key macro tmux hold">C-a [</text>
+<text x="0" y="21" class="key macro tmux hold">C-a [</text>
 </g>
 <g transform="translate(345, 90)" class="key macro tmux keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em" style="font-size: 86%">Last</tspan><tspan x="0" dy="1.2em" style="font-size: 86%">session</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a ⌫</text>
+<text x="0" y="21" class="key macro tmux hold">C-a ⌫</text>
 </g>
 <g transform="translate(405, 90)" class="key trans keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -992,12 +1011,12 @@ text.layer-activator {
 <g transform="translate(975, 105)" class="key macro nvim keypos-26">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap"><tspan style="font-size: 75%">Quickfix</tspan></text>
-<text x="0" y="26" class="key macro nvim hold">← [q</text>
+<text x="0" y="18" class="key macro nvim hold">← [q</text>
 </g>
 <g transform="translate(1042, 105)" class="key macro nvim keypos-27">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap"><tspan style="font-size: 75%">Quickfix</tspan></text>
-<text x="0" y="26" class="key macro nvim hold">]q →</text>
+<text x="0" y="18" class="key macro nvim hold">]q →</text>
 </g>
 <g transform="translate(38, 165)" class="key trans keypos-28">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1005,26 +1024,34 @@ text.layer-activator {
 </g>
 <g transform="translate(105, 165)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">Ctrl</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon ctrl">⌃</tspan></tspan><tspan x="0" dy="1.2em">Ctrl</tspan>
+</text>
 </g>
 <g transform="translate(165, 150)" class="key keypos-30">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">Alt</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⌥</tspan></tspan><tspan x="0" dy="1.2em">Alt</tspan>
+</text>
 </g>
 <g transform="translate(225, 150)" class="key keypos-31">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⌘</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⌘</tspan></tspan><tspan x="0" dy="1.2em">Cmd</tspan>
+</text>
 </g>
 <g transform="translate(285, 150)" class="key keypos-32">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
-<text x="0" y="0" class="key tap">⇧</text>
+<text x="0" y="0" class="key tap">
+<tspan x="0" dy="-0.6em"><tspan class="modicon">⇧</tspan></tspan><tspan x="0" dy="1.2em">Shift</tspan>
+</text>
 </g>
 <g transform="translate(345, 150)" class="key macro tmux keypos-33">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em">Git</tspan><tspan x="0" dy="1.2em">UI</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a g</text>
+<text x="0" y="21" class="key macro tmux hold">C-a g</text>
 </g>
 <g transform="translate(405, 150)" class="key trans keypos-34">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1066,17 +1093,17 @@ text.layer-activator {
 </g>
 <g transform="translate(975, 165)" class="key macro nvim keypos-44">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Jump</tspan><tspan x="0" dy="1.2em">back</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">C-o</text>
+<text x="0" y="21" class="key macro nvim hold">C-o</text>
 </g>
 <g transform="translate(1042, 165)" class="key macro nvim keypos-45">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Jump</tspan><tspan x="0" dy="1.2em">fwd</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">C-i</text>
+<text x="0" y="21" class="key macro nvim hold">C-i</text>
 </g>
 <g transform="translate(38, 225)" class="key trans keypos-46">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1085,33 +1112,33 @@ text.layer-activator {
 <g transform="translate(105, 225)" class="key macro tmux keypos-47">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
 <text x="0" y="0" class="key macro tmux tap">Zoom</text>
-<text x="0" y="26" class="key macro tmux hold">C-a z</text>
+<text x="0" y="21" class="key macro tmux hold">C-a z</text>
 </g>
 <g transform="translate(165, 210)" class="key macro nvim keypos-48">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">Redo</text>
-<text x="0" y="26" class="key macro nvim hold">C-r</text>
+<text x="0" y="21" class="key macro nvim hold">C-r</text>
 </g>
 <g transform="translate(225, 210)" class="key macro tmux keypos-49">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em">New</tspan><tspan x="0" dy="1.2em">window</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a c</text>
+<text x="0" y="21" class="key macro tmux hold">C-a c</text>
 </g>
 <g transform="translate(285, 210)" class="key macro tmux keypos-50">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em">Split</tspan><tspan x="0" dy="1.2em">↓</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a -</text>
+<text x="0" y="21" class="key macro tmux hold">C-a -</text>
 </g>
 <g transform="translate(345, 210)" class="key macro tmux keypos-51">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro tmux"/>
-<text x="0" y="0" class="key macro tmux tap">
+<text x="0" y="-2" class="key macro tmux tap">
 <tspan x="0" dy="-0.9em">Split</tspan><tspan x="0" dy="1.2em">→</tspan>
 </text>
-<text x="0" y="26" class="key macro tmux hold">C-a |</text>
+<text x="0" y="21" class="key macro tmux hold">C-a |</text>
 </g>
 <g transform="translate(466, 374) rotate(15.0)" class="key trans keypos-52">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1123,41 +1150,41 @@ text.layer-activator {
 </g>
 <g transform="translate(735, 210)" class="key macro nvim keypos-54">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Any</tspan><tspan x="0" dy="1.2em">issue</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">← [d</text>
+<text x="0" y="21" class="key macro nvim hold">← [d</text>
 </g>
 <g transform="translate(795, 210)" class="key macro nvim keypos-55">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Any</tspan><tspan x="0" dy="1.2em">issue</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">]d →</text>
+<text x="0" y="21" class="key macro nvim hold">]d →</text>
 </g>
 <g transform="translate(855, 210)" class="key macro nvim keypos-56">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Git</tspan><tspan x="0" dy="1.2em">change</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">← [h</text>
+<text x="0" y="21" class="key macro nvim hold">← [h</text>
 </g>
 <g transform="translate(915, 210)" class="key macro nvim keypos-57">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Git</tspan><tspan x="0" dy="1.2em">change</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">]h →</text>
+<text x="0" y="21" class="key macro nvim hold">]h →</text>
 </g>
 <g transform="translate(975, 225)" class="key macro nvim keypos-58">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">TODO</text>
-<text x="0" y="26" class="key macro nvim hold">← [t</text>
+<text x="0" y="21" class="key macro nvim hold">← [t</text>
 </g>
 <g transform="translate(1042, 225)" class="key macro nvim keypos-59">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key macro nvim"/>
 <text x="0" y="0" class="key macro nvim tap">TODO</text>
-<text x="0" y="26" class="key macro nvim hold">]t →</text>
+<text x="0" y="21" class="key macro nvim hold">]t →</text>
 </g>
 <g transform="translate(38, 285)" class="key trans keypos-60">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1213,17 +1240,17 @@ text.layer-activator {
 </g>
 <g transform="translate(915, 270)" class="key macro nvim keypos-73">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Same</tspan><tspan x="0" dy="1.2em">word</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">← [[</text>
+<text x="0" y="21" class="key macro nvim hold">← [[</text>
 </g>
 <g transform="translate(975, 285)" class="key macro nvim keypos-74">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key macro nvim"/>
-<text x="0" y="0" class="key macro nvim tap">
+<text x="0" y="-2" class="key macro nvim tap">
 <tspan x="0" dy="-0.9em">Same</tspan><tspan x="0" dy="1.2em">word</tspan>
 </text>
-<text x="0" y="26" class="key macro nvim hold">]] →</text>
+<text x="0" y="21" class="key macro nvim hold">]] →</text>
 </g>
 <g transform="translate(1042, 285)" class="key trans keypos-75">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1240,27 +1267,27 @@ text.layer-activator {
 <g transform="translate(105, 45)" class="key keypos-1">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">0</text>
+<text x="0" y="21" class="key hold">0</text>
 </g>
 <g transform="translate(165, 30)" class="key keypos-2">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">1</text>
+<text x="0" y="21" class="key hold">1</text>
 </g>
 <g transform="translate(225, 30)" class="key keypos-3">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">2</text>
+<text x="0" y="21" class="key hold">2</text>
 </g>
 <g transform="translate(285, 30)" class="key keypos-4">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">3</text>
+<text x="0" y="21" class="key hold">3</text>
 </g>
 <g transform="translate(345, 30)" class="key keypos-5">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">4</text>
+<text x="0" y="21" class="key hold">4</text>
 </g>
 <g transform="translate(405, 30)" class="key keypos-6">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1292,22 +1319,22 @@ text.layer-activator {
 <g transform="translate(105, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:lock" xlink:href="#mdi:lock" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:lock"/>
-<text x="0" y="26" class="key hold">Win</text>
+<text x="0" y="21" class="key hold">Win</text>
 </g>
 <g transform="translate(165, 90)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:monitor-screenshot" xlink:href="#mdi:monitor-screenshot" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:monitor-screenshot"/>
-<text x="0" y="26" class="key hold">Win</text>
+<text x="0" y="21" class="key hold">Win</text>
 </g>
 <g transform="translate(225, 90)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:lock" xlink:href="#mdi:lock" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:lock"/>
-<text x="0" y="26" class="key hold">Mac</text>
+<text x="0" y="21" class="key hold">Mac</text>
 </g>
 <g transform="translate(285, 90)" class="key keypos-18">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:monitor-screenshot" xlink:href="#mdi:monitor-screenshot" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:monitor-screenshot"/>
-<text x="0" y="26" class="key hold">Mac</text>
+<text x="0" y="21" class="key hold">Mac</text>
 </g>
 <g transform="translate(345, 90)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1341,7 +1368,7 @@ text.layer-activator {
 <g transform="translate(38, 165)" class="key keypos-28">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Studio</text>
-<text x="0" y="26" class="key hold">unlock</text>
+<text x="0" y="21" class="key hold">unlock</text>
 </g>
 <g transform="translate(105, 165)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1376,7 +1403,7 @@ text.layer-activator {
 <g transform="translate(599, 316) rotate(-15.0)" class="key keypos-37">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BT</text>
-<text x="0" y="26" class="key hold">clear</text>
+<text x="0" y="21" class="key hold">clear</text>
 </g>
 <g transform="translate(657, 300) rotate(-15.0)" class="key keypos-38">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1384,7 +1411,7 @@ text.layer-activator {
 <g transform="translate(675, 150)" class="key keypos-39">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Batt</text>
-<text x="0" y="26" class="key hold">status</text>
+<text x="0" y="21" class="key hold">status</text>
 </g>
 <g transform="translate(735, 150)" class="key keypos-40">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1410,12 +1437,12 @@ text.layer-activator {
 <g transform="translate(105, 225)" class="key keypos-47">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:brightness-5" xlink:href="#mdi:brightness-5" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:brightness-5"/>
-<text x="0" y="26" class="key hold">dim</text>
+<text x="0" y="21" class="key hold">dim</text>
 </g>
 <g transform="translate(165, 210)" class="key keypos-48">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:brightness-7" xlink:href="#mdi:brightness-7" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:brightness-7"/>
-<text x="0" y="26" class="key hold">bright</text>
+<text x="0" y="21" class="key hold">bright</text>
 </g>
 <g transform="translate(225, 210)" class="key keypos-49">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1423,7 +1450,7 @@ text.layer-activator {
 <g transform="translate(285, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Ver</text>
-<text x="0" y="26" class="key hold">info</text>
+<text x="0" y="21" class="key hold">info</text>
 </g>
 <g transform="translate(345, 210)" class="key keypos-51">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1482,7 +1509,7 @@ text.layer-activator {
 <g transform="translate(680, 387) rotate(-15.0)" class="key keypos-69">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key"/>
 <text x="0" y="0" class="key tap">BL</text>
-<text x="0" y="56" class="key hold">toggle</text>
+<text x="0" y="51" class="key hold">toggle</text>
 </g>
 <g transform="translate(738, 371) rotate(-15.0)" class="key keypos-70">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key"/>
@@ -1491,12 +1518,12 @@ text.layer-activator {
 <g transform="translate(795, 270)" class="key keypos-71">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BL</text>
-<text x="0" y="26" class="key hold">+</text>
+<text x="0" y="21" class="key hold">+</text>
 </g>
 <g transform="translate(855, 270)" class="key keypos-72">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">BL</text>
-<text x="0" y="26" class="key hold">−</text>
+<text x="0" y="21" class="key hold">−</text>
 </g>
 <g transform="translate(915, 270)" class="key keypos-73">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -1515,32 +1542,32 @@ text.layer-activator {
 <g transform="translate(38, 45)" class="key keypos-0">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Shade</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 75%">alt rows</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 75%">alt rows</tspan></text>
 </g>
 <g transform="translate(105, 45)" class="key keypos-1">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">#</text>
-<text x="0" y="26" class="key hold">format</text>
+<text x="0" y="21" class="key hold">format</text>
 </g>
 <g transform="translate(165, 30)" class="key keypos-2">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">%</text>
-<text x="0" y="26" class="key hold">format</text>
+<text x="0" y="21" class="key hold">format</text>
 </g>
 <g transform="translate(225, 30)" class="key keypos-3">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">×</text>
-<text x="0" y="26" class="key hold">format</text>
+<text x="0" y="21" class="key hold">format</text>
 </g>
 <g transform="translate(285, 30)" class="key keypos-4">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Date</text>
-<text x="0" y="26" class="key hold">format</text>
+<text x="0" y="21" class="key hold">format</text>
 </g>
 <g transform="translate(345, 30)" class="key keypos-5">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">$</text>
-<text x="0" y="26" class="key hold">anchor</text>
+<text x="0" y="21" class="key hold">anchor</text>
 </g>
 <g transform="translate(405, 30)" class="key trans keypos-6">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1553,17 +1580,17 @@ text.layer-activator {
 <g transform="translate(735, 30)" class="key keypos-8">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap"><tspan style="font-size: 86%">Outside</tspan></text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
+<text x="0" y="18" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
 </g>
 <g transform="translate(795, 30)" class="key keypos-9">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Inside</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
 </g>
 <g transform="translate(855, 30)" class="key keypos-10">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">None</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">borders</tspan></text>
 </g>
 <g transform="translate(915, 30)" class="key trans keypos-11">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1576,7 +1603,7 @@ text.layer-activator {
 <g transform="translate(1042, 45)" class="key keypos-13">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
 <text x="0" y="0" class="key tap">−Col</text>
-<text x="0" y="26" class="key hold">delete</text>
+<text x="0" y="21" class="key hold">delete</text>
 </g>
 <g transform="translate(38, 105)" class="key trans keypos-14">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1585,67 +1612,67 @@ text.layer-activator {
 <g transform="translate(105, 105)" class="key keypos-15">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Uni</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">formula</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">formula</tspan></text>
 </g>
 <g transform="translate(165, 90)" class="key keypos-16">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <use href="#mdi:fullscreen" xlink:href="#mdi:fullscreen" x="-9" y="-9" height="18" width="18.0" class="key tap glyph mdi:fullscreen"/>
-<text x="0" y="26" class="key hold">view</text>
+<text x="0" y="21" class="key hold">view</text>
 </g>
 <g transform="translate(225, 90)" class="key keypos-17">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">⇥</text>
-<text x="0" y="26" class="key hold">indent</text>
+<text x="0" y="21" class="key hold">indent</text>
 </g>
 <g transform="translate(285, 90)" class="key keypos-18">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">+Grp</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">outline</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">outline</tspan></text>
 </g>
 <g transform="translate(345, 90)" class="key keypos-19">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">+Col</text>
-<text x="0" y="26" class="key hold">insert</text>
+<text x="0" y="21" class="key hold">insert</text>
 </g>
 <g transform="translate(405, 90)" class="key keypos-20">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Col↔</text>
-<text x="0" y="26" class="key hold">size</text>
+<text x="0" y="21" class="key hold">size</text>
 </g>
 <g transform="translate(675, 90)" class="key keypos-21">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">←</text>
-<text x="0" y="26" class="key hold">sheets</text>
+<text x="0" y="21" class="key hold">sheets</text>
 </g>
 <g transform="translate(735, 90)" class="key keypos-22">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">+</text>
-<text x="0" y="26" class="key hold">zoom</text>
+<text x="0" y="21" class="key hold">zoom</text>
 </g>
 <g transform="translate(795, 90)" class="key keypos-23">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">±</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">formula</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">formula</tspan></text>
 </g>
 <g transform="translate(855, 90)" class="key keypos-24">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">=</text>
-<text x="0" y="26" class="key hold">paste</text>
+<text x="0" y="21" class="key hold">paste</text>
 </g>
 <g transform="translate(915, 90)" class="key keypos-25">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Y/N</text>
-<text x="0" y="26" class="key hold">format</text>
+<text x="0" y="21" class="key hold">format</text>
 </g>
 <g transform="translate(975, 105)" class="key keypos-26">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">B/K</text>
-<text x="0" y="26" class="key hold">font</text>
+<text x="0" y="21" class="key hold">font</text>
 </g>
 <g transform="translate(1042, 105)" class="key keypos-27">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
 <text x="0" y="0" class="key tap">−Row</text>
-<text x="0" y="26" class="key hold">delete</text>
+<text x="0" y="21" class="key hold">delete</text>
 </g>
 <g transform="translate(38, 165)" class="key trans keypos-28">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1654,32 +1681,32 @@ text.layer-activator {
 <g transform="translate(105, 165)" class="key keypos-29">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Auto</text>
-<text x="0" y="26" class="key hold">color</text>
+<text x="0" y="21" class="key hold">color</text>
 </g>
 <g transform="translate(165, 150)" class="key keypos-30">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">→</text>
-<text x="0" y="26" class="key hold">fill</text>
+<text x="0" y="21" class="key hold">fill</text>
 </g>
 <g transform="translate(225, 150)" class="key keypos-31">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Save</text>
-<text x="0" y="26" class="key hold">file</text>
+<text x="0" y="21" class="key hold">file</text>
 </g>
 <g transform="translate(285, 150)" class="key keypos-32">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">A1</text>
-<text x="0" y="26" class="key hold">sheets</text>
+<text x="0" y="21" class="key hold">sheets</text>
 </g>
 <g transform="translate(345, 150)" class="key keypos-33">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">+Row</text>
-<text x="0" y="26" class="key hold">insert</text>
+<text x="0" y="21" class="key hold">insert</text>
 </g>
 <g transform="translate(405, 150)" class="key keypos-34">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Row↕</text>
-<text x="0" y="26" class="key hold">size</text>
+<text x="0" y="21" class="key hold">size</text>
 </g>
 <g transform="translate(423, 300) rotate(15.0)" class="key trans keypos-35">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1700,32 +1727,32 @@ text.layer-activator {
 <g transform="translate(675, 150)" class="key keypos-39">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">→</text>
-<text x="0" y="26" class="key hold">sheets</text>
+<text x="0" y="21" class="key hold">sheets</text>
 </g>
 <g transform="translate(735, 150)" class="key keypos-40">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">−</text>
-<text x="0" y="26" class="key hold">zoom</text>
+<text x="0" y="21" class="key hold">zoom</text>
 </g>
 <g transform="translate(795, 150)" class="key keypos-41">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">↕</text>
-<text x="0" y="26" class="key hold">align</text>
+<text x="0" y="21" class="key hold">align</text>
 </g>
 <g transform="translate(855, 150)" class="key keypos-42">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Err</text>
-<text x="0" y="26" class="key hold">wrap</text>
+<text x="0" y="21" class="key hold">wrap</text>
 </g>
 <g transform="translate(915, 150)" class="key keypos-43">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Note</text>
-<text x="0" y="26" class="key hold">insert</text>
+<text x="0" y="21" class="key hold">insert</text>
 </g>
 <g transform="translate(975, 165)" class="key keypos-44">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Font</text>
-<text x="0" y="26" class="key hold">color</text>
+<text x="0" y="21" class="key hold">color</text>
 </g>
 <g transform="translate(1042, 165)" class="key trans keypos-45">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1738,27 +1765,27 @@ text.layer-activator {
 <g transform="translate(105, 225)" class="key keypos-47">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Print</text>
-<text x="0" y="26" class="key hold">area</text>
+<text x="0" y="21" class="key hold">area</text>
 </g>
 <g transform="translate(165, 210)" class="key keypos-48">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Find</text>
-<text x="0" y="26" class="key hold">super</text>
+<text x="0" y="21" class="key hold">super</text>
 </g>
 <g transform="translate(225, 210)" class="key keypos-49">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Ctr</text>
-<text x="0" y="26" class="key hold">align</text>
+<text x="0" y="21" class="key hold">align</text>
 </g>
 <g transform="translate(285, 210)" class="key keypos-50">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">↓</text>
-<text x="0" y="26" class="key hold">fill</text>
+<text x="0" y="21" class="key hold">fill</text>
 </g>
 <g transform="translate(345, 210)" class="key keypos-51">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Ins</text>
-<text x="0" y="26" class="key hold">paste</text>
+<text x="0" y="21" class="key hold">paste</text>
 </g>
 <g transform="translate(466, 374) rotate(15.0)" class="key held layer4 keypos-52">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer4"/>
@@ -1769,32 +1796,32 @@ text.layer-activator {
 <g transform="translate(735, 210)" class="key keypos-54">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Fill</text>
-<text x="0" y="26" class="key hold">color</text>
+<text x="0" y="21" class="key hold">color</text>
 </g>
 <g transform="translate(795, 210)" class="key keypos-55">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">↔</text>
-<text x="0" y="26" class="key hold">align</text>
+<text x="0" y="21" class="key hold">align</text>
 </g>
 <g transform="translate(855, 210)" class="key keypos-56">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">.0+</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
 </g>
 <g transform="translate(915, 210)" class="key keypos-57">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">.0−</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
 </g>
 <g transform="translate(975, 225)" class="key keypos-58">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">←.</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
 </g>
 <g transform="translate(1042, 225)" class="key keypos-59">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key"/>
 <text x="0" y="0" class="key tap">.→</text>
-<text x="0" y="26" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
+<text x="0" y="21" class="key hold"><tspan style="font-size: 86%">decimal</tspan></text>
 </g>
 <g transform="translate(38, 285)" class="key trans keypos-60">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>
@@ -1807,17 +1834,17 @@ text.layer-activator {
 <g transform="translate(165, 270)" class="key keypos-62">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Fmt</text>
-<text x="0" y="26" class="key hold">paste</text>
+<text x="0" y="21" class="key hold">paste</text>
 </g>
 <g transform="translate(225, 270)" class="key keypos-63">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Left</text>
-<text x="0" y="26" class="key hold">border</text>
+<text x="0" y="21" class="key hold">border</text>
 </g>
 <g transform="translate(285, 270)" class="key keypos-64">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Right</text>
-<text x="0" y="26" class="key hold">border</text>
+<text x="0" y="21" class="key hold">border</text>
 </g>
 <g transform="translate(342, 371) rotate(15.0)" class="key trans keypos-65">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key trans"/>
@@ -1846,22 +1873,22 @@ text.layer-activator {
 <g transform="translate(795, 270)" class="key keypos-71">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Top</text>
-<text x="0" y="26" class="key hold">border</text>
+<text x="0" y="21" class="key hold">border</text>
 </g>
 <g transform="translate(855, 270)" class="key keypos-72">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">Bottom</text>
-<text x="0" y="26" class="key hold">border</text>
+<text x="0" y="21" class="key hold">border</text>
 </g>
 <g transform="translate(915, 270)" class="key keypos-73">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">←ƒ</text>
-<text x="0" y="26" class="key hold">trace</text>
+<text x="0" y="21" class="key hold">trace</text>
 </g>
 <g transform="translate(975, 285)" class="key keypos-74">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">ƒ→</text>
-<text x="0" y="26" class="key hold">trace</text>
+<text x="0" y="21" class="key hold">trace</text>
 </g>
 <g transform="translate(1042, 285)" class="key trans keypos-75">
 <rect rx="6" ry="6" x="-36" y="-28" width="71" height="56" class="key trans"/>

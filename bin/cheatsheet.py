@@ -46,6 +46,8 @@ text.layer-activator { text-decoration: none; }
 text.hold.nvim, text.legend.nvim { fill: #1a7f37; }
 text.hold.tmux, text.legend.tmux { fill: #0b5cad; }
 text.legend { font-size: 13px; text-anchor: start; }
+tspan.modicon { font-size: 140%; }
+tspan.modicon.ctrl { font-size: 220%; baseline-shift: -0.3em; }
 /* one color per layer: its keys on Base and its held thumbs on its own drawing
    (after .held, same specificity). Dark theme: keymap_drawer.config.yaml */
 rect.key.layer1 { fill: #f0c96e; }
@@ -94,6 +96,47 @@ def legend(svg):
     return "".join(parts)
 
 
+HOLD_LIFT = 5  # px: keymap-drawer pins the bottom line 2px off the key's edge
+WRAP_LIFT = 2  # px: a two-line label moves up too, to keep a gap above it
+SHRUNK_LIFT = 3  # px more for a label shrunk to fit: it is shorter, the gap was wider
+
+
+def tighten(svg):
+    """Pull a key's bottom (hold) line up toward its centered label. keymap-drawer
+    pins it near the key's edge, which leaves a gap under a one-line label; its
+    inner_pad_h would move it, but shrinks the key with it"""
+    def lift(text, by):
+        return re.sub(r'^(<text x="[^"]*" y=")(-?[\d.]+)', lambda m: f"{m.group(1)}{float(m.group(2)) - by:g}", text)
+
+    def key(m):
+        block = m.group(0)
+        if ' hold">' not in block:
+            return block
+        # keymap-drawer's tspans: a line of a wrapped label carries dy, a shrunk one a style
+        tap = re.search(r'<text [^>]* tap">\s*(<tspan[^>]*>)?', block)
+        wrapped = bool(tap and tap.group(1) and "dy=" in tap.group(1))
+        shrunk = bool(tap and tap.group(1) and "font-size" in tap.group(1))
+        hold = HOLD_LIFT + (SHRUNK_LIFT if shrunk and not wrapped else 0)
+        block = re.sub(r'<text [^>]* hold">', lambda t: lift(t.group(0), hold), block)
+        if wrapped:
+            block = re.sub(r'<text [^>]* tap">', lambda t: lift(t.group(0), WRAP_LIFT), block)
+        return block
+    return re.sub(r'<g transform="[^"]*" class="key [^"]*">.*?</g>', key, svg, flags=re.S)
+
+
+MOD_ICONS = re.compile("([⌃⌥⇧⌘])")
+
+
+def enlarge_icons(svg):
+    """Modifier icons (⌃ ⌥ ⇧ ⌘) are small in JetBrains Mono, ⌃ reads as a ^: draw
+    them larger than the name next to them (tspan.modicon in both styles)"""
+    def icon(m):
+        # ⌃ is a short caret at the top of the line: its own class sizes it up and drops it
+        return f'<tspan class="modicon{" ctrl" if m.group(1) == "⌃" else ""}">{m.group(1)}</tspan>'
+    return re.sub(r"(<(?:text|tspan)\b[^>]*>)([^<]+)",
+                  lambda m: m.group(1) + MOD_ICONS.sub(icon, m.group(2)), svg)
+
+
 def draw(config, keymap, *args):
     # keymap-drawer wraps each $$mdi:...$$ icon in an <svg id="mdi:..."> with no
     # viewBox; browsers cope, librsvg draws nothing. MDI icons are on a 24 grid.
@@ -102,7 +145,7 @@ def draw(config, keymap, *args):
     # legends only: text and tspan content, unescaped first so &amp; stays one character
     svg = re.sub(r"(<(?:text|tspan)\b[^>]*>)([^<]+)",
                  lambda m: m.group(1) + html.escape(unligate(html.unescape(m.group(2))), quote=False), svg)
-    return legend(svg)
+    return legend(tighten(enlarge_icons(svg)))
 
 
 def svg_size(svg):
