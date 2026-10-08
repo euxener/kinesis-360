@@ -42,11 +42,9 @@ rect.key.held { fill: #a9b0b8; }
 text.hold { fill: #a0001c; }
 text.label { font-size: 18px; }
 text.layer-activator { text-decoration: none; }
-/* Nav macros: shortcut, words and tag in one key. Same sizes in the dark theme */
-text.macro.tap { font-size: 10px; }
-text.macro.shifted, text.macro.hold { font-size: 8px; }
-text.key.nvim, text.legend.nvim { fill: #1a7f37; }
-text.key.tmux, text.legend.tmux { fill: #0b5cad; }
+/* Nav macros: the tool's color on the keys line only, as in the dark theme */
+text.hold.nvim, text.legend.nvim { fill: #1a7f37; }
+text.hold.tmux, text.legend.tmux { fill: #0b5cad; }
 text.legend { font-size: 13px; text-anchor: start; }
 /* one color per layer: its keys on Base and its held thumbs on its own drawing
    (after .held, same specificity). Dark theme: keymap_drawer.config.yaml */

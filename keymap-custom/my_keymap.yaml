@@ -233,43 +233,39 @@ layers:
   - t: ▽
     type: trans
   - t: Last file
-    s: C-^
+    h: C-^
     type: macro nvim
   - t: Error
-    h: ← prev
-    s: '[e'
+    h: ← [e
     type: macro nvim
   - t: Error
-    h: next →
-    s: ']e'
+    h: ']e →'
     type: macro nvim
   - t: Function
-    h: ← prev
-    s: '[f'
+    h: ← [f
     type: macro nvim
   - t: Function
-    h: next →
-    s: ']f'
+    h: ']f →'
     type: macro nvim
   - t: ▽
     type: trans
   - t: Last window
-    s: C-a ⇥
+    h: C-a ⇥
     type: macro tmux
   - t: Prefix
-    s: C-a
+    h: C-a
     type: macro tmux
   - t: Save
-    s: C-s
+    h: C-s
     type: macro nvim
   - t: Open project
-    s: C-a f
+    h: C-a f
     type: macro tmux
   - t: Scroll
-    s: C-a [
+    h: C-a [
     type: macro tmux
   - t: Last session
-    s: C-a ⌫
+    h: C-a ⌫
     type: macro tmux
   - t: ▽
     type: trans
@@ -280,12 +276,10 @@ layers:
   - PgUp
   - End
   - t: Quickfix
-    h: ← prev
-    s: '[q'
+    h: ← [q
     type: macro nvim
   - t: Quickfix
-    h: next →
-    s: ']q'
+    h: ']q →'
     type: macro nvim
   - t: ▽
     type: trans
@@ -294,7 +288,7 @@ layers:
   - ⌘
   - ⇧
   - t: Git UI
-    s: C-a g
+    h: C-a g
     type: macro tmux
   - t: ▽
     type: trans
@@ -311,55 +305,49 @@ layers:
   - ↑
   - →
   - t: Jump back
-    s: C-o
+    h: C-o
     type: macro nvim
   - t: Jump fwd
-    s: C-i
+    h: C-i
     type: macro nvim
   - t: ▽
     type: trans
   - t: Zoom
-    s: C-a z
+    h: C-a z
     type: macro tmux
   - t: Redo
-    s: C-r
+    h: C-r
     type: macro nvim
   - t: New window
-    s: C-a c
+    h: C-a c
     type: macro tmux
   - t: Split ↓
-    s: C-a -
+    h: C-a -
     type: macro tmux
   - t: Split →
-    s: C-a |
+    h: C-a |
     type: macro tmux
   - t: ▽
     type: trans
   - t: ▽
     type: trans
   - t: Any issue
-    h: ← prev
-    s: '[d'
+    h: ← [d
     type: macro nvim
   - t: Any issue
-    h: next →
-    s: ']d'
+    h: ']d →'
     type: macro nvim
   - t: Git change
-    h: ← prev
-    s: '[h'
+    h: ← [h
     type: macro nvim
   - t: Git change
-    h: next →
-    s: ']h'
+    h: ']h →'
     type: macro nvim
   - t: TODO
-    h: ← prev
-    s: '[t'
+    h: ← [t
     type: macro nvim
   - t: TODO
-    h: next →
-    s: ']t'
+    h: ']t →'
     type: macro nvim
   - t: ▽
     type: trans
@@ -388,12 +376,10 @@ layers:
   - t: ▽
     type: trans
   - t: Same word
-    h: ← prev
-    s: '[['
+    h: ← [[
     type: macro nvim
   - t: Same word
-    h: next →
-    s: ']]'
+    h: ']] →'
     type: macro nvim
   - t: ▽
     type: trans
@@ -509,12 +495,12 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: □
-    h: border
-  - t: ⊞
-    h: border
-  - t: $$mdi:border-none-variant$$
-    h: border
+  - t: Outside
+    h: borders
+  - t: Inside
+    h: borders
+  - t: None
+    h: borders
   - t: ▽
     type: trans
   - t: ▽
@@ -617,9 +603,9 @@ layers:
     type: trans
   - t: Fmt
     h: paste
-  - t: ▏
+  - t: Left
     h: border
-  - t: ▕
+  - t: Right
     h: border
   - t: ▽
     type: trans
@@ -633,9 +619,9 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▔
+  - t: Top
     h: border
-  - t: ▁
+  - t: Bottom
     h: border
   - t: ←ƒ
     h: trace

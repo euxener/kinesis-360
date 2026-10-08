@@ -7,11 +7,8 @@ draw_config:
   key_h: 60
   # $$mdi:...$$ icons (media, lock, snip), drawn at roughly the legend's height
   glyph_tap_size: 18
-  # Legends longer than this shrink to fit the key (keymap-drawer's default is 7).
-  # 8: the Nav macros' smaller font fits Function and Quickfix unshrunk
-  shrink_wide_legends: 8
-  # Room between a key's border and its top (shortcut) and bottom (hold) lines
-  inner_pad_h: 4
+  # Legends longer than this shrink to fit the key (keymap-drawer's default is 7)
+  shrink_wide_legends: 6
   split_gap: 30
 
   # Styling
@@ -71,12 +68,10 @@ draw_config:
     rect.combo {
       fill: #2d4059;
     }
-    /* Nav macros: shortcut, words and tag in one key. Same sizes in bin/cheatsheet.py */
-    text.macro.tap { font-size: 10px; }
-    text.macro.shifted, text.macro.hold { font-size: 8px; }
-    /* tool colors: text.key.X outranks text.hold, so every line of the key takes it */
-    text.key.nvim, text.legend.nvim { fill: #7ee787; }
-    text.key.tmux, text.legend.tmux { fill: #79b8ff; }
+    /* tool colors on the keys line only (text.hold.X outranks text.hold); the words
+       keep the theme's color */
+    text.hold.nvim, text.legend.nvim { fill: #7ee787; }
+    text.hold.tmux, text.legend.tmux { fill: #a5d6ff; }
     text.legend { font-size: 12px; text-anchor: start; }
     /* layer keys are colored by layer (below), so no underline */
     text.layer-activator {
@@ -172,13 +167,14 @@ parse_config:
     "&mcb_center_cycle": { t: 'Ctr', h: 'align' }
     "&mcb_horiz_cycle": { t: '↔', h: 'align' }
     "&mcb_vert_cycle": { t: '↕', h: 'align' }
-    "&mcb_top_border": { t: '▔', h: 'border' }
-    "&mcb_bottom_border": { t: '▁', h: 'border' }
-    "&mcb_left_border": { t: '▏', h: 'border' }
-    "&mcb_right_border": { t: '▕', h: 'border' }
-    "&mcb_outside_borders": { t: '□', h: 'border' }
-    "&mcb_inside_borders": { t: '⊞', h: 'border' }
-    "&mcb_no_borders": { t: '$$mdi:border-none-variant$$', h: 'border' }
+    # Borders in words: the glyphs (▔ ▁ ▏ ▕ □ ⊞) were too thin to tell apart in print
+    "&mcb_top_border": { t: 'Top', h: 'border' }
+    "&mcb_bottom_border": { t: 'Bottom', h: 'border' }
+    "&mcb_left_border": { t: 'Left', h: 'border' }
+    "&mcb_right_border": { t: 'Right', h: 'border' }
+    "&mcb_outside_borders": { t: 'Outside', h: 'borders' }
+    "&mcb_inside_borders": { t: 'Inside', h: 'borders' }
+    "&mcb_no_borders": { t: 'None', h: 'borders' }
     "&mcb_fill_right": { t: '→', h: 'fill' }
     "&mcb_fill_down": { t: '↓', h: 'fill' }
     "&mcb_error_wrap": { t: 'Err', h: 'wrap' }
@@ -212,45 +208,45 @@ parse_config:
     "&mcb_delete_col": { t: '−Col', h: 'delete' }
     "&mcb_paste_insert": { t: 'Ins', h: 'paste' }
 
-    # Nav macros are type "macro": up to three lines in one key, so a smaller font, and
-    # "tmux" or "nvim": the text takes the tool's color, keyed by a legend next to the
-    # layer's heading (bin/cheatsheet.py draws it; colors in svg_extra_style and there)
-    # Macros - tmux (Nav, left half): what it does, the keys on top.
+    # Nav macros are type "macro tmux" or "macro nvim": the keys line takes the tool's
+    # color, keyed by a legend next to the layer's heading (bin/cheatsheet.py draws it;
+    # colors in svg_extra_style and there)
+    # Macros - tmux (Nav, left half): what it does, the keys it types under it.
     # keymap-drawer puts each word on its own line (any whitespace, no-break too)
-    "&tm_prefix": { t: 'Prefix', s: 'C-a', type: macro tmux }
-    "&tm_last_window": { t: 'Last window', s: 'C-a ⇥', type: macro tmux }
-    "&tm_last_session": { t: 'Last session', s: 'C-a ⌫', type: macro tmux }
-    "&tm_sessionizer": { t: 'Open project', s: 'C-a f', type: macro tmux }
-    "&tm_copy_mode": { t: 'Scroll', s: 'C-a [', type: macro tmux }
-    "&tm_lazygit": { t: 'Git UI', s: 'C-a g', type: macro tmux }
-    "&tm_zoom": { t: 'Zoom', s: 'C-a z', type: macro tmux }
-    "&tm_new_window": { t: 'New window', s: 'C-a c', type: macro tmux }
-    "&tm_split_down": { t: 'Split ↓', s: 'C-a -', type: macro tmux }
-    "&tm_split_right": { t: 'Split →', s: 'C-a |', type: macro tmux }
+    "&tm_prefix": { t: 'Prefix', h: 'C-a', type: macro tmux }
+    "&tm_last_window": { t: 'Last window', h: 'C-a ⇥', type: macro tmux }
+    "&tm_last_session": { t: 'Last session', h: 'C-a ⌫', type: macro tmux }
+    "&tm_sessionizer": { t: 'Open project', h: 'C-a f', type: macro tmux }
+    "&tm_copy_mode": { t: 'Scroll', h: 'C-a [', type: macro tmux }
+    "&tm_lazygit": { t: 'Git UI', h: 'C-a g', type: macro tmux }
+    "&tm_zoom": { t: 'Zoom', h: 'C-a z', type: macro tmux }
+    "&tm_new_window": { t: 'New window', h: 'C-a c', type: macro tmux }
+    "&tm_split_down": { t: 'Split ↓', h: 'C-a -', type: macro tmux }
+    "&tm_split_right": { t: 'Split →', h: 'C-a |', type: macro tmux }
 
-    # Macros - Neovim (Nav): what it jumps to, "← prev" / "next →" under it, the keys on
-    # top. Any issue is any diagnostic, Error only errors, Git change a gitsigns hunk,
+    # Macros - Neovim (Nav): what it does, the keys under it; a prev/next pair carries
+    # the direction there too ("← [d", "]d →"). Any issue is any diagnostic, Error only errors, Git change a gitsigns hunk,
     # Quickfix an entry of the quickfix list (grep, :make), Same word the LSP references of the word
     # under the cursor, Jump back/fwd the jumplist
-    "&nv_prev_diag": { t: 'Any issue', h: '← prev', s: '[d', type: macro nvim }
-    "&nv_next_diag": { t: 'Any issue', h: 'next →', s: ']d', type: macro nvim }
-    "&nv_prev_error": { t: 'Error', h: '← prev', s: '[e', type: macro nvim }
-    "&nv_next_error": { t: 'Error', h: 'next →', s: ']e', type: macro nvim }
-    "&nv_prev_hunk": { t: 'Git change', h: '← prev', s: '[h', type: macro nvim }
-    "&nv_next_hunk": { t: 'Git change', h: 'next →', s: ']h', type: macro nvim }
-    "&nv_prev_qf": { t: 'Quickfix', h: '← prev', s: '[q', type: macro nvim }
-    "&nv_next_qf": { t: 'Quickfix', h: 'next →', s: ']q', type: macro nvim }
-    "&nv_prev_todo": { t: 'TODO', h: '← prev', s: '[t', type: macro nvim }
-    "&nv_next_todo": { t: 'TODO', h: 'next →', s: ']t', type: macro nvim }
-    "&nv_prev_ref": { t: 'Same word', h: '← prev', s: '[[', type: macro nvim }
-    "&nv_next_ref": { t: 'Same word', h: 'next →', s: ']]', type: macro nvim }
-    "&nv_prev_func": { t: 'Function', h: '← prev', s: '[f', type: macro nvim }
-    "&nv_next_func": { t: 'Function', h: 'next →', s: ']f', type: macro nvim }
-    "&nv_jump_back": { t: 'Jump back', s: 'C-o', type: macro nvim }
-    "&nv_jump_fwd": { t: 'Jump fwd', s: 'C-i', type: macro nvim }
-    "&nv_alt_file": { t: 'Last file', s: 'C-^', type: macro nvim }
-    "&nv_save": { t: 'Save', s: 'C-s', type: macro nvim }
-    "&nv_redo": { t: 'Redo', s: 'C-r', type: macro nvim }
+    "&nv_prev_diag": { t: 'Any issue', h: '← [d', type: macro nvim }
+    "&nv_next_diag": { t: 'Any issue', h: ']d →', type: macro nvim }
+    "&nv_prev_error": { t: 'Error', h: '← [e', type: macro nvim }
+    "&nv_next_error": { t: 'Error', h: ']e →', type: macro nvim }
+    "&nv_prev_hunk": { t: 'Git change', h: '← [h', type: macro nvim }
+    "&nv_next_hunk": { t: 'Git change', h: ']h →', type: macro nvim }
+    "&nv_prev_qf": { t: 'Quickfix', h: '← [q', type: macro nvim }
+    "&nv_next_qf": { t: 'Quickfix', h: ']q →', type: macro nvim }
+    "&nv_prev_todo": { t: 'TODO', h: '← [t', type: macro nvim }
+    "&nv_next_todo": { t: 'TODO', h: ']t →', type: macro nvim }
+    "&nv_prev_ref": { t: 'Same word', h: '← [[', type: macro nvim }
+    "&nv_next_ref": { t: 'Same word', h: ']] →', type: macro nvim }
+    "&nv_prev_func": { t: 'Function', h: '← [f', type: macro nvim }
+    "&nv_next_func": { t: 'Function', h: ']f →', type: macro nvim }
+    "&nv_jump_back": { t: 'Jump back', h: 'C-o', type: macro nvim }
+    "&nv_jump_fwd": { t: 'Jump fwd', h: 'C-i', type: macro nvim }
+    "&nv_alt_file": { t: 'Last file', h: 'C-^', type: macro nvim }
+    "&nv_save": { t: 'Save', h: 'C-s', type: macro nvim }
+    "&nv_redo": { t: 'Redo', h: 'C-r', type: macro nvim }
 
     # System
     "&studio_unlock": { t: 'Studio', h: 'unlock' }
