@@ -7,11 +7,13 @@ draw_config:
   key_h: 60
   # $$mdi:...$$ icons (media, lock, snip), drawn at roughly the legend's height
   glyph_tap_size: 18
+  # Legends longer than this shrink to fit the key (keymap-drawer's default is 7)
+  shrink_wide_legends: 6
   split_gap: 30
 
   # Styling
   outer_pad_w: 10
-  outer_pad_h: 10
+  outer_pad_h: 20  # room above the first layer's heading
 
   # Dark theme on top of keymap-drawer's built-in style. svg_extra_style, not
   # svg_style: svg_style replaces the built-in one and drops its text centering
@@ -21,7 +23,7 @@ draw_config:
     }
     /* On text, not svg: the built-in style sets the font on text. Ubuntu's
        fonts-jetbrains-mono is "JetBrains Mono", Omarchy ships the Nerd build.
-       Same list in bin/cheatsheet.py */
+       Same list in bin/cheatsheet.py, which also breaks the font's ligatures */
     text {
       font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
     }
@@ -31,9 +33,21 @@ draw_config:
       stroke-width: 1;
       rx: 6;
     }
+    /* neutral: layer keys carry their layer's color below, so plain .held is only
+       the combo diagram's keys, which must not read as a layer */
     rect.key.held {
-      fill: #533483;
+      fill: #3d4b6b;
     }
+    /* One color per layer, set by bin/cheatsheet.py: a layer's keys on Base and its
+       held thumbs on its own drawing. After .held, same specificity. Print colors
+       in bin/cheatsheet.py */
+    rect.key.layer1 { fill: #7a5a12; }
+    rect.key.layer2 { fill: #533483; }
+    rect.key.layer3 { fill: #7a2a3a; }
+    rect.key.layer4 { fill: #1e6b3c; }
+    rect.key.layer5 { fill: #145f6b; }
+    /* text.key.layerN outranks text.hold, so the toggle's sublabel turns light too */
+    text.key.layer1, text.key.layer2, text.key.layer3, text.key.layer4, text.key.layer5 { fill: #f5f5f5; }
     text {
       fill: #e4e4e4;
     }
@@ -54,9 +68,13 @@ draw_config:
     rect.combo {
       fill: #2d4059;
     }
+    /* layer keys are colored by layer (below), so no underline */
+    text.layer-activator {
+      text-decoration: none;
+    }
 
-  # Show hold-tap behaviors
-  separate_combo_diagrams: true
+  # The combo drawn on its keys, as on the cheatsheet
+  separate_combo_diagrams: false
   combo_w: 28
   combo_h: 22
 
@@ -120,9 +138,9 @@ parse_config:
 
     # Macros - OS shortcuts
     "&Win_Lock_PC": { t: '$$mdi:lock$$', h: Win }
-    "&Win_Snip_Tool": { t: '$$mdi:camera$$', h: Win }
+    "&Win_Snip_Tool": { t: '$$mdi:monitor-screenshot$$', h: Win }
     "&Mac_Lock_PC": { t: '$$mdi:lock$$', h: Mac }
-    "&Mac_Snip_Tool": { t: '$$mdi:camera$$', h: Mac }
+    "&Mac_Snip_Tool": { t: '$$mdi:monitor-screenshot$$', h: Mac }
     "&macro_ver": "Version"
     "&Double_Click": { t: '$$mdi:mouse$$', h: 2× click }
 
@@ -163,7 +181,9 @@ parse_config:
     "&mcb_smart_print": { t: 'Print', h: 'area' }
     "&mcb_activate_sheet": { t: 'A1', h: 'sheets' }
     "&mcb_next_sheet": { t: '→', h: 'sheets' }
-    "&mcb_last_sheet": { t: '←', h: 'sheets' }
+    "&mcb_prev_sheet": { t: '←', h: 'sheets' }
+    "&mcb_alt_shade_cycle": { t: 'Shade', h: 'alt rows' }
+    "&mcb_left_indent_cycle": { t: '⇥', h: 'indent' }
     "&mcb_row_height": { t: 'Row↕', h: 'size' }
     "&mcb_col_width": { t: 'Col↔', h: 'size' }
     "&mcb_export_match_both": { t: 'Both', h: 'export' }
@@ -182,14 +202,52 @@ parse_config:
     "&mcb_delete_col": { t: '−Col', h: 'delete' }
     "&mcb_paste_insert": { t: 'Ins', h: 'paste' }
 
+    # Macros - tmux (Nav, left half): what it does, "tmux" under it, the keys on top.
+    # keymap-drawer puts each word on its own line (any whitespace, no-break too)
+    "&tm_prefix": { t: 'Prefix', h: 'tmux', s: 'C-a' }
+    "&tm_last_window": { t: 'Last window', h: 'tmux', s: 'C-a ⇥' }
+    "&tm_last_session": { t: 'Last session', h: 'tmux', s: 'C-a ⌫' }
+    "&tm_sessionizer": { t: 'Open project', h: 'tmux', s: 'C-a f' }
+    "&tm_copy_mode": { t: 'Scroll', h: 'tmux', s: 'C-a [' }
+    "&tm_lazygit": { t: 'Git UI', h: 'tmux', s: 'C-a g' }
+    "&tm_zoom": { t: 'Zoom', h: 'tmux', s: 'C-a z' }
+    "&tm_new_window": { t: 'New window', h: 'tmux', s: 'C-a c' }
+    "&tm_split_down": { t: 'Split ↓', h: 'tmux', s: 'C-a -' }
+    "&tm_split_right": { t: 'Split →', h: 'tmux', s: 'C-a |' }
+
+    # Macros - Neovim (Nav): what it jumps to, "← prev" / "next →" under it, the keys on
+    # top. Any issue is any diagnostic, Error only errors, Git change a gitsigns hunk,
+    # Quickfix an entry of the quickfix list (grep, :make), Same word the LSP references of the word
+    # under the cursor, Jump back/fwd the jumplist. Single keys say "nvim"
+    "&nv_prev_diag": { t: 'Any issue', h: '← prev', s: '[d' }
+    "&nv_next_diag": { t: 'Any issue', h: 'next →', s: ']d' }
+    "&nv_prev_error": { t: 'Error', h: '← prev', s: '[e' }
+    "&nv_next_error": { t: 'Error', h: 'next →', s: ']e' }
+    "&nv_prev_hunk": { t: 'Git change', h: '← prev', s: '[h' }
+    "&nv_next_hunk": { t: 'Git change', h: 'next →', s: ']h' }
+    "&nv_prev_qf": { t: 'Quickfix', h: '← prev', s: '[q' }
+    "&nv_next_qf": { t: 'Quickfix', h: 'next →', s: ']q' }
+    "&nv_prev_todo": { t: 'TODO', h: '← prev', s: '[t' }
+    "&nv_next_todo": { t: 'TODO', h: 'next →', s: ']t' }
+    "&nv_prev_ref": { t: 'Same word', h: '← prev', s: '[[' }
+    "&nv_next_ref": { t: 'Same word', h: 'next →', s: ']]' }
+    "&nv_prev_func": { t: 'Function', h: '← prev', s: '[f' }
+    "&nv_next_func": { t: 'Function', h: 'next →', s: ']f' }
+    "&nv_jump_back": { t: 'Jump back', h: 'nvim', s: 'C-o' }
+    "&nv_jump_fwd": { t: 'Jump fwd', h: 'nvim', s: 'C-i' }
+    "&nv_alt_file": { t: 'Last file', h: 'nvim', s: 'C-^' }
+    "&nv_save": { t: 'Save', h: 'nvim', s: 'C-s' }
+    "&nv_redo": { t: 'Redo', h: 'nvim', s: 'C-r' }
+
     # System
-    "&studio_unlock": "Studio"
+    "&studio_unlock": { t: 'Studio', h: 'unlock' }
     "&stp STP_BAT": "Battery"
     "&bootloader": "Boot"
-    "&bt BT_CLR": "BT Clear"
-    "&bl BL_TOG": "BL Tog"
-    "&bl BL_INC": "BL +"
-    "&bl BL_DEC": "BL -"
+    # name over detail, as keymap-drawer draws &bt BT_SEL n
+    "&bt BT_CLR": { t: 'BT', h: 'clear' }
+    "&bl BL_TOG": { t: 'BL', h: 'toggle' }
+    "&bl BL_INC": { t: 'BL', h: '+' }
+    "&bl BL_DEC": { t: 'BL', h: '−' }
     "&rgb_ug RGB_TOG": "RGB"
 
     # Common keys
@@ -199,8 +257,8 @@ parse_config:
     "&kp C_PP": '$$mdi:play-pause$$'
     "&kp C_PREV": '$$mdi:skip-previous$$'
     "&kp C_NEXT": '$$mdi:skip-next$$'
-    "&kp C_BRI_UP": '$$mdi:brightness-7$$'
-    "&kp C_BRI_DN": '$$mdi:brightness-5$$'
+    "&kp C_BRI_UP": { t: '$$mdi:brightness-7$$', h: 'bright' }
+    "&kp C_BRI_DN": { t: '$$mdi:brightness-5$$', h: 'dim' }
     "&kp C_AL_CALC": "Calc"
 
   # ZMK behavior mappings
@@ -263,7 +321,7 @@ parse_config:
     FSLH: "/"
 
     # Keypad
-    KP_NUM: "Num"
+    KP_NUM: "NumLk"
     KP_EQUAL: "="
     KP_DIVIDE: "÷"
     KP_MULTIPLY: "×"

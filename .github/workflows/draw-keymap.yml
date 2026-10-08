@@ -8,41 +8,38 @@ on:
       - 'config/**/*.dtsi'
       - 'keymap_drawer.config.yaml'
       - 'bin/cheatsheet.py'
+      - 'bin/test_cheatsheet.py'
   pull_request:
     paths:
       - 'config/*.keymap'
       - 'config/**/*.dtsi'
+      - 'keymap_drawer.config.yaml'
+      - 'bin/cheatsheet.py'
+      - 'bin/test_cheatsheet.py'
 
 jobs:
+  # keymap-custom/: the dark drawing (my_keymap.yaml/svg/png) and the print-ready
+  # PDF, both from bin/cheatsheet.py, committed so they never lag the keymap. A key
+  # with no label fails the render; bin/test_cheatsheet.py then holds every output
+  # to the keymap. A pull request renders as a check and commits nothing.
   draw:
-    # Pinned: the release commit and the same PyPI version, bump both together
-    # (and DRAWER in bin/cheatsheet.py)
-    uses: caksoylar/keymap-drawer/.github/workflows/draw-zmk.yml@a44809b8cc718cbff646641f49a8f71a9368336d # v0.23.0
-    with:
-      install_version: "0.23.0"
-      keymap_patterns: "config/adv360.keymap"
-      config_path: "keymap_drawer.config.yaml"
-      output_folder: "keymap-img"
-
-  # keymap-custom/: the print-ready PDF (bin/cheatsheet.py) and the dark PNG,
-  # committed like keymap-img so they never lag the keymap. Runs after draw and
-  # checks out the branch tip, so its commit lands on top of draw's.
-  custom:
-    needs: draw
-    if: github.event_name != 'pull_request'
     runs-on: ubuntu-latest
     permissions:
       contents: write
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.ref_name }}
+          # the branch tip on push, so the render commits on top; a PR keeps the default merge ref
+          ref: ${{ github.event_name != 'pull_request' && github.ref_name || '' }}
       - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
-      - name: Install librsvg, poppler and JetBrains Mono
-        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends librsvg2-bin poppler-utils fonts-jetbrains-mono
+      - name: Install librsvg, poppler, JetBrains Mono and PyYAML
+        run: sudo apt-get update && sudo apt-get install -y --no-install-recommends librsvg2-bin poppler-utils fonts-jetbrains-mono python3-yaml
       - name: Render keymap-custom (my_keymap.yaml/svg/png, cheatsheet.pdf)
         run: bin/cheatsheet.py letter
-      - uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
+      - name: Check labels, page order, layer colors and that every output matches
+        run: python3 bin/test_cheatsheet.py
+      - if: github.event_name != 'pull_request'
+        uses: stefanzweifel/git-auto-commit-action@b863ae1933cb653a53c021fe36dbb774e1fb9403 # v5
         with:
           commit_message: keymap-custom render
           file_pattern: keymap-custom/*

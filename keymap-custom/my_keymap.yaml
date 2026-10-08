@@ -1,4 +1,5 @@
-layout: {zmk_keyboard: adv360}
+layout:
+  zmk_keyboard: adv360
 layers:
   Base (Colemak-DH):
   - '='
@@ -7,8 +8,12 @@ layers:
   - '3'
   - '4'
   - '5'
-  - {t: Num+Fn, h: toggle}
-  - Mod
+  - &id001
+    t: Num+Fn
+    h: toggle
+    type: layer1
+  - t: Mod
+    type: layer3
   - '6'
   - '7'
   - '8'
@@ -30,22 +35,34 @@ layers:
   - ;
   - \
   - Esc
-  - {t: A, h: Ctrl}
-  - {t: R, h: Alt}
-  - {t: S, h: ⌘}
-  - {t: T, h: ⇧}
+  - t: A
+    h: Ctrl
+  - t: R
+    h: Alt
+  - t: S
+    h: ⌘
+  - t: T
+    h: ⇧
   - G
   - PgDn
-  - Num+Fn
-  - Nav
-  - Nav
-  - Num+Fn
+  - t: Num+Fn
+    type: layer1
+  - t: Nav
+    type: layer2
+  - t: Nav
+    type: layer2
+  - t: Num+Fn
+    type: layer1
   - End
   - M
-  - {t: N, h: ⇧}
-  - {t: E, h: ⌘}
-  - {t: I, h: AltGr}
-  - {t: O, h: Ctrl}
+  - t: N
+    h: ⇧
+  - t: E
+    h: ⌘
+  - t: I
+    h: AltGr
+  - t: O
+    h: Ctrl
   - ''''
   - ⇧
   - Z
@@ -53,8 +70,10 @@ layers:
   - C
   - D
   - V
-  - Excel
-  - Excel
+  - t: Excel
+    type: layer4
+  - t: Excel
+    type: layer4
   - K
   - H
   - ','
@@ -63,13 +82,16 @@ layers:
   - ⇧
   - Ctrl
   - '`'
-  - {t: Caps, s: 2×}
+  - t: Caps
+    s: 2×
   - ←
   - →
   - ⌫
   - Del
-  - Sym
-  - Sym
+  - t: Sym
+    type: layer5
+  - t: Sym
+    type: layer5
   - ↵
   - ␣
   - ↓
@@ -84,162 +106,297 @@ layers:
   - F4
   - F5
   - F6
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - Num
+  - *id001
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - NumLk
   - '='
   - ÷
   - ×
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
   - F7
   - F8
   - F9
   - F10
   - F11
   - F12
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '7'
   - '8'
   - '9'
   - '-'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - Ctrl
   - Alt
   - ⌘
   - ⇧
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held layer1
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held layer1
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '4'
   - '5'
   - '6'
   - +
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '1'
   - '2'
   - '3'
   - ↵
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '0'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - .
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   Nav:
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&nv_alt_file'
-  - '&nv_prev_error'
-  - '&nv_next_error'
-  - '&nv_prev_func'
-  - '&nv_next_func'
-  - {t: ▽, type: trans}
-  - '&tm_last_window'
-  - '&tm_prefix'
-  - '&nv_save'
-  - '&tm_sessionizer'
-  - '&tm_copy_mode'
-  - '&tm_last_session'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Last file
+    h: nvim
+    s: C-^
+  - t: Error
+    h: ← prev
+    s: '[e'
+  - t: Error
+    h: next →
+    s: ']e'
+  - t: Function
+    h: ← prev
+    s: '[f'
+  - t: Function
+    h: next →
+    s: ']f'
+  - t: ▽
+    type: trans
+  - t: Last window
+    h: tmux
+    s: C-a ⇥
+  - t: Prefix
+    h: tmux
+    s: C-a
+  - t: Save
+    h: nvim
+    s: C-s
+  - t: Open project
+    h: tmux
+    s: C-a f
+  - t: Scroll
+    h: tmux
+    s: C-a [
+  - t: Last session
+    h: tmux
+    s: C-a ⌫
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - Home
   - PgDn
   - PgUp
   - End
-  - '&nv_prev_qf'
-  - '&nv_next_qf'
-  - {t: ▽, type: trans}
+  - t: Quickfix
+    h: ← prev
+    s: '[q'
+  - t: Quickfix
+    h: next →
+    s: ']q'
+  - t: ▽
+    type: trans
   - Ctrl
   - Alt
   - ⌘
   - ⇧
-  - '&tm_lazygit'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: Git UI
+    h: tmux
+    s: C-a g
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held layer2
+  - type: held layer2
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - ←
   - ↓
   - ↑
   - →
-  - '&nv_jump_back'
-  - '&nv_jump_fwd'
-  - {t: ▽, type: trans}
-  - '&tm_zoom'
-  - '&nv_redo'
-  - '&tm_new_window'
-  - '&tm_split_down'
-  - '&tm_split_right'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&nv_prev_diag'
-  - '&nv_next_diag'
-  - '&nv_prev_hunk'
-  - '&nv_next_hunk'
-  - '&nv_prev_todo'
-  - '&nv_next_todo'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - '&nv_prev_ref'
-  - '&nv_next_ref'
-  - {t: ▽, type: trans}
+  - t: Jump back
+    h: nvim
+    s: C-o
+  - t: Jump fwd
+    h: nvim
+    s: C-i
+  - t: ▽
+    type: trans
+  - t: Zoom
+    h: tmux
+    s: C-a z
+  - t: Redo
+    h: nvim
+    s: C-r
+  - t: New window
+    h: tmux
+    s: C-a c
+  - t: Split ↓
+    h: tmux
+    s: C-a -
+  - t: Split →
+    h: tmux
+    s: C-a |
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Any issue
+    h: ← prev
+    s: '[d'
+  - t: Any issue
+    h: next →
+    s: ']d'
+  - t: Git change
+    h: ← prev
+    s: '[h'
+  - t: Git change
+    h: next →
+    s: ']h'
+  - t: TODO
+    h: ← prev
+    s: '[t'
+  - t: TODO
+    h: next →
+    s: ']t'
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Same word
+    h: ← prev
+    s: '[['
+  - t: Same word
+    h: next →
+    s: ']]'
+  - t: ▽
+    type: trans
   Mod:
   - ''
-  - {t: BT, h: '0'}
-  - {t: BT, h: '1'}
-  - {t: BT, h: '2'}
-  - {t: BT, h: '3'}
-  - {t: BT, h: '4'}
+  - t: BT
+    h: '0'
+  - t: BT
+    h: '1'
+  - t: BT
+    h: '2'
+  - t: BT
+    h: '3'
+  - t: BT
+    h: '4'
   - ''
-  - {type: held}
+  - type: held layer3
   - ''
   - ''
   - ''
@@ -247,10 +404,14 @@ layers:
   - ''
   - ''
   - ''
-  - {t: '$$mdi:lock$$', h: Win}
-  - {t: '$$mdi:camera$$', h: Win}
-  - {t: '$$mdi:lock$$', h: Mac}
-  - {t: '$$mdi:camera$$', h: Mac}
+  - t: $$mdi:lock$$
+    h: Win
+  - t: $$mdi:monitor-screenshot$$
+    h: Win
+  - t: $$mdi:lock$$
+    h: Mac
+  - t: $$mdi:monitor-screenshot$$
+    h: Mac
   - ''
   - Boot
   - Boot
@@ -260,7 +421,8 @@ layers:
   - ''
   - ''
   - ''
-  - Studio
+  - t: Studio
+    h: unlock
   - $$mdi:skip-previous$$
   - $$mdi:play-pause$$
   - $$mdi:skip-next$$
@@ -269,7 +431,8 @@ layers:
   - $$mdi:volume-mute$$
   - ''
   - ''
-  - BT Clear
+  - t: BT
+    h: clear
   - ''
   - Battery
   - ''
@@ -279,8 +442,10 @@ layers:
   - ''
   - ''
   - ''
-  - $$mdi:brightness-5$$
-  - $$mdi:brightness-7$$
+  - t: $$mdi:brightness-5$$
+    h: dim
+  - t: $$mdi:brightness-7$$
+    h: bright
   - ''
   - Version
   - ''
@@ -301,90 +466,167 @@ layers:
   - ''
   - ''
   - ''
-  - BL Tog
+  - t: BL
+    h: toggle
   - RGB
-  - BL +
-  - BL -
+  - t: BL
+    h: +
+  - t: BL
+    h: −
   - ''
   - ''
   - ''
   Excel:
-  - '&mcb_alt_shade_cycle'
-  - {t: '#', h: format}
-  - {t: '%', h: format}
-  - {t: ×, h: format}
-  - {t: Date, h: format}
-  - {t: $, h: anchor}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: □, h: border}
-  - {t: ⊞, h: border}
-  - {t: '$$mdi:border-none-variant$$', h: border}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: −Col, h: delete}
-  - {t: ▽, type: trans}
-  - {t: Uni, h: formula}
-  - {t: '$$mdi:fullscreen$$', h: view}
-  - '&mcb_left_indent_cycle'
-  - {t: +Grp, h: outline}
-  - {t: +Col, h: insert}
-  - {t: Col↔, h: size}
-  - '&mcb_prev_sheet'
-  - {t: +, h: zoom}
-  - {t: ±, h: formula}
-  - {t: '=', h: paste}
-  - {t: Y/N, h: format}
-  - {t: B/K, h: font}
-  - {t: −Row, h: delete}
-  - {t: ▽, type: trans}
-  - {t: Auto, h: color}
-  - {t: →, h: fill}
-  - {t: Save, h: file}
-  - {t: A1, h: sheets}
-  - {t: +Row, h: insert}
-  - {t: Row↕, h: size}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: →, h: sheets}
-  - {t: −, h: zoom}
-  - {t: ↕, h: align}
-  - {t: Err, h: wrap}
-  - {t: Note, h: insert}
-  - {t: Font, h: color}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: Print, h: area}
-  - {t: Find, h: super}
-  - {t: Ctr, h: align}
-  - {t: ↓, h: fill}
-  - {t: Ins, h: paste}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: Fill, h: color}
-  - {t: ↔, h: align}
-  - {t: .0+, h: decimal}
-  - {t: .0−, h: decimal}
-  - {t: ←., h: decimal}
-  - {t: .→, h: decimal}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: Fmt, h: paste}
-  - {t: ▏, h: border}
-  - {t: ▕, h: border}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▔, h: border}
-  - {t: ▁, h: border}
-  - {t: ←ƒ, h: trace}
-  - {t: ƒ→, h: trace}
-  - {t: ▽, type: trans}
+  - t: Shade
+    h: alt rows
+  - t: '#'
+    h: format
+  - t: '%'
+    h: format
+  - t: ×
+    h: format
+  - t: Date
+    h: format
+  - t: $
+    h: anchor
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: □
+    h: border
+  - t: ⊞
+    h: border
+  - t: $$mdi:border-none-variant$$
+    h: border
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: −Col
+    h: delete
+  - t: ▽
+    type: trans
+  - t: Uni
+    h: formula
+  - t: $$mdi:fullscreen$$
+    h: view
+  - t: ⇥
+    h: indent
+  - t: +Grp
+    h: outline
+  - t: +Col
+    h: insert
+  - t: Col↔
+    h: size
+  - t: ←
+    h: sheets
+  - t: +
+    h: zoom
+  - t: ±
+    h: formula
+  - t: '='
+    h: paste
+  - t: Y/N
+    h: format
+  - t: B/K
+    h: font
+  - t: −Row
+    h: delete
+  - t: ▽
+    type: trans
+  - t: Auto
+    h: color
+  - t: →
+    h: fill
+  - t: Save
+    h: file
+  - t: A1
+    h: sheets
+  - t: +Row
+    h: insert
+  - t: Row↕
+    h: size
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: →
+    h: sheets
+  - t: −
+    h: zoom
+  - t: ↕
+    h: align
+  - t: Err
+    h: wrap
+  - t: Note
+    h: insert
+  - t: Font
+    h: color
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Print
+    h: area
+  - t: Find
+    h: super
+  - t: Ctr
+    h: align
+  - t: ↓
+    h: fill
+  - t: Ins
+    h: paste
+  - type: held layer4
+  - type: held layer4
+  - t: Fill
+    h: color
+  - t: ↔
+    h: align
+  - t: .0+
+    h: decimal
+  - t: .0−
+    h: decimal
+  - t: ←.
+    h: decimal
+  - t: .→
+    h: decimal
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Fmt
+    h: paste
+  - t: ▏
+    h: border
+  - t: ▕
+    h: border
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▔
+    h: border
+  - t: ▁
+    h: border
+  - t: ←ƒ
+    h: trace
+  - t: ƒ→
+    h: trace
+  - t: ▽
+    type: trans
   Sym:
   - ===
   - ->
@@ -414,17 +656,22 @@ layers:
   - '|'
   - \
   - '[]'
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
   - ':'
   - '"'
   - '{'
   - '}'
   - '@'
   - '""'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '{}'
   - /
   - ^
@@ -432,37 +679,51 @@ layers:
   - '%'
   - ''''
   - '```'
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
   - '~'
   - '`'
   - (
   - )
   - '&'
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '-'
   - _
   - +
   - '*'
   - ;
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - ${}
   - ../
   - ~/
   - :%s/
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {type: held}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - type: held layer5
+  - type: held layer5
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - :=
   - <-
   - '|>'
-  - {t: ▽, type: trans}
+  - t: ▽
+    type: trans
 combos:
-- p: [32, 33]
+- p:
+  - 32
+  - 33
   k: ':'
-  l: [Base (Colemak-DH)]
+  l:
+  - Base (Colemak-DH)
