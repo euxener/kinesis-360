@@ -233,40 +233,44 @@ layers:
   - t: ▽
     type: trans
   - t: Last file
-    h: nvim
     s: C-^
+    type: macro nvim
   - t: Error
     h: ← prev
     s: '[e'
+    type: macro nvim
   - t: Error
     h: next →
     s: ']e'
+    type: macro nvim
   - t: Function
     h: ← prev
     s: '[f'
+    type: macro nvim
   - t: Function
     h: next →
     s: ']f'
+    type: macro nvim
   - t: ▽
     type: trans
   - t: Last window
-    h: tmux
     s: C-a ⇥
+    type: macro tmux
   - t: Prefix
-    h: tmux
     s: C-a
+    type: macro tmux
   - t: Save
-    h: nvim
     s: C-s
+    type: macro nvim
   - t: Open project
-    h: tmux
     s: C-a f
+    type: macro tmux
   - t: Scroll
-    h: tmux
     s: C-a [
+    type: macro tmux
   - t: Last session
-    h: tmux
     s: C-a ⌫
+    type: macro tmux
   - t: ▽
     type: trans
   - t: ▽
@@ -278,9 +282,11 @@ layers:
   - t: Quickfix
     h: ← prev
     s: '[q'
+    type: macro nvim
   - t: Quickfix
     h: next →
     s: ']q'
+    type: macro nvim
   - t: ▽
     type: trans
   - Ctrl
@@ -288,8 +294,8 @@ layers:
   - ⌘
   - ⇧
   - t: Git UI
-    h: tmux
     s: C-a g
+    type: macro tmux
   - t: ▽
     type: trans
   - t: ▽
@@ -305,28 +311,28 @@ layers:
   - ↑
   - →
   - t: Jump back
-    h: nvim
     s: C-o
+    type: macro nvim
   - t: Jump fwd
-    h: nvim
     s: C-i
+    type: macro nvim
   - t: ▽
     type: trans
   - t: Zoom
-    h: tmux
     s: C-a z
+    type: macro tmux
   - t: Redo
-    h: nvim
     s: C-r
+    type: macro nvim
   - t: New window
-    h: tmux
     s: C-a c
+    type: macro tmux
   - t: Split ↓
-    h: tmux
     s: C-a -
+    type: macro tmux
   - t: Split →
-    h: tmux
     s: C-a |
+    type: macro tmux
   - t: ▽
     type: trans
   - t: ▽
@@ -334,21 +340,27 @@ layers:
   - t: Any issue
     h: ← prev
     s: '[d'
+    type: macro nvim
   - t: Any issue
     h: next →
     s: ']d'
+    type: macro nvim
   - t: Git change
     h: ← prev
     s: '[h'
+    type: macro nvim
   - t: Git change
     h: next →
     s: ']h'
+    type: macro nvim
   - t: TODO
     h: ← prev
     s: '[t'
+    type: macro nvim
   - t: TODO
     h: next →
     s: ']t'
+    type: macro nvim
   - t: ▽
     type: trans
   - t: ▽
@@ -378,9 +390,11 @@ layers:
   - t: Same word
     h: ← prev
     s: '[['
+    type: macro nvim
   - t: Same word
     h: next →
     s: ']]'
+    type: macro nvim
   - t: ▽
     type: trans
   Mod:
@@ -434,7 +448,8 @@ layers:
   - t: BT
     h: clear
   - ''
-  - Battery
+  - t: Batt
+    h: status
   - ''
   - ''
   - ''
@@ -447,7 +462,8 @@ layers:
   - t: $$mdi:brightness-7$$
     h: bright
   - ''
-  - Version
+  - t: Ver
+    h: info
   - ''
   - ''
   - ''

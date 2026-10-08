@@ -42,6 +42,12 @@ rect.key.held { fill: #a9b0b8; }
 text.hold { fill: #a0001c; }
 text.label { font-size: 18px; }
 text.layer-activator { text-decoration: none; }
+/* Nav macros: shortcut, words and tag in one key. Same sizes in the dark theme */
+text.macro.tap { font-size: 10px; }
+text.macro.shifted, text.macro.hold { font-size: 8px; }
+text.key.nvim, text.legend.nvim { fill: #1a7f37; }
+text.key.tmux, text.legend.tmux { fill: #0b5cad; }
+text.legend { font-size: 13px; text-anchor: start; }
 /* one color per layer: its keys on Base and its held thumbs on its own drawing
    (after .held, same specificity). Dark theme: keymap_drawer.config.yaml */
 rect.key.layer1 { fill: #f0c96e; }
@@ -69,14 +75,36 @@ def unligate(text):
     return SYMBOLS.sub(HAIR_SPACE, text)
 
 
+# The macro tools: the key type in keymap_drawer.config.yaml, the name in the legend
+TOOLS = [("nvim", "Neovim"), ("tmux", "tmux")]
+
+
+def legend(svg):
+    """Next to the heading of each layer with macro keys, which color is which tool"""
+    parts = re.split(r'(<text x="0" y="10" class="label" id="[^"]*">[^<]*</text>)', svg)
+    for i in range(1, len(parts), 2):
+        layer = parts[i + 1].split('class="label"')[0]
+        tools = [(cls, name) for cls, name in TOOLS if f"key macro {cls}" in layer]
+        if tools:
+            heading = re.search(r">([^<]*)</text>", parts[i]).group(1)
+            x = 11 * len(heading) + 14  # past the heading: 18px monospace, about 11px a character
+            keys = []
+            for cls, name in tools:
+                keys.append(f'<text x="{x}" y="10" class="legend {cls}">■ {name}</text>')
+                x += 8 * (len(name) + 2) + 18  # "■ name" at 13px, then a gap
+            parts[i] += "\n" + "\n".join(keys)
+    return "".join(parts)
+
+
 def draw(config, keymap, *args):
     # keymap-drawer wraps each $$mdi:...$$ icon in an <svg id="mdi:..."> with no
     # viewBox; browsers cope, librsvg draws nothing. MDI icons are on a 24 grid.
     svg = drawer(config, "draw", str(keymap), *args)
     svg = re.sub(r'<svg id="(mdi:[^"]+)">', r'<svg id="\1" viewBox="0 0 24 24">', svg)
     # legends only: text and tspan content, unescaped first so &amp; stays one character
-    return re.sub(r"(<(?:text|tspan)\b[^>]*>)([^<]+)",
-                  lambda m: m.group(1) + html.escape(unligate(html.unescape(m.group(2))), quote=False), svg)
+    svg = re.sub(r"(<(?:text|tspan)\b[^>]*>)([^<]+)",
+                 lambda m: m.group(1) + html.escape(unligate(html.unescape(m.group(2))), quote=False), svg)
+    return legend(svg)
 
 
 def svg_size(svg):

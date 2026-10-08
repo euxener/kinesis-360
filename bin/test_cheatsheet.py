@@ -42,6 +42,13 @@ assert marked["Base"][2] == {"t": "Nav", "h": "toggle", "type": "layer1"}, marke
 assert cheatsheet.unligate("->") == "-\u200a>" and cheatsheet.unligate("===") == "=\u200a=\u200a="
 assert cheatsheet.unligate("Split→") == "Split→" and cheatsheet.unligate("a-b") == "a-b"
 
+# the color legend goes next to the heading of a layer with macro keys, and only there
+SVG = ('<text x="0" y="10" class="label" id="A">A:</text><rect class="key macro nvim"/>'
+       '<text x="0" y="10" class="label" id="B">B:</text><rect class="key"/>')
+out = cheatsheet.legend(SVG)
+assert out.count('class="legend nvim"') == 1 and "tmux" not in out, out
+assert out.index('class="legend nvim"') < out.index('id="B"'), out
+
 # the real keymap: every key labelled, pages in layer order
 real = cheatsheet.drawer(cheatsheet.CONFIG, "parse", "-z", str(cheatsheet.KEYMAP))
 assert cheatsheet.unlabeled(real) == [], cheatsheet.unlabeled(real)
@@ -56,6 +63,7 @@ svg = (out / "my_keymap.svg").read_text()
 layers = list(fresh["layers"])
 assert all(f">{name}:<" in svg for name in layers), "my_keymap.svg is missing a layer"
 assert not re.search(r">&amp;[a-z_]", svg, re.I), "my_keymap.svg draws a raw &name"
+assert svg.count('class="legend nvim"') == 1 and svg.count('class="legend tmux"') == 1, "legend missing"
 assert (out / "my_keymap.png").stat().st_mtime >= (out / "my_keymap.svg").stat().st_mtime - 5, "my_keymap.png older than its svg"
 text = subprocess.run(["pdftotext", "-layout", str(out / "cheatsheet.pdf"), "-"],
                       capture_output=True, text=True, check=True).stdout
