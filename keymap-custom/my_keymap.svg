@@ -372,25 +372,25 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">PgDn</text>
 </g>
-<g transform="translate(423, 300) rotate(15.0)" class="key layer1 keypos-35">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
-<a href="#NumFn">
-<text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
+<g transform="translate(423, 300) rotate(15.0)" class="key layer5 keypos-35">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer5"/>
+<a href="#Sym">
+<text x="0" y="0" class="key layer5 tap layer-activator">Sym</text>
 </a></g>
-<g transform="translate(481, 316) rotate(15.0)" class="key layer2 keypos-36">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer2"/>
-<a href="#Nav">
-<text x="0" y="0" class="key layer2 tap layer-activator">Nav</text>
+<g transform="translate(481, 316) rotate(15.0)" class="key layer4 keypos-36">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer4"/>
+<a href="#Excel">
+<text x="0" y="0" class="key layer4 tap layer-activator">Excel</text>
 </a></g>
-<g transform="translate(599, 316) rotate(-15.0)" class="key layer2 keypos-37">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer2"/>
-<a href="#Nav">
-<text x="0" y="0" class="key layer2 tap layer-activator">Nav</text>
+<g transform="translate(599, 316) rotate(-15.0)" class="key layer4 keypos-37">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer4"/>
+<a href="#Excel">
+<text x="0" y="0" class="key layer4 tap layer-activator">Excel</text>
 </a></g>
-<g transform="translate(657, 300) rotate(-15.0)" class="key layer1 keypos-38">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
-<a href="#NumFn">
-<text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
+<g transform="translate(657, 300) rotate(-15.0)" class="key layer5 keypos-38">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer5"/>
+<a href="#Sym">
+<text x="0" y="0" class="key layer5 tap layer-activator">Sym</text>
 </a></g>
 <g transform="translate(675, 150)" class="key keypos-39">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -450,15 +450,15 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">V</text>
 </g>
-<g transform="translate(466, 374) rotate(15.0)" class="key layer4 keypos-52">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer4"/>
-<a href="#Excel">
-<text x="0" y="0" class="key layer4 tap layer-activator">Excel</text>
+<g transform="translate(466, 374) rotate(15.0)" class="key layer1 keypos-52">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
+<a href="#NumFn">
+<text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
 </a></g>
-<g transform="translate(614, 374) rotate(-15.0)" class="key layer4 keypos-53">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer4"/>
-<a href="#Excel">
-<text x="0" y="0" class="key layer4 tap layer-activator">Excel</text>
+<g transform="translate(614, 374) rotate(-15.0)" class="key layer1 keypos-53">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer1"/>
+<a href="#NumFn">
+<text x="0" y="0" class="key layer1 tap layer-activator">Num+Fn</text>
 </a></g>
 <g transform="translate(735, 210)" class="key keypos-54">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -517,15 +517,15 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key"/>
 <text x="0" y="0" class="key tap">Del</text>
 </g>
-<g transform="translate(450, 431) rotate(15.0)" class="key layer5 keypos-67">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer5"/>
-<a href="#Sym">
-<text x="0" y="0" class="key layer5 tap layer-activator">Sym</text>
+<g transform="translate(450, 431) rotate(15.0)" class="key layer2 keypos-67">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer2"/>
+<a href="#Nav">
+<text x="0" y="0" class="key layer2 tap layer-activator">Nav</text>
 </a></g>
-<g transform="translate(630, 431) rotate(-15.0)" class="key layer5 keypos-68">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer5"/>
-<a href="#Sym">
-<text x="0" y="0" class="key layer5 tap layer-activator">Sym</text>
+<g transform="translate(630, 431) rotate(-15.0)" class="key layer2 keypos-68">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key layer2"/>
+<a href="#Nav">
+<text x="0" y="0" class="key layer2 tap layer-activator">Nav</text>
 </a></g>
 <g transform="translate(680, 387) rotate(-15.0)" class="key keypos-69">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key"/>
@@ -716,8 +716,9 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(423, 300) rotate(15.0)" class="key held layer1 keypos-35">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer1"/>
+<g transform="translate(423, 300) rotate(15.0)" class="key trans keypos-35">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(481, 316) rotate(15.0)" class="key trans keypos-36">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -727,8 +728,9 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(657, 300) rotate(-15.0)" class="key held layer1 keypos-38">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer1"/>
+<g transform="translate(657, 300) rotate(-15.0)" class="key trans keypos-38">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(675, 150)" class="key trans keypos-39">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -782,13 +784,11 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(466, 374) rotate(15.0)" class="key trans keypos-52">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(466, 374) rotate(15.0)" class="key held layer1 keypos-52">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer1"/>
 </g>
-<g transform="translate(614, 374) rotate(-15.0)" class="key trans keypos-53">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(614, 374) rotate(-15.0)" class="key held layer1 keypos-53">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer1"/>
 </g>
 <g transform="translate(735, 210)" class="key trans keypos-54">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1061,11 +1061,13 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(481, 316) rotate(15.0)" class="key held layer2 keypos-36">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer2"/>
+<g transform="translate(481, 316) rotate(15.0)" class="key trans keypos-36">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(599, 316) rotate(-15.0)" class="key held layer2 keypos-37">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer2"/>
+<g transform="translate(599, 316) rotate(-15.0)" class="key trans keypos-37">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(657, 300) rotate(-15.0)" class="key trans keypos-38">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1214,13 +1216,11 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(450, 431) rotate(15.0)" class="key trans keypos-67">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(450, 431) rotate(15.0)" class="key held layer2 keypos-67">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer2"/>
 </g>
-<g transform="translate(630, 431) rotate(-15.0)" class="key trans keypos-68">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(630, 431) rotate(-15.0)" class="key held layer2 keypos-68">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer2"/>
 </g>
 <g transform="translate(680, 387) rotate(-15.0)" class="key trans keypos-69">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key trans"/>
@@ -1712,13 +1712,11 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(481, 316) rotate(15.0)" class="key trans keypos-36">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(481, 316) rotate(15.0)" class="key held layer4 keypos-36">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer4"/>
 </g>
-<g transform="translate(599, 316) rotate(-15.0)" class="key trans keypos-37">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(599, 316) rotate(-15.0)" class="key held layer4 keypos-37">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer4"/>
 </g>
 <g transform="translate(657, 300) rotate(-15.0)" class="key trans keypos-38">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -1787,11 +1785,13 @@ text.layer-activator {
 <text x="0" y="0" class="key tap">Ins</text>
 <text x="0" y="21" class="key hold">paste</text>
 </g>
-<g transform="translate(466, 374) rotate(15.0)" class="key held layer4 keypos-52">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer4"/>
+<g transform="translate(466, 374) rotate(15.0)" class="key trans keypos-52">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(614, 374) rotate(-15.0)" class="key held layer4 keypos-53">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer4"/>
+<g transform="translate(614, 374) rotate(-15.0)" class="key trans keypos-53">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(735, 210)" class="key keypos-54">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -2039,9 +2039,8 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">""</text>
 </g>
-<g transform="translate(423, 300) rotate(15.0)" class="key trans keypos-35">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(423, 300) rotate(15.0)" class="key held layer5 keypos-35">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer5"/>
 </g>
 <g transform="translate(481, 316) rotate(15.0)" class="key trans keypos-36">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
@@ -2051,9 +2050,8 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(657, 300) rotate(-15.0)" class="key trans keypos-38">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(657, 300) rotate(-15.0)" class="key held layer5 keypos-38">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer5"/>
 </g>
 <g transform="translate(675, 150)" class="key keypos-39">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
@@ -2167,11 +2165,13 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key trans"/>
 <text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(450, 431) rotate(15.0)" class="key held layer5 keypos-67">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer5"/>
+<g transform="translate(450, 431) rotate(15.0)" class="key trans keypos-67">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
-<g transform="translate(630, 431) rotate(-15.0)" class="key held layer5 keypos-68">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key held layer5"/>
+<g transform="translate(630, 431) rotate(-15.0)" class="key trans keypos-68">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
+<text x="0" y="0" class="key trans tap">▽</text>
 </g>
 <g transform="translate(680, 387) rotate(-15.0)" class="key trans keypos-69">
 <rect rx="6" ry="6" x="-28" y="-58" width="56" height="116" class="key trans"/>

@@ -45,14 +45,14 @@ layers:
     h: ⇧ Shift
   - G
   - PgDn
-  - t: Num+Fn
-    type: layer1
-  - t: Nav
-    type: layer2
-  - t: Nav
-    type: layer2
-  - t: Num+Fn
-    type: layer1
+  - t: Sym
+    type: layer5
+  - t: Excel
+    type: layer4
+  - t: Excel
+    type: layer4
+  - t: Sym
+    type: layer5
   - End
   - M
   - t: N
@@ -70,10 +70,10 @@ layers:
   - C
   - D
   - V
-  - t: Excel
-    type: layer4
-  - t: Excel
-    type: layer4
+  - t: Num+Fn
+    type: layer1
+  - t: Num+Fn
+    type: layer1
   - K
   - H
   - ','
@@ -88,10 +88,10 @@ layers:
   - →
   - ⌫
   - Del
-  - t: Sym
-    type: layer5
-  - t: Sym
-    type: layer5
+  - t: Nav
+    type: layer2
+  - t: Nav
+    type: layer2
   - ↵
   - ␣
   - ↓
@@ -145,12 +145,14 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - type: held layer1
   - t: ▽
     type: trans
   - t: ▽
     type: trans
-  - type: held layer1
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: ▽
@@ -173,10 +175,8 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
+  - type: held layer1
+  - type: held layer1
   - t: ▽
     type: trans
   - '1'
@@ -294,8 +294,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - type: held layer2
-  - type: held layer2
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: ▽
@@ -363,10 +365,8 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
+  - type: held layer2
+  - type: held layer2
   - t: ▽
     type: trans
   - t: ▽
@@ -551,10 +551,8 @@ layers:
     h: size
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
+  - type: held layer4
+  - type: held layer4
   - t: ▽
     type: trans
   - t: →
@@ -583,8 +581,10 @@ layers:
     h: fill
   - t: Ins
     h: paste
-  - type: held layer4
-  - type: held layer4
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: Fill
     h: color
   - t: ↔
@@ -666,14 +666,12 @@ layers:
   - '}'
   - '@'
   - '""'
+  - type: held layer5
   - t: ▽
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
+  - type: held layer5
   - '{}'
   - /
   - ^
@@ -709,8 +707,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - type: held layer5
-  - type: held layer5
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: ▽

@@ -74,9 +74,9 @@ td_caps: tap_dance_caps {
             bindings = <
                 &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                       &mo 3    &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                    &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &mo 1   &mo 2 &mo 2 &mo 1               &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &mo 4 &mo 4                              &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                       &kp BSPC &kp DEL &mo 5 &mo 5 &kp ENTER &kp SPACE                 &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &mo 5   &mo 4 &mo 4 &mo 5               &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &mo 1 &mo 1                              &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                       &kp BSPC &kp DEL &mo 2 &mo 2 &kp ENTER &kp SPACE                 &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
             >;
         };
 
