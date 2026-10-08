@@ -1,11 +1,16 @@
 #!/usr/bin/env python3
 """Checks for bin/cheatsheet.py and its output: python3 bin/test_cheatsheet.py
-(needs uvx, PyYAML, pdftotext). Run after bin/cheatsheet.py: the last checks hold
-the committed keymap-custom/ files to the keymap and config as they are now"""
+(needs uvx, PyYAML, pdftotext, and for one scratch render rsvg-convert and pdfunite
+or qpdf). Run after bin/cheatsheet.py: the last checks hold the committed
+keymap-custom/ files to the keymap and config as they are now"""
+import contextlib
+import io
+import os
 import pathlib
 import re
 import subprocess
 import sys
+import tempfile
 
 sys.path.insert(0, str(pathlib.Path(__file__).resolve().parent))
 sys.dont_write_bytecode = True  # never a __pycache__ in the tree
@@ -62,6 +67,27 @@ assert 'y="18" class="key hold"' in cheatsheet.tighten(SHRUNK) and 'y="0" class=
 assert cheatsheet.enlarge_icons('<text x="0" y="0" class="key hold">⌃ Ctrl</text>') == '<text x="0" y="0" class="key hold"><tspan class="modicon ctrl">⌃</tspan> Ctrl</text>'
 assert cheatsheet.enlarge_icons('<text x="0" y="0" class="key hold">⌥ Alt</text>') == '<text x="0" y="0" class="key hold"><tspan class="modicon">⌥</tspan> Alt</text>'
 
+# a render swaps files in: a reader holding the old one (git diff, mmapped) still sees
+# all of it, not a truncated file that SIGBUSes it; a tool that dies halfway leaves
+# no trace, and the temp keeps the suffix the tool picks its format by
+with tempfile.TemporaryDirectory() as tmp:
+    path = pathlib.Path(tmp) / "my_keymap.png"
+    path.write_text("old drawing, longer than the new one")
+    with open(path) as held:
+        with cheatsheet.replacing(path) as new:
+            assert new.suffix == ".png" and new.parent == path.parent, new
+            new.write_text("new")
+        assert held.read() == "old drawing, longer than the new one", "rewritten in place"
+    assert path.read_text() == "new"
+    try:
+        with cheatsheet.replacing(path) as new:
+            subprocess.run([sys.executable, "-c", "import sys; open(sys.argv[1], 'w').write('half'); sys.exit(1)",
+                            str(new)], check=True)
+        assert False, "a failed tool went unnoticed"
+    except subprocess.CalledProcessError:
+        pass
+    assert path.read_text() == "new" and os.listdir(tmp) == ["my_keymap.png"], os.listdir(tmp)
+
 # the real keymap: every key labelled, pages in layer order
 real = cheatsheet.drawer(cheatsheet.CONFIG, "parse", "-z", str(cheatsheet.KEYMAP))
 assert cheatsheet.unlabeled(real) == [], cheatsheet.unlabeled(real)
@@ -86,4 +112,26 @@ for page, names in zip(pdf_pages, cheatsheet.pages(real)):
     heads = [n for n in layers if f"{n}:" in page]
     assert heads == list(names), (heads, names)
     assert cheatsheet.AUTHOR in page.strip().splitlines()[-1], "no author in the footer"
+
+# every output of a real render is swapped in, none rewritten: a file held open
+# before the render still reads as it was. Renders into a scratch OUT, not the tree
+names = ["my_keymap.yaml", "my_keymap.svg", "my_keymap.png", "cheatsheet.pdf"]
+with tempfile.TemporaryDirectory() as tmp:
+    scratch = pathlib.Path(tmp)
+    for name in names:
+        (scratch / name).write_text("old")
+    held = [open(scratch / name, "rb") for name in names]
+    try:
+        cheatsheet.OUT = scratch  # out is still the real one, from the checks above
+        with contextlib.redirect_stdout(io.StringIO()):
+            cheatsheet.render_drawing()
+            cheatsheet.render_cheatsheet("letter")
+        stale = [name for name, f in zip(names, held) if f.read() != b"old"]
+    finally:
+        for f in held:
+            f.close()
+        cheatsheet.OUT = out
+    assert not stale, f"rewritten in place: {stale}"
+    assert sorted(os.listdir(scratch)) == sorted(names), os.listdir(scratch)
+    assert all((scratch / name).stat().st_size > 100 for name in names), "a render output is empty"
 print("ok")

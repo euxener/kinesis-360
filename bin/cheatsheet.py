@@ -12,8 +12,10 @@ drawn as its raw &name, so the render stops and names it instead.
 Usage: bin/cheatsheet.py [letter|a4]   (make cheatsheet [PAPER=a4]; CI runs it too)
 Needs uvx (runs keymap-drawer), rsvg-convert (librsvg), pdfunite or qpdf, PyYAML.
 """
+import contextlib
 import datetime
 import html
+import os
 import pathlib
 import re
 import subprocess
@@ -207,11 +209,30 @@ def parse(config):
     return mark_layer_keys(keymap_yaml)
 
 
+@contextlib.contextmanager
+def replacing(path):
+    """Yield a temp path to write path's new content to, then swap it in. Writing
+    path itself truncates it in place, and a git diff that has the old file mmapped
+    (the statusline runs one on every refresh) dies of SIGBUS reading past the new
+    end (2026-10-05); the old inode stays whole for whoever has it open. The temp
+    keeps the suffix, tools pick their output format by it; a failed write removes it"""
+    tmp = path.with_name(f".{path.stem}.tmp{path.suffix}")
+    try:
+        yield tmp
+        os.replace(tmp, path)
+    except BaseException:
+        tmp.unlink(missing_ok=True)
+        raise
+
+
 def render_drawing():
     yaml_out, svg_out = OUT / "my_keymap.yaml", OUT / "my_keymap.svg"
-    yaml_out.write_text(parse(CONFIG))
-    svg_out.write_text(draw(CONFIG, yaml_out))
-    subprocess.run(["rsvg-convert", "-b", BACKGROUND, str(svg_out), "-o", str(OUT / "my_keymap.png")], check=True)
+    with replacing(yaml_out) as tmp:
+        tmp.write_text(parse(CONFIG))
+    with replacing(svg_out) as tmp:
+        tmp.write_text(draw(CONFIG, yaml_out))
+    with replacing(OUT / "my_keymap.png") as tmp:
+        subprocess.run(["rsvg-convert", "-b", BACKGROUND, str(svg_out), "-o", str(tmp)], check=True)
     print("keymap-custom/my_keymap.{yaml,svg,png}")
 
 
@@ -255,7 +276,8 @@ def render_cheatsheet(paper):
                             "-o", str(out), str(src)], check=True)
             pdf_pages.append(out)
 
-        merge(pdf_pages, OUT / "cheatsheet.pdf")
+        with replacing(OUT / "cheatsheet.pdf") as tmp_pdf:
+            merge(pdf_pages, tmp_pdf)
     print(f"keymap-custom/cheatsheet.pdf: {len(page_layers)} pages, {paper} landscape, {stamp}")
 
 
