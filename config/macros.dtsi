@@ -3,3 +3,4 @@
 #include "macros/windows.dtsi"
 #include "macros/excel.dtsi"
 #include "macros/programming.dtsi"
+#include "macros/neovim.dtsi"

@@ -1,0 +1,278 @@
+// ═══════════════════════════════════════════════════════════════
+// Neovim and tmux macros, for the Nav layer
+// Version: 0.1
+// Date: 07/Oct/2026
+// ═══════════════════════════════════════════════════════════════
+
+// ── tmux: prefix C-a, then the key (dotfiles tmux/tmux.conf) ──
+// C-a needs a macro: A is the left home-row Ctrl, so the chord cannot be typed
+
+tm_prefix: tm_prefix {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>;
+    display-name = "tmux prefix";
+};
+
+tm_last_window: tm_last_window {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp TAB>;
+    display-name = "tmux last window";
+};
+
+tm_last_session: tm_last_session {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp BSPC>;
+    display-name = "tmux last session";
+};
+
+tm_sessionizer: tm_sessionizer {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp F>;
+    display-name = "tmux sessionizer";
+};
+
+tm_copy_mode: tm_copy_mode {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp LBKT>;
+    display-name = "tmux copy mode";
+};
+
+tm_lazygit: tm_lazygit {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp G>;
+    display-name = "tmux lazygit";
+};
+
+tm_zoom: tm_zoom {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp Z>;
+    display-name = "tmux zoom";
+};
+
+tm_new_window: tm_new_window {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp C>;
+    display-name = "tmux new window";
+};
+
+tm_split_down: tm_split_down {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp MINUS>;
+    display-name = "tmux split down";
+};
+
+tm_split_right: tm_split_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp PIPE>;
+    display-name = "tmux split right";
+};
+
+// ── Neovim bracket motions (LazyVim defaults) ──
+// On base the brackets sit in the bottom-right corner
+
+nv_prev_diag: nv_prev_diag {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp D>;
+    display-name = "[d prev diagnostic";
+};
+
+nv_next_diag: nv_next_diag {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp D>;
+    display-name = "]d next diagnostic";
+};
+
+nv_prev_error: nv_prev_error {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp E>;
+    display-name = "[e prev error";
+};
+
+nv_next_error: nv_next_error {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp E>;
+    display-name = "]e next error";
+};
+
+nv_prev_hunk: nv_prev_hunk {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp H>;
+    display-name = "[h prev hunk";
+};
+
+nv_next_hunk: nv_next_hunk {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp H>;
+    display-name = "]h next hunk";
+};
+
+nv_prev_qf: nv_prev_qf {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp Q>;
+    display-name = "[q prev quickfix";
+};
+
+nv_next_qf: nv_next_qf {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp Q>;
+    display-name = "]q next quickfix";
+};
+
+nv_prev_todo: nv_prev_todo {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp T>;
+    display-name = "[t prev todo";
+};
+
+nv_next_todo: nv_next_todo {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp T>;
+    display-name = "]t next todo";
+};
+
+nv_prev_ref: nv_prev_ref {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp LBKT>;
+    display-name = "[[ prev reference";
+};
+
+nv_next_ref: nv_next_ref {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp RBKT>;
+    display-name = "]] next reference";
+};
+
+nv_prev_func: nv_prev_func {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LBKT>, <&kp F>;
+    display-name = "[f prev function";
+};
+
+nv_next_func: nv_next_func {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp RBKT>, <&kp F>;
+    display-name = "]f next function";
+};
+
+// ── Neovim single keys ──
+// Cross-hand home-row Ctrl reaches these too (O+S, O+R, A+O, A+I);
+// these are the one-key versions
+
+nv_alt_file: nv_alt_file {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    // Ctrl+6 is the terminal byte for C-^
+    bindings = <&kp LC(N6)>;
+    display-name = "C-^ alternate file";
+};
+
+nv_save: nv_save {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(S)>;
+    display-name = "C-s save";
+};
+
+nv_redo: nv_redo {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(R)>;
+    display-name = "C-r redo";
+};
+
+nv_jump_back: nv_jump_back {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(O)>;
+    display-name = "C-o jump back";
+};
+
+nv_jump_fwd: nv_jump_fwd {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    // Legacy terminals send C-i as Tab; jumps forward either way
+    bindings = <&kp LC(I)>;
+    display-name = "C-i jump forward";
+};
