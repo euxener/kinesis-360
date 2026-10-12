@@ -161,21 +161,29 @@ assert all(f">{name}:<" in svg for name in layers), "my_keymap.svg is missing a 
 assert not re.search(r">&amp;[a-z_]", svg, re.I), "my_keymap.svg draws a raw &name"
 assert svg.count('class="legend nvim"') == 1 and svg.count('class="legend tmux"') == 1, "legend missing"
 assert (out / "my_keymap.png").stat().st_mtime >= (out / "my_keymap.svg").stat().st_mtime - 5, "my_keymap.png older than its svg"
-# index.html: a tab and an inlined drawing per layer, in order, each the same keys as
-# that layer of my_keymap.svg, and nothing fetched from anywhere
+# index.html: a tab and two inlined drawings per layer (dark, light), in order, each the
+# same keys as that layer of my_keymap.svg, and nothing fetched from anywhere
 page = (out / "index.html").read_text()
 tabs = re.findall(r'<button role="tab"[^>]*><kbd>(\d+)</kbd>([^<]*)</button>', page)
 assert tabs == [(str(i + 1), cheatsheet.html.escape(n)) for i, n in enumerate(layers)], tabs
-images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+"><img alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)"></div>', page)
-assert [a for a, _ in images] == [cheatsheet.html.escape(n) for n in layers], [a for a, _ in images]
+IMG = r'<img class="{}" alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)">'
+images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+">'
+                    + IMG.format("dark") + IMG.format("light") + "</div>", page)
+assert [(d, l) for d, _, l, _ in images] == [(cheatsheet.html.escape(n),) * 2 for n in layers], [(d, l) for d, _, l, _ in images]
 assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
 sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
 def words(drawing):
     return sorted(w for w in re.findall(r">([^<>]+)<", drawing) if w.strip())
-for (_, data), section in zip(images, sections):
-    one = cheatsheet.base64.b64decode(data).decode()
-    assert not re.search(r'(?:src|href)="(?!#|data:)|@import|url\((?!#)', one), "a drawing in index.html fetches something"
-    assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
+for (_, dark, _, light), section in zip(images, sections):
+    for data, background in ((dark, True), (light, False)):
+        one = cheatsheet.base64.b64decode(data).decode()
+        assert not re.search(r'(?:src|href)="(?!#|data:)|@import|url\((?!#)', one), "a drawing in index.html fetches something"
+        assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
+        # the dark drawing carries the dark theme's background, the light one the print style
+        assert (cheatsheet.BACKGROUND in one) == background and ("#e1e5ea" in one) != background, "a drawing has the other theme"
+# the theme switch: a button and t, the system's theme until one is chosen, light vars for both cases
+assert '<button id="theme" type="button">' in page and 'e.key === "t"' in page
+assert page.count(cheatsheet.PAGE_LIGHT) == 2 and "prefers-color-scheme: light" in page
 assert (out / "index.html").stat().st_mtime >= (out / "my_keymap.yaml").stat().st_mtime - 5, "index.html older than its drawing"
 
 text = subprocess.run(["pdftotext", "-layout", str(out / "cheatsheet.pdf"), "-"],

@@ -5,9 +5,10 @@
 - cheatsheet.pdf: print-ready, the dark theme swapped for an ink-friendly light
   one, two layers per landscape page in the keymap's layer order; a footer stamps
   the commit so a printout can be matched to a build, and the author
-- index.html: the screen cheatsheet, one self-contained file (each layer a dark
-  drawing of its own, inlined), a tab per layer, keys 1-6 and arrows switch. CI
-  publishes it to GitHub Pages; the F13 thumb key opens it on every computer
+- index.html: the screen cheatsheet, one self-contained file (each layer drawn on
+  its own in the dark theme and the PDF's light one, inlined), a tab per layer, keys
+  1-6 and arrows switch, t or the button switches theme (the system's until chosen).
+  CI publishes it to GitHub Pages; the F13 thumb key opens it on every computer
 
 Every key needs a label: a behavior keymap_drawer.config.yaml does not map is
 drawn as its raw &name, so the render stops and names it instead.
@@ -277,30 +278,40 @@ PAGE = """<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Advantage 360 keymap</title>
 <style>
-:root {{ color-scheme: dark; }}
-body {{ margin: 0; height: 100vh; display: flex; flex-direction: column; background: {background};
-  color: #e4e4e4; font: 14px "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace; }}
+:root {{ color-scheme: dark; --bg: {background}; --fg: #e4e4e4; --muted: #8892b0;
+  --button: #16213e; --border: #0f3460; --selected: #0f3460; --accent: #00d9ff; --dark: block; --light: none; }}
+/* the light theme: chosen (data-theme), or the system's while nothing is chosen */
+:root[data-theme="light"] {{ {light} }}
+@media (prefers-color-scheme: light) {{ :root:not([data-theme]) {{ {light} }} }}
+body {{ margin: 0; height: 100vh; display: flex; flex-direction: column; background: var(--bg);
+  color: var(--fg); font: 14px "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace; }}
 nav {{ display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; }}
-button {{ font: inherit; color: inherit; background: #16213e; border: 1px solid #0f3460;
+button {{ font: inherit; color: inherit; background: var(--button); border: 1px solid var(--border);
   border-radius: 6px; padding: 6px 12px; cursor: pointer; }}
-button[aria-selected="true"] {{ background: #0f3460; color: #00d9ff; }}
-button:focus-visible {{ outline: 2px solid #00d9ff; outline-offset: 2px; }}
-kbd {{ font: inherit; color: #8892b0; margin-right: 6px; }}
+button[aria-selected="true"] {{ background: var(--selected); color: var(--accent); }}
+button:focus-visible {{ outline: 2px solid var(--accent); outline-offset: 2px; }}
+#theme {{ margin-left: auto; }}
+kbd {{ font: inherit; color: var(--muted); margin-right: 6px; }}
 main {{ flex: 1; min-height: 0; padding: 0 16px; }}
 main > div {{ height: 100%; display: flex; justify-content: center; }}
 main > div[hidden] {{ display: none; }}
 img {{ max-width: 100%; max-height: 100%; object-fit: contain; }}
-footer {{ padding: 6px 16px 10px; color: #8892b0; font-size: 12px; }}
+img.dark {{ display: var(--dark); }}
+img.light {{ display: var(--light); }}
+footer {{ padding: 6px 16px 10px; color: var(--muted); font-size: 12px; }}
 </style>
 </head>
 <body>
-<nav role="tablist" aria-label="Layers">
+<nav>
+<div role="tablist" aria-label="Layers" style="display: contents">
 {tabs}
+</div>
+<button id="theme" type="button"><kbd>t</kbd><span></span></button>
 </nav>
 <main>
 {images}
 </main>
-<footer>1–{count} or ← → switch layers · {stamp}</footer>
+<footer>1–{count} or ← → switch layers · t switches theme · {stamp}</footer>
 <script>
 const tabs = [...document.querySelectorAll('[role="tab"]')];
 const panels = [...document.querySelectorAll('[role="tabpanel"]')];
@@ -311,10 +322,26 @@ function show(i) {{
   panels.forEach((p, j) => (p.hidden = j !== current));
 }}
 tabs.forEach((t, i) => t.addEventListener("click", () => show(i)));
+// theme: the one chosen here (kept in localStorage), else the system's
+const root = document.documentElement, toggle = document.getElementById("theme");
+function theme() {{
+  return root.dataset.theme || (matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark");
+}}
+function label() {{ toggle.lastChild.textContent = theme() === "light" ? "☾ Dark" : "☀ Light"; }}
+function switchTheme() {{
+  root.dataset.theme = theme() === "light" ? "dark" : "light";
+  try {{ localStorage.setItem("theme", root.dataset.theme); }} catch (e) {{}}
+  label();
+}}
+try {{ const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; }} catch (e) {{}}
+label();
+matchMedia("(prefers-color-scheme: light)").addEventListener("change", label);
+toggle.addEventListener("click", switchTheme);
 addEventListener("keydown", (e) => {{
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   const n = Number(e.key);
-  if (n >= 1 && n <= tabs.length) show(n - 1);
+  if (e.key === "t") switchTheme();
+  else if (n >= 1 && n <= tabs.length) show(n - 1);
   else if (e.key === "ArrowRight") show(current + 1);
   else if (e.key === "ArrowLeft") show(current - 1);
   else if (e.key === "Escape") window.close();  // app windows only; the F13 hotkey closes the rest
@@ -326,38 +353,52 @@ show(0);
 """
 
 
+# the page's own colors in the light theme, next to the light drawings (PRINT_STYLE)
+PAGE_LIGHT = ("color-scheme: light; --bg: #ffffff; --fg: #1f2328; --muted: #59636e; --button: #f6f8fa; "
+              "--border: #d0d7de; --selected: #ddf4ff; --accent: #0969da; --dark: none; --light: block;")
+
+
+def light_config(path, footer=None):
+    """keymap_drawer.config.yaml with the light, ink-friendly style: the PDF's, and the
+    page's light theme"""
+    cfg = yaml.safe_load(CONFIG.read_text())
+    cfg["draw_config"]["svg_extra_style"] = PRINT_STYLE
+    if footer:
+        cfg["draw_config"]["footer_text"] = footer
+    path.write_text(yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False))
+    return path
+
+
 def render_page(keymap):
-    """index.html: each layer drawn on its own (dark theme), inlined as a data: URI so
+    """index.html: each layer drawn on its own, dark and light, inlined as data: URIs so
     the file needs nothing else, offline too; an <img> keeps each drawing's ids and
     style apart from the others'"""
     names = list(yaml.safe_load(keymap.read_text())["layers"])
     tabs, images = [], []
-    for i, name in enumerate(names):
-        svg = draw(CONFIG, keymap, "-s", name)
-        data = base64.b64encode(svg.encode()).decode()
-        label = html.escape(name)
-        tabs.append(f'<button role="tab" id="tab{i}" aria-controls="layer{i}"><kbd>{i + 1}</kbd>{label}</button>')
-        images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}">'
-                      f'<img alt="{label} layer" src="data:image/svg+xml;base64,{data}"></div>')
-    page = PAGE.format(background=BACKGROUND, tabs="\n".join(tabs), images="\n".join(images),
-                       count=len(names), stamp=html.escape(stamp()))
+    with tempfile.TemporaryDirectory() as tmp:
+        light = light_config(pathlib.Path(tmp) / "light.yaml")
+        for i, name in enumerate(names):
+            label = html.escape(name)
+            imgs = "".join(
+                f'<img class="{theme}" alt="{label} layer" src="data:image/svg+xml;base64,'
+                f'{base64.b64encode(draw(config, keymap, "-s", name).encode()).decode()}">'
+                for theme, config in (("dark", CONFIG), ("light", light)))
+            tabs.append(f'<button role="tab" id="tab{i}" aria-controls="layer{i}"><kbd>{i + 1}</kbd>{label}</button>')
+            images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}">{imgs}</div>')
+    page = PAGE.format(background=BACKGROUND, light=PAGE_LIGHT, tabs="\n".join(tabs),
+                       images="\n".join(images), count=len(names), stamp=html.escape(stamp()))
     with replacing(OUT / "index.html") as tmp:
         tmp.write_text(page)
-    print(f"keymap-custom/index.html: {len(names)} layers")
+    print(f"keymap-custom/index.html: {len(names)} layers, dark and light")
 
 
 def render_cheatsheet(paper):
     page_w, page_h = PAPER[paper]
     stamp_text = stamp()
 
-    cfg = yaml.safe_load(CONFIG.read_text())
-    cfg["draw_config"]["svg_extra_style"] = PRINT_STYLE
-    cfg["draw_config"]["footer_text"] = stamp_text
-
     with tempfile.TemporaryDirectory() as tmp:
         tmp = pathlib.Path(tmp)
-        config = tmp / "print.yaml"
-        config.write_text(yaml.safe_dump(cfg, allow_unicode=True, sort_keys=False))
+        config = light_config(tmp / "print.yaml", footer=stamp_text)
         keymap = tmp / "keymap.yaml"
         keymap_yaml = parse(config)
         keymap.write_text(keymap_yaml)
