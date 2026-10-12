@@ -172,6 +172,7 @@ images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+
 assert [(d, l) for d, _, l, _ in images] == [(cheatsheet.html.escape(n),) * 2 for n in layers], [(d, l) for d, _, l, _ in images]
 assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
 sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
+light_key = re.search(r"rect\.key \{ fill: (#[0-9a-f]+); \}", cheatsheet.PRINT_STYLE).group(1)  # the light theme's key fill
 def words(drawing):
     return sorted(w for w in re.findall(r">([^<>]+)<", drawing) if w.strip())
 for (_, dark, _, light), section in zip(images, sections):
@@ -180,10 +181,16 @@ for (_, dark, _, light), section in zip(images, sections):
         assert not re.search(r'(?:src|href)="(?!#|data:)|@import|url\((?!#)', one), "a drawing in index.html fetches something"
         assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
         # the dark drawing carries the dark theme's background, the light one the print style
-        assert (cheatsheet.BACKGROUND in one) == background and ("#e1e5ea" in one) != background, "a drawing has the other theme"
+        assert (cheatsheet.BACKGROUND in one) == background and (light_key in one) != background, "a drawing has the other theme"
 # the theme switch: a button and t, the system's theme until one is chosen, light vars for both cases
 assert '<button id="theme" type="button">' in page and 'e.key === "t"' in page
 assert page.count(cheatsheet.PAGE_LIGHT) == 2 and "prefers-color-scheme: light" in page
+# which drawing shows: dark by default, light under the light variables, nothing else
+assert "--dark: block; --light: none;" in page and "--dark: none; --light: block;" in cheatsheet.PAGE_LIGHT
+assert "img.dark { display: var(--dark); }" in page and "img.light { display: var(--light); }" in page
+# a saved theme applies before the drawings are parsed, and only a real one
+head = page.split("</head>")[0]
+assert 'localStorage.getItem("kinesis-360-theme")' in head and 's === "light" || s === "dark"' in head
 assert (out / "index.html").stat().st_mtime >= (out / "my_keymap.yaml").stat().st_mtime - 5, "index.html older than its drawing"
 
 text = subprocess.run(["pdftotext", "-layout", str(out / "cheatsheet.pdf"), "-"],

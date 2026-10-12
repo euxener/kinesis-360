@@ -277,6 +277,11 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Advantage 360 keymap</title>
+<script>
+// the chosen theme before the first paint (the drawings below are ~400 KB to parse);
+// own key: every project page on this origin shares localStorage
+try {{ const s = localStorage.getItem("kinesis-360-theme"); if (s === "light" || s === "dark") document.documentElement.dataset.theme = s; }} catch (e) {{}}
+</script>
 <style>
 :root {{ color-scheme: dark; --bg: {background}; --fg: #e4e4e4; --muted: #8892b0;
   --button: #16213e; --border: #0f3460; --selected: #0f3460; --accent: #00d9ff; --dark: block; --light: none; }}
@@ -330,10 +335,9 @@ function theme() {{
 function label() {{ toggle.lastChild.textContent = theme() === "light" ? "☾ Dark" : "☀ Light"; }}
 function switchTheme() {{
   root.dataset.theme = theme() === "light" ? "dark" : "light";
-  try {{ localStorage.setItem("theme", root.dataset.theme); }} catch (e) {{}}
+  try {{ localStorage.setItem("kinesis-360-theme", root.dataset.theme); }} catch (e) {{}}
   label();
 }}
-try {{ const saved = localStorage.getItem("theme"); if (saved) root.dataset.theme = saved; }} catch (e) {{}}
 label();
 matchMedia("(prefers-color-scheme: light)").addEventListener("change", label);
 toggle.addEventListener("click", switchTheme);
