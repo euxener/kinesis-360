@@ -103,7 +103,7 @@ Starting on 11/15/2023 the Advantage 360 Pro will now automatically record the c
 
 ## N-Key Rollover
 
-By default this keyboard has NKRO enabled, however for compatibility reasons the higher ranges are not enabled. If you want to use F13-F24 or the INTL1-9 keys with NKRO enabled you can change `CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=n` to `CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y` in [adv360_left_defconfig](/config/boards/arm/adv360/adv360_left_defconfig#L65)
+NKRO is enabled. Upstream leaves the higher ranges (F13-F24, INTL1-9) off for compatibility; this layout turns them on (`CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y` in [adv360_left_defconfig](/config/boards/arm/adv360/adv360_left_defconfig#L67)) because its cheatsheet thumb key sends F13. Per the Kconfig help, Android then gets no input from the keyboard.
 
 ## Battery reporting
 

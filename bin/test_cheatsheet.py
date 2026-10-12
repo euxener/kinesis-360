@@ -124,8 +124,11 @@ assert marked["Mod"][65] == {"type": "held layer3"} and marked["Mod"][70] == {"t
 assert all(then > max(ifs) for ifs, then in cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text()))
 toggled = {k["t"] for k in base if isinstance(k, dict) and k.get("h") == "toggle"}
 assert toggled == {"Excel", "Num+Fn"}, toggled
+# ...the other layers' Base layer keys too: their holds (36/37 Excel) and toggles (6/7)
+layer_keys = {**taps, **{pos: k if isinstance(k, str) else k["t"] for pos, k in enumerate(base)
+                         if (k if isinstance(k, str) else k.get("t")) in toggled | {"Excel"} and pos not in taps}}
 for name in toggled:
-    shadowed = [pos for pos, hold in taps.items() if hold != name and marked[name][pos] != {"t": "▽", "type": "trans"}]
+    shadowed = [pos for pos, hold in layer_keys.items() if hold != name and marked[name][pos] != {"t": "▽", "type": "trans"}]
     assert not shadowed, f"{name}, toggled on, hides the thumb holds at {shadowed}"
 # ...and binds its own hold keys: falling through to the &mo, a hold there turns the
 # toggle off on release. Read from the keymap source: keymap-drawer draws a layer's
@@ -139,6 +142,13 @@ for name in toggled:
     assert own and all(source[name][pos] != "&trans" for pos in own), (name, own, [source[name][p] for p in own])
 # Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord
 assert "&trans" not in source["Mod"], [i for i, b in enumerate(source["Mod"]) if b == "&trans"]
+# Space is the layer-tap without quick-tap: tap then hold reaches Sym, not repeated spaces
+keymap_text = cheatsheet.KEYMAP.read_text()
+assert source[names[0]][70] == "&lt_sp 4 SPACE", source[names[0]][70]
+assert re.search(r"lt_sp: [^}]*quick-tap-ms = <0>;", keymap_text), "lt_sp lost quick-tap-ms = <0>"
+# F13 (the cheatsheet key) is past the plain NKRO report: without the extended one it is dropped
+defconfig = (cheatsheet.ROOT / "config/boards/arm/adv360/adv360_left_defconfig").read_text()
+assert re.search(r"^CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y$", defconfig, re.M), "F13 needs the extended NKRO report"
 
 # keymap-custom/ is consistent: drawing yaml = a fresh parse, svg and pdf drawn from it
 out = cheatsheet.OUT
