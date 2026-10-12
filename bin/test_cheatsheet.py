@@ -167,8 +167,10 @@ page = (out / "index.html").read_text()
 tabs = re.findall(r'<button role="tab"[^>]*><kbd>(\d+)</kbd>([^<]*)</button>', page)
 assert tabs == [(str(i + 1), cheatsheet.html.escape(n)) for i, n in enumerate(layers)], tabs
 IMG = r'<img class="{}" alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)">'
-images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+">'
+images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+"(?: hidden)?>'
                     + IMG.format("dark") + IMG.format("light") + "</div>", page)
+# before the script runs, only the first layer shows
+assert re.findall(r'aria-labelledby="tab(\d+)"( hidden)?>', page) == [(str(i), " hidden" if i else "") for i in range(len(layers))]
 assert [(d, l) for d, _, l, _ in images] == [(cheatsheet.html.escape(n),) * 2 for n in layers], [(d, l) for d, _, l, _ in images]
 assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
 sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
@@ -184,7 +186,8 @@ for (_, dark, _, light), section in zip(images, sections):
         assert (cheatsheet.BACKGROUND in one) == background and (light_key in one) != background, "a drawing has the other theme"
         assert (cheatsheet.PRINT_STYLE.strip() in one) != background, "a light drawing is stale or a dark one has the light style"
 # the theme switch: a button and t, the system's theme until one is chosen, light vars for both cases
-assert '<button id="theme" type="button">' in page and 'e.key.toLowerCase() === "t"' in page
+assert '<button id="theme" type="button">' in page
+assert 'if (e.key.toLowerCase() === "t") { if (!e.repeat) switchTheme(); }' in page  # Caps Lock too, a held t once
 # the light variables apply when chosen, or by the system only while nothing is chosen
 L = cheatsheet.PAGE_LIGHT
 assert f':root[data-theme="light"] {{ {L} }}' in page, "the chosen light theme's selector changed"

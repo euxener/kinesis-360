@@ -308,7 +308,7 @@ footer {{ padding: 6px 16px 10px; color: var(--muted); font-size: 12px; }}
 </head>
 <body>
 <nav>
-<div role="tablist" aria-label="Layers" style="display: contents">
+<div role="tablist" aria-label="Layers" style="display: flex; flex-wrap: wrap; gap: 6px">
 {tabs}
 </div>
 <button id="theme" type="button"><kbd>t</kbd><span></span></button>
@@ -388,7 +388,8 @@ def render_page(keymap):
                 f'{base64.b64encode(draw(config, keymap, "-s", name).encode()).decode()}">'
                 for theme, config in (("dark", CONFIG), ("light", light)))
             tabs.append(f'<button role="tab" id="tab{i}" aria-controls="layer{i}"><kbd>{i + 1}</kbd>{label}</button>')
-            images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}">{imgs}</div>')
+            hidden = " hidden" if i else ""  # only the first layer before the script runs
+            images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}"{hidden}>{imgs}</div>')
     page = PAGE.format(background=BACKGROUND, light=PAGE_LIGHT, tabs="\n".join(tabs),
                        images="\n".join(images), count=len(names), stamp=html.escape(stamp()))
     with replacing(OUT / "index.html") as tmp:
