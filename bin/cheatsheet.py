@@ -344,7 +344,7 @@ toggle.addEventListener("click", switchTheme);
 addEventListener("keydown", (e) => {{
   if (e.ctrlKey || e.metaKey || e.altKey) return;
   const n = Number(e.key);
-  if (e.key === "t") switchTheme();
+  if (e.key.toLowerCase() === "t") {{ if (!e.repeat) switchTheme(); }}  // Caps Lock too; a held t flips once
   else if (n >= 1 && n <= tabs.length) show(n - 1);
   else if (e.key === "ArrowRight") show(current + 1);
   else if (e.key === "ArrowLeft") show(current - 1);

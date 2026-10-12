@@ -182,9 +182,14 @@ for (_, dark, _, light), section in zip(images, sections):
         assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
         # the dark drawing carries the dark theme's background, the light one the print style
         assert (cheatsheet.BACKGROUND in one) == background and (light_key in one) != background, "a drawing has the other theme"
+        assert (cheatsheet.PRINT_STYLE.strip() in one) != background, "a light drawing is stale or a dark one has the light style"
 # the theme switch: a button and t, the system's theme until one is chosen, light vars for both cases
-assert '<button id="theme" type="button">' in page and 'e.key === "t"' in page
-assert page.count(cheatsheet.PAGE_LIGHT) == 2 and "prefers-color-scheme: light" in page
+assert '<button id="theme" type="button">' in page and 'e.key.toLowerCase() === "t"' in page
+# the light variables apply when chosen, or by the system only while nothing is chosen
+L = cheatsheet.PAGE_LIGHT
+assert f':root[data-theme="light"] {{ {L} }}' in page, "the chosen light theme's selector changed"
+assert f'@media (prefers-color-scheme: light) {{ :root:not([data-theme]) {{ {L} }} }}' in page, "the system light rule overrides a choice"
+assert page.count('"kinesis-360-theme"') == 2, "the head reads and the switch writes different keys"
 # which drawing shows: dark by default, light under the light variables, nothing else
 assert "--dark: block; --light: none;" in page and "--dark: none; --light: block;" in cheatsheet.PAGE_LIGHT
 assert "img.dark { display: var(--dark); }" in page and "img.light { display: var(--light); }" in page
