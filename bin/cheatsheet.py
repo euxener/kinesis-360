@@ -59,8 +59,8 @@ tspan.modicon.ctrl { font-size: 220%; baseline-shift: -0.3em; }
 rect.key.layer1 { fill: #92d1a3; }
 rect.key.layer2 { fill: #f0c96e; }
 rect.key.layer3 { fill: #c3a8ea; }
-rect.key.layer4 { fill: #ee9fac; }
-rect.key.layer5 { fill: #8fd0da; }
+rect.key.layer4 { fill: #8fd0da; }
+rect.key.layer5 { fill: #ee9fac; }
 """
 
 
@@ -286,9 +286,10 @@ button {{ font: inherit; color: inherit; background: #16213e; border: 1px solid 
 button[aria-selected="true"] {{ background: #0f3460; color: #00d9ff; }}
 button:focus-visible {{ outline: 2px solid #00d9ff; outline-offset: 2px; }}
 kbd {{ font: inherit; color: #8892b0; margin-right: 6px; }}
-main {{ flex: 1; min-height: 0; display: flex; justify-content: center; padding: 0 16px; }}
+main {{ flex: 1; min-height: 0; padding: 0 16px; }}
+main > div {{ height: 100%; display: flex; justify-content: center; }}
+main > div[hidden] {{ display: none; }}
 img {{ max-width: 100%; max-height: 100%; object-fit: contain; }}
-img[hidden] {{ display: none; }}
 footer {{ padding: 6px 16px 10px; color: #8892b0; font-size: 12px; }}
 </style>
 </head>
@@ -302,12 +303,12 @@ footer {{ padding: 6px 16px 10px; color: #8892b0; font-size: 12px; }}
 <footer>1–{count} or ← → switch layers · {stamp}</footer>
 <script>
 const tabs = [...document.querySelectorAll('[role="tab"]')];
-const images = [...document.querySelectorAll("main img")];
+const panels = [...document.querySelectorAll('[role="tabpanel"]')];
 let current = 0;
 function show(i) {{
   current = (i + tabs.length) % tabs.length;
   tabs.forEach((t, j) => t.setAttribute("aria-selected", j === current));
-  images.forEach((img, j) => (img.hidden = j !== current));
+  panels.forEach((p, j) => (p.hidden = j !== current));
 }}
 tabs.forEach((t, i) => t.addEventListener("click", () => show(i)));
 addEventListener("keydown", (e) => {{
@@ -336,8 +337,8 @@ def render_page(keymap):
         data = base64.b64encode(svg.encode()).decode()
         label = html.escape(name)
         tabs.append(f'<button role="tab" id="tab{i}" aria-controls="layer{i}"><kbd>{i + 1}</kbd>{label}</button>')
-        images.append(f'<img id="layer{i}" role="tabpanel" aria-labelledby="tab{i}" alt="{label} layer" '
-                      f'src="data:image/svg+xml;base64,{data}">')
+        images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}">'
+                      f'<img alt="{label} layer" src="data:image/svg+xml;base64,{data}"></div>')
     page = PAGE.format(background=BACKGROUND, tabs="\n".join(tabs), images="\n".join(images),
                        count=len(names), stamp=html.escape(stamp()))
     with replacing(OUT / "index.html") as tmp:

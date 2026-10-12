@@ -108,7 +108,37 @@ with tempfile.TemporaryDirectory() as tmp:
 # the real keymap: every key labelled, pages in layer order
 real = cheatsheet.drawer(cheatsheet.CONFIG, "parse", "-z", str(cheatsheet.KEYMAP))
 assert cheatsheet.unlabeled(real) == [], cheatsheet.unlabeled(real)
-assert cheatsheet.pages(real) == [("Base (Colemak-DH)", "Excel"), ("Num+Fn", "Nav"), ("Mod", "Sym")], cheatsheet.pages(real)
+assert cheatsheet.pages(real) == [("Base (Colemak-DH)", "Excel"), ("Num+Fn", "Nav"), ("Sym", "Mod")], cheatsheet.pages(real)
+# the layer keys found on Base are the keymap's: the thumb layer-taps by their hold
+# label, and Mod is shaded with them, Nav + Sym held (a reformatted conditional block
+# the regex no longer reads would drop that shading with every other check still green)
+assert cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text()) == [((3, 4), 5)]
+marked = cheatsheet.yaml.safe_load(cheatsheet.parse(cheatsheet.CONFIG))["layers"]
+base = marked["Base (Colemak-DH)"]
+taps = {i: k["h"] for i, k in enumerate(base) if isinstance(k, dict) and str(k.get("type", "")).startswith("layer") and k.get("h") not in (None, "toggle")}
+assert taps == {65: "Nav", 66: "Num+Fn", 70: "Sym"}, taps
+assert marked["Mod"][65] == {"type": "held layer3"} and marked["Mod"][70] == {"type": "held layer4"}, (marked["Mod"][65], marked["Mod"][70])
+# layer order holds whatever the numbers become: a conditional layer sits above the
+# layers that turn it on (below Sym, Mod's keys never fired), and a toggled layer
+# leaves the other layers' thumb holds alone (Num's 0 on Space hid Space and Sym)
+assert all(then > max(ifs) for ifs, then in cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text()))
+toggled = {k["t"] for k in base if isinstance(k, dict) and k.get("h") == "toggle"}
+assert toggled == {"Excel", "Num+Fn"}, toggled
+for name in toggled:
+    shadowed = [pos for pos, hold in taps.items() if hold != name and marked[name][pos] != {"t": "▽", "type": "trans"}]
+    assert not shadowed, f"{name}, toggled on, hides the thumb holds at {shadowed}"
+# ...and binds its own hold keys: falling through to the &mo, a hold there turns the
+# toggle off on release. Read from the keymap source: keymap-drawer draws a layer's
+# own hold key as held whatever is bound under it
+names = list(marked)
+source = {name: re.findall(r"&\w+(?:\s+(?!&)[^\s&]+)*", body) for name, body in re.findall(
+    r'display-name = "([^"]+)";\s*bindings = <(.*?)>;', cheatsheet.KEYMAP.read_text(), re.S)}
+assert list(source) == names and all(len(b) == len(source[names[0]]) for b in source.values()), list(source)
+for name in toggled:
+    own = [pos for pos, b in enumerate(source[names[0]]) if re.fullmatch(rf"&(mo|lt_th|lt_sp) {names.index(name)}\b.*", b)]
+    assert own and all(source[name][pos] != "&trans" for pos in own), (name, own, [source[name][p] for p in own])
+# Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord
+assert "&trans" not in source["Mod"], [i for i, b in enumerate(source["Mod"]) if b == "&trans"]
 
 # keymap-custom/ is consistent: drawing yaml = a fresh parse, svg and pdf drawn from it
 out = cheatsheet.OUT
@@ -126,7 +156,7 @@ assert (out / "my_keymap.png").stat().st_mtime >= (out / "my_keymap.svg").stat()
 page = (out / "index.html").read_text()
 tabs = re.findall(r'<button role="tab"[^>]*><kbd>(\d+)</kbd>([^<]*)</button>', page)
 assert tabs == [(str(i + 1), cheatsheet.html.escape(n)) for i, n in enumerate(layers)], tabs
-images = re.findall(r'<img id="layer\d+"[^>]* alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)">', page)
+images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+"><img alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)"></div>', page)
 assert [a for a, _ in images] == [cheatsheet.html.escape(n) for n in layers], [a for a, _ in images]
 assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
 sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
@@ -134,6 +164,7 @@ def words(drawing):
     return sorted(w for w in re.findall(r">([^<>]+)<", drawing) if w.strip())
 for (_, data), section in zip(images, sections):
     one = cheatsheet.base64.b64decode(data).decode()
+    assert not re.search(r'(?:src|href)="(?!#|data:)|@import|url\((?!#)', one), "a drawing in index.html fetches something"
     assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
 assert (out / "index.html").stat().st_mtime >= (out / "my_keymap.yaml").stat().st_mtime - 5, "index.html older than its drawing"
 

@@ -46,11 +46,31 @@ hmr: homerow_mods_right {
     hold-trigger-on-release;
 };
 
+// Thumb layer-taps: tap the key, hold the layer. No positional trigger, the layers
+// have keys on both hands. prior-idle: a thumb pressed within 100 ms of the last
+// key press is a tap, so a thumb rolled into the next letter rarely turns into its
+// layer (one held across the whole next letter still can: balanced flavor)
+// Bspc (Nav), Del (Num+Fn): quick-tap, tap then hold repeats the key
 lt_th: layer_tap_thumb {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
     tapping-term-ms = <200>;
     quick-tap-ms = <175>;
+    require-prior-idle-ms = <100>;
+    flavor = "balanced";
+    bindings = <&mo>, <&kp>;
+};
+
+// Space (Sym): no quick-tap, so "foo (" (Space, then Space held for the paren right
+// away) reaches Sym instead of repeating spaces. Its own tap counts as the last key
+// press for prior-idle, timed from when it went down: a second press within 100 ms of
+// the first is still a tap, too quick to be a deliberate hold
+lt_sp: layer_tap_space {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <200>;
+    quick-tap-ms = <0>;
+    require-prior-idle-ms = <100>;
     flavor = "balanced";
     bindings = <&mo>, <&kp>;
 };
@@ -75,15 +95,20 @@ td_caps: tap_dance_caps {
         };
     };
 
-    // Nav + Sym held together (Bspc + Space): Mod
+    // Nav + Sym held together (Bspc + Space): Mod. The top layer: the highest active
+    // layer wins a key, and Sym, held to get here, binds nearly every key
     conditional_layers {
         compatible = "zmk,conditional-layers";
         mod_layer {
-            if-layers = <3 5>;
-            then-layer = <4>;
+            if-layers = <3 4>;
+            then-layer = <5>;
         };
     };
 
+    // Layers: 0 Base, 1 Excel, 2 Num+Fn, 3 Nav, 4 Sym, 5 Mod. A key is the highest
+    // active layer's that binds it. Toggles sit low (Excel 1, Num 2) so Nav and Sym held
+    // over either still work; Excel, held or toggled, under a toggled Num gets Num's
+    // keys wherever Num binds one: toggle Num off first
     keymap {
         compatible = "zmk,keymap";
 
@@ -94,7 +119,7 @@ td_caps: tap_dance_caps {
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                    &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
                 &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &kp F13 &mo 1 &mo 1 &key_repeat         &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
                 &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &kp TAB &kp RGUI                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp ESC &kp RCTRL &kp ENTER &lt_th 5 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp ESC &kp RCTRL &kp ENTER &lt_sp 4 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
             >;
         };
 
@@ -103,7 +128,7 @@ td_caps: tap_dance_caps {
             bindings = <
                 &mcb_alt_shade_cycle &mcb_num_cycle   &mcb_pct_cycle    &mcb_mult_cycle        &mcb_date_cycle     &mcb_anchor_cycle &trans                                                    &trans          &mcb_outside_borders &mcb_inside_borders &mcb_no_borders    &trans              &trans              &mcb_delete_col
                 &trans               &mcb_uniformulas &mcb_max_view     &mcb_left_indent_cycle &mcb_expand_grp     &mcb_insert_col   &mcb_col_width                                            &mcb_prev_sheet &mcb_zoom_in         &mcb_flip_sign      &mcb_paste_exact   &mcb_binary_cycle   &mcb_blue_black     &mcb_delete_row
-                &trans               &mcb_autocolor   &mcb_fill_right   &mcb_quick_save        &mcb_activate_sheet &mcb_insert_row   &mcb_row_height        &trans &trans &trans &trans        &mcb_next_sheet &mcb_zoom_out        &mcb_vert_cycle     &mcb_error_wrap    &mcb_insert_note    &mcb_color_cycle    &trans
+                &trans               &mcb_autocolor   &mcb_fill_right   &mcb_quick_save        &mcb_activate_sheet &mcb_insert_row   &mcb_row_height        &trans &none &none &trans          &mcb_next_sheet &mcb_zoom_out        &mcb_vert_cycle     &mcb_error_wrap    &mcb_insert_note    &mcb_color_cycle    &trans
                 &trans               &mcb_smart_print &mcb_super_find   &mcb_center_cycle      &mcb_fill_down      &mcb_paste_insert                               &trans &trans                               &mcb_fill_cycle      &mcb_horiz_cycle    &mcb_inc_dec       &mcb_dec_dec        &mcb_shift_dec_left &mcb_shift_dec_right
                 &trans               &trans           &mcb_paste_numfmt &mcb_left_border       &mcb_right_border                                     &trans &trans &trans &trans &trans &trans                                      &mcb_top_border     &mcb_bottom_border &mcb_pro_precedents &mcb_pro_dependents &trans
             >;
@@ -116,7 +141,7 @@ td_caps: tap_dance_caps {
                 &kp F7    &kp F8       &kp F9      &kp F10     &kp F11      &kp F12 &trans                                             &trans &trans &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &trans
                 &trans    &kp LCTRL    &kp LALT    &kp LGUI    &kp LSHFT    &trans  &trans       &trans &trans &trans &trans           &trans &trans &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &trans
                 &trans    &trans       &trans      &trans      &trans       &trans                      &trans &trans                         &trans &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-                &trans    &trans       &trans      &trans      &trans                     &trans &trans &trans &trans &trans &kp KP_N0               &trans     &trans       &kp KP_DOT    &trans          &trans
+                &trans    &trans       &trans      &trans      &trans                     &trans &kp DEL &trans &trans &kp KP_N0 &trans               &trans     &trans       &kp KP_DOT    &trans          &trans
             >;
         };
 
@@ -131,17 +156,6 @@ td_caps: tap_dance_caps {
             >;
         };
 
-        mod {
-            display-name = "Mod";
-            bindings = <
-                &none          &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 &none                                                                 &trans       &none &none      &none      &none &none &none
-                &none          &Win_Lock_PC &Win_Snip_Tool &Mac_Lock_PC &Mac_Snip_Tool &none        &bootloader                                                           &bootloader  &none &none      &none      &none &none &none
-                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN   &kp C_VOL_UP &kp C_MUTE          &none &none &none &none                           &stp STP_BAT &none &none      &none      &none &none &bt BT_CLR
-                &none          &kp C_BRI_DN &kp C_BRI_UP   &none        &macro_ver     &none                                  &none &none                                              &none &none      &none      &none &none &none
-                &none          &none        &none          &none        &none                                     &none &none &none &none      &none &none                                   &bl BL_INC &bl BL_DEC &bl BL_TOG &rgb_ug RGB_TOG &none
-            >;
-        };
-
         symbol {
             display-name = "Sym";
             bindings = <
@@ -150,6 +164,17 @@ td_caps: tap_dance_caps {
                 &trans          &kp LS(SEMI)  &kp LS(SQT)    &kp LS(LBKT) &kp LS(RBKT)   &kp AT   &pm_dquotes          &trans &trans &trans &trans        &pm_braces &kp FSLH  &kp CARET     &kp DLLR      &kp PRCNT    &kp SQT          &pm_fence
                 &trans          &kp LS(GRAVE) &kp GRAVE      &kp LS(N9)   &kp LS(N0)     &kp AMPS                             &trans &trans                          &kp MINUS &kp UNDER     &kp PLUS      &kp ASTRK    &kp SEMI         &trans
                 &trans          &pm_shell_var &pm_parent_dir &pm_home_dir &pm_substitute                        &trans &trans &trans &trans &trans &trans                      &trans        &pm_go_assign &pm_go_chan  &pm_pipe         &trans
+            >;
+        };
+
+        mod {
+            display-name = "Mod";
+            bindings = <
+                &none          &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 &none                                                                 &none        &none &none      &none      &none &none &none
+                &none          &Win_Lock_PC &Win_Snip_Tool &Mac_Lock_PC &Mac_Snip_Tool &none        &bootloader                                                           &bootloader  &none &none      &none      &none &none &none
+                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN   &kp C_VOL_UP &kp C_MUTE          &none &none &none &none                           &stp STP_BAT &none &none      &none      &none &none &bt BT_CLR
+                &none          &kp C_BRI_DN &kp C_BRI_UP   &none        &macro_ver     &none                                  &none &none                                              &none &none      &none      &none &none &none
+                &none          &none        &none          &none        &none                                     &none &none &none &none      &none &none                                   &bl BL_INC &bl BL_DEC &bl BL_TOG &rgb_ug RGB_TOG &none
             >;
         };
 

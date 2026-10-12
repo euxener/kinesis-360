@@ -44,8 +44,8 @@ draw_config:
     rect.key.layer1 { fill: #1e6b3c; }
     rect.key.layer2 { fill: #7a5a12; }
     rect.key.layer3 { fill: #533483; }
-    rect.key.layer4 { fill: #7a2a3a; }
-    rect.key.layer5 { fill: #145f6b; }
+    rect.key.layer4 { fill: #145f6b; }
+    rect.key.layer5 { fill: #7a2a3a; }
     /* text.key.layerN outranks text.hold, so the toggle's sublabel turns light too */
     text.key.layer1, text.key.layer2, text.key.layer3, text.key.layer4, text.key.layer5 { fill: #f5f5f5; }
     text {

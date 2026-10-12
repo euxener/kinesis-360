@@ -97,7 +97,7 @@ layers:
   - ↵
   - t: ␣
     h: Sym
-    type: layer5
+    type: layer4
   - ↓
   - ↑
   - '['
@@ -358,9 +358,9 @@ layers:
     type: trans
   - t: ▽
     type: trans
+  - '0'
   - t: ▽
     type: trans
-  - '0'
   - t: ▽
     type: trans
   - t: ▽
@@ -539,102 +539,6 @@ layers:
     type: macro nvim
   - t: ▽
     type: trans
-  Mod:
-  - ''
-  - t: BT
-    h: '0'
-  - t: BT
-    h: '1'
-  - t: BT
-    h: '2'
-  - t: BT
-    h: '3'
-  - t: BT
-    h: '4'
-  - ''
-  - t: ▽
-    type: trans
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - t: $$mdi:lock$$
-    h: Win
-  - t: $$mdi:monitor-screenshot$$
-    h: Win
-  - t: $$mdi:lock$$
-    h: Mac
-  - t: $$mdi:monitor-screenshot$$
-    h: Mac
-  - ''
-  - Boot
-  - Boot
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - t: Studio
-    h: unlock
-  - $$mdi:skip-previous$$
-  - $$mdi:play-pause$$
-  - $$mdi:skip-next$$
-  - $$mdi:volume-minus$$
-  - $$mdi:volume-plus$$
-  - $$mdi:volume-mute$$
-  - ''
-  - ''
-  - ''
-  - ''
-  - t: Batt
-    h: status
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - t: BT
-    h: clear
-  - ''
-  - t: $$mdi:brightness-5$$
-    h: dim
-  - t: $$mdi:brightness-7$$
-    h: bright
-  - ''
-  - t: Ver
-    h: info
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - ''
-  - type: held layer3
-  - ''
-  - ''
-  - ''
-  - ''
-  - type: held layer5
-  - t: BL
-    h: +
-  - t: BL
-    h: −
-  - t: BL
-    h: toggle
-  - RGB
-  - ''
   Sym:
   - ===
   - ->
@@ -721,7 +625,7 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - type: held layer5
+  - type: held layer4
   - t: ▽
     type: trans
   - :=
@@ -729,6 +633,101 @@ layers:
   - '|>'
   - t: ▽
     type: trans
+  Mod:
+  - ''
+  - t: BT
+    h: '0'
+  - t: BT
+    h: '1'
+  - t: BT
+    h: '2'
+  - t: BT
+    h: '3'
+  - t: BT
+    h: '4'
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: $$mdi:lock$$
+    h: Win
+  - t: $$mdi:monitor-screenshot$$
+    h: Win
+  - t: $$mdi:lock$$
+    h: Mac
+  - t: $$mdi:monitor-screenshot$$
+    h: Mac
+  - ''
+  - Boot
+  - Boot
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: Studio
+    h: unlock
+  - $$mdi:skip-previous$$
+  - $$mdi:play-pause$$
+  - $$mdi:skip-next$$
+  - $$mdi:volume-minus$$
+  - $$mdi:volume-plus$$
+  - $$mdi:volume-mute$$
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: Batt
+    h: status
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - t: BT
+    h: clear
+  - ''
+  - t: $$mdi:brightness-5$$
+    h: dim
+  - t: $$mdi:brightness-7$$
+    h: bright
+  - ''
+  - t: Ver
+    h: info
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held layer3
+  - ''
+  - ''
+  - ''
+  - ''
+  - type: held layer4
+  - t: BL
+    h: +
+  - t: BL
+    h: −
+  - t: BL
+    h: toggle
+  - RGB
+  - ''
 combos:
 - p:
   - 32

@@ -17,6 +17,12 @@ on:
       - 'bin/cheatsheet.py'
       - 'bin/test_cheatsheet.py'
 
+# one run per branch at a time, queued: two at once race their render commits, and an
+# older page could deploy after a newer one
+concurrency:
+  group: draw-keymap-${{ github.ref }}
+  cancel-in-progress: false
+
 jobs:
   # keymap-custom/: the dark drawing (my_keymap.yaml/svg/png), the screen page
   # (index.html) and the print-ready PDF, all from bin/cheatsheet.py, committed so
