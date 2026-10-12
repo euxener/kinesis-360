@@ -8,12 +8,14 @@ layers:
   - '3'
   - '4'
   - '5'
-  - &id001
+  - &id002
     t: Num+Fn
     h: toggle
+    type: layer2
+  - &id001
+    t: Excel
+    h: toggle
     type: layer1
-  - t: Mod
-    type: layer3
   - '6'
   - '7'
   - '8'
@@ -45,14 +47,14 @@ layers:
     h: ⇧ Shift
   - G
   - PgDn
-  - t: Sym
-    type: layer5
+  - t: $$mdi:keyboard-outline$$
+    h: cheatsheet
   - t: Excel
-    type: layer4
+    type: layer1
   - t: Excel
-    type: layer4
-  - t: Sym
-    type: layer5
+    type: layer1
+  - t: $$mdi:repeat$$
+    h: repeat
   - End
   - M
   - t: N
@@ -70,10 +72,8 @@ layers:
   - C
   - D
   - V
-  - t: Num+Fn
-    type: layer1
-  - t: Num+Fn
-    type: layer1
+  - ⇥
+  - ⌘ Cmd
   - K
   - H
   - ','
@@ -82,23 +82,177 @@ layers:
   - ⇧ Shift
   - ⌃ Ctrl
   - '`'
-  - t: Caps
-    s: 2×
+  - t: Caps word
+    s: 2× lock
   - ←
   - →
-  - ⌫
-  - Del
-  - t: Nav
+  - t: ⌫
+    h: Nav
+    type: layer3
+  - t: Del
+    h: Num+Fn
     type: layer2
-  - t: Nav
-    type: layer2
+  - Esc
+  - ⌃ Ctrl
   - ↵
-  - ␣
+  - t: ␣
+    h: Sym
+    type: layer5
   - ↓
   - ↑
   - '['
   - ']'
   - ⌥ AltGr
+  Excel:
+  - t: Shade
+    h: alt rows
+  - t: '#'
+    h: format
+  - t: '%'
+    h: format
+  - t: ×
+    h: format
+  - t: Date
+    h: format
+  - t: $
+    h: anchor
+  - t: ▽
+    type: trans
+  - *id001
+  - t: Outside
+    h: borders
+  - t: Inside
+    h: borders
+  - t: None
+    h: borders
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: −Col
+    h: delete
+  - t: ▽
+    type: trans
+  - t: Uni
+    h: formula
+  - t: $$mdi:fullscreen$$
+    h: view
+  - t: ⇥
+    h: indent
+  - t: +Grp
+    h: outline
+  - t: +Col
+    h: insert
+  - t: Col↔
+    h: size
+  - t: ←
+    h: sheets
+  - t: +
+    h: zoom
+  - t: ±
+    h: formula
+  - t: '='
+    h: paste
+  - t: Y/N
+    h: format
+  - t: B/K
+    h: font
+  - t: −Row
+    h: delete
+  - t: ▽
+    type: trans
+  - t: Auto
+    h: color
+  - t: →
+    h: fill
+  - t: Save
+    h: file
+  - t: A1
+    h: sheets
+  - t: +Row
+    h: insert
+  - t: Row↕
+    h: size
+  - t: ▽
+    type: trans
+  - type: held layer1
+  - type: held layer1
+  - t: ▽
+    type: trans
+  - t: →
+    h: sheets
+  - t: −
+    h: zoom
+  - t: ↕
+    h: align
+  - t: Err
+    h: wrap
+  - t: Note
+    h: insert
+  - t: Font
+    h: color
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Print
+    h: area
+  - t: Find
+    h: super
+  - t: Ctr
+    h: align
+  - t: ↓
+    h: fill
+  - t: Ins
+    h: paste
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Fill
+    h: color
+  - t: ↔
+    h: align
+  - t: .0+
+    h: decimal
+  - t: .0−
+    h: decimal
+  - t: ←.
+    h: decimal
+  - t: .→
+    h: decimal
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Fmt
+    h: paste
+  - t: Left
+    h: border
+  - t: Right
+    h: border
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: Top
+    h: border
+  - t: Bottom
+    h: border
+  - t: ←ƒ
+    h: trace
+  - t: ƒ→
+    h: trace
+  - t: ▽
+    type: trans
   Num+Fn:
   - F1
   - F2
@@ -106,7 +260,7 @@ layers:
   - F4
   - F5
   - F6
-  - *id001
+  - *id002
   - t: ▽
     type: trans
   - t: ▽
@@ -175,8 +329,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - type: held layer1
-  - type: held layer1
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - '1'
@@ -197,8 +353,7 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
+  - type: held layer2
   - t: ▽
     type: trans
   - t: ▽
@@ -361,12 +516,13 @@ layers:
     type: trans
   - t: ▽
     type: trans
+  - type: held layer3
   - t: ▽
     type: trans
   - t: ▽
     type: trans
-  - type: held layer2
-  - type: held layer2
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: ▽
@@ -396,7 +552,8 @@ layers:
   - t: BT
     h: '4'
   - ''
-  - type: held layer3
+  - t: ▽
+    type: trans
   - ''
   - ''
   - ''
@@ -431,8 +588,7 @@ layers:
   - $$mdi:volume-mute$$
   - ''
   - ''
-  - t: BT
-    h: clear
+  - ''
   - ''
   - t: Batt
     h: status
@@ -441,7 +597,8 @@ layers:
   - ''
   - ''
   - ''
-  - ''
+  - t: BT
+    h: clear
   - ''
   - t: $$mdi:brightness-5$$
     h: dim
@@ -464,171 +621,20 @@ layers:
   - ''
   - ''
   - ''
+  - type: held layer3
   - ''
   - ''
   - ''
   - ''
-  - t: BL
-    h: toggle
-  - RGB
+  - type: held layer5
   - t: BL
     h: +
   - t: BL
     h: −
+  - t: BL
+    h: toggle
+  - RGB
   - ''
-  - ''
-  - ''
-  Excel:
-  - t: Shade
-    h: alt rows
-  - t: '#'
-    h: format
-  - t: '%'
-    h: format
-  - t: ×
-    h: format
-  - t: Date
-    h: format
-  - t: $
-    h: anchor
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: Outside
-    h: borders
-  - t: Inside
-    h: borders
-  - t: None
-    h: borders
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: −Col
-    h: delete
-  - t: ▽
-    type: trans
-  - t: Uni
-    h: formula
-  - t: $$mdi:fullscreen$$
-    h: view
-  - t: ⇥
-    h: indent
-  - t: +Grp
-    h: outline
-  - t: +Col
-    h: insert
-  - t: Col↔
-    h: size
-  - t: ←
-    h: sheets
-  - t: +
-    h: zoom
-  - t: ±
-    h: formula
-  - t: '='
-    h: paste
-  - t: Y/N
-    h: format
-  - t: B/K
-    h: font
-  - t: −Row
-    h: delete
-  - t: ▽
-    type: trans
-  - t: Auto
-    h: color
-  - t: →
-    h: fill
-  - t: Save
-    h: file
-  - t: A1
-    h: sheets
-  - t: +Row
-    h: insert
-  - t: Row↕
-    h: size
-  - t: ▽
-    type: trans
-  - type: held layer4
-  - type: held layer4
-  - t: ▽
-    type: trans
-  - t: →
-    h: sheets
-  - t: −
-    h: zoom
-  - t: ↕
-    h: align
-  - t: Err
-    h: wrap
-  - t: Note
-    h: insert
-  - t: Font
-    h: color
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: Print
-    h: area
-  - t: Find
-    h: super
-  - t: Ctr
-    h: align
-  - t: ↓
-    h: fill
-  - t: Ins
-    h: paste
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: Fill
-    h: color
-  - t: ↔
-    h: align
-  - t: .0+
-    h: decimal
-  - t: .0−
-    h: decimal
-  - t: ←.
-    h: decimal
-  - t: .→
-    h: decimal
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: Fmt
-    h: paste
-  - t: Left
-    h: border
-  - t: Right
-    h: border
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
-  - t: Top
-    h: border
-  - t: Bottom
-    h: border
-  - t: ←ƒ
-    h: trace
-  - t: ƒ→
-    h: trace
-  - t: ▽
-    type: trans
   Sym:
   - ===
   - ->
@@ -666,12 +672,14 @@ layers:
   - '}'
   - '@'
   - '""'
-  - type: held layer5
   - t: ▽
     type: trans
   - t: ▽
     type: trans
-  - type: held layer5
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - '{}'
   - /
   - ^
@@ -713,8 +721,7 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
+  - type: held layer5
   - t: ▽
     type: trans
   - :=

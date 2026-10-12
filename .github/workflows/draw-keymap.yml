@@ -18,10 +18,12 @@ on:
       - 'bin/test_cheatsheet.py'
 
 jobs:
-  # keymap-custom/: the dark drawing (my_keymap.yaml/svg/png) and the print-ready
-  # PDF, both from bin/cheatsheet.py, committed so they never lag the keymap. A key
-  # with no label fails the render; bin/test_cheatsheet.py then holds every output
-  # to the keymap. A pull request renders as a check and commits nothing.
+  # keymap-custom/: the dark drawing (my_keymap.yaml/svg/png), the screen page
+  # (index.html) and the print-ready PDF, all from bin/cheatsheet.py, committed so
+  # they never lag the keymap. A key with no label fails the render;
+  # bin/test_cheatsheet.py then holds every output to the keymap. A pull request
+  # renders as a check and commits nothing; a push to V3.0 also publishes the
+  # folder to GitHub Pages (pages job), where the F13 thumb key opens it.
   draw:
     runs-on: ubuntu-latest
     permissions:
@@ -34,7 +36,7 @@ jobs:
       - uses: astral-sh/setup-uv@d0cc045d04ccac9d8b7881df0226f9e82c39688e # v6
       - name: Install librsvg, poppler, JetBrains Mono and PyYAML
         run: sudo apt-get update && sudo apt-get install -y --no-install-recommends librsvg2-bin poppler-utils fonts-jetbrains-mono python3-yaml
-      - name: Render keymap-custom (my_keymap.yaml/svg/png, cheatsheet.pdf)
+      - name: Render keymap-custom (my_keymap.yaml/svg/png, index.html, cheatsheet.pdf)
         run: bin/cheatsheet.py letter
       - name: Check labels, page order, layer colors and that every output matches
         run: python3 bin/test_cheatsheet.py
@@ -43,3 +45,23 @@ jobs:
         with:
           commit_message: keymap-custom render
           file_pattern: keymap-custom/*
+      - if: github.event_name != 'pull_request' && github.ref_name == 'V3.0'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: keymap-custom
+
+  # https://euxener.github.io/kinesis-360/ : the page just rendered, so it matches the
+  # render commit above. Pages source must be "GitHub Actions" (repo settings)
+  pages:
+    needs: draw
+    if: github.event_name != 'pull_request' && github.ref_name == 'V3.0'
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
+    steps:
+      - id: deploy
+        uses: actions/deploy-pages@v4

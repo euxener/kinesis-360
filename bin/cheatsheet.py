@@ -5,6 +5,9 @@
 - cheatsheet.pdf: print-ready, the dark theme swapped for an ink-friendly light
   one, two layers per landscape page in the keymap's layer order; a footer stamps
   the commit so a printout can be matched to a build, and the author
+- index.html: the screen cheatsheet, one self-contained file (each layer a dark
+  drawing of its own, inlined), a tab per layer, keys 1-6 and arrows switch. CI
+  publishes it to GitHub Pages; the F13 thumb key opens it on every computer
 
 Every key needs a label: a behavior keymap_drawer.config.yaml does not map is
 drawn as its raw &name, so the render stops and names it instead.
@@ -12,6 +15,7 @@ drawn as its raw &name, so the render stops and names it instead.
 Usage: bin/cheatsheet.py [letter|a4]   (make cheatsheet [PAPER=a4]; CI runs it too)
 Needs uvx (runs keymap-drawer), rsvg-convert (librsvg), pdfunite or qpdf, PyYAML.
 """
+import base64
 import contextlib
 import datetime
 import html
@@ -52,10 +56,10 @@ tspan.modicon { font-size: 140%; }
 tspan.modicon.ctrl { font-size: 220%; baseline-shift: -0.3em; }
 /* one color per layer: its keys on Base and its held thumbs on its own drawing
    (after .held, same specificity). Dark theme: keymap_drawer.config.yaml */
-rect.key.layer1 { fill: #f0c96e; }
-rect.key.layer2 { fill: #c3a8ea; }
-rect.key.layer3 { fill: #ee9fac; }
-rect.key.layer4 { fill: #92d1a3; }
+rect.key.layer1 { fill: #92d1a3; }
+rect.key.layer2 { fill: #f0c96e; }
+rect.key.layer3 { fill: #c3a8ea; }
+rect.key.layer4 { fill: #ee9fac; }
 rect.key.layer5 { fill: #8fd0da; }
 """
 
@@ -175,29 +179,48 @@ def pages(keymap_yaml):
     return [tuple(names[i:i + 2]) for i in range(0, len(names), 2)]
 
 
-def mark_layer_keys(keymap_yaml):
+def mark_layer_keys(keymap_yaml, conditional=()):
     """Color every Base key that reaches a layer with that layer's color (class
     layer<N>, N its number), and shade the keys that hold it on its own drawing in
     the same color. keymap-drawer shades only the first of a pair; each thumb
     cluster has one. A Base key labelled with a layer's bare name is an &mo; an
     &tog carries a 'toggle' under the name: on its layer the same key, untouched
-    there, toggles it off, so it is drawn as itself in the layer's color"""
+    there, toggles it off, so it is drawn as itself in the layer's color. A
+    layer-tap is its tap over the layer's name (hold). conditional: (if-layers,
+    then-layer) pairs by number; the keys holding each if-layer are shaded on the
+    then-layer's drawing, the only place that says how to reach it"""
     keymap = yaml.safe_load(keymap_yaml)
     layers = keymap["layers"]
     names = list(layers)
     base = layers[names[0]]
+    holds = {}  # layer number: the Base positions that hold it
     for pos, key in enumerate(base):
         name = key.get("t") if isinstance(key, dict) else key
+        tap_hold = isinstance(key, dict) and name not in names and key.get("h") in names
+        if tap_hold:
+            name = key["h"]
         if name not in names[1:]:
             continue
-        color = f"layer{names.index(name)}"
+        n = names.index(name)
+        color = f"layer{n}"
         base[pos] = {**(key if isinstance(key, dict) else {"t": key}), "type": color}
-        if isinstance(key, str):
+        if isinstance(key, str) or tap_hold:
             # drawn empty like keymap-drawer's own: the key is down, its binding here never fires
             layers[name][pos] = {"type": f"held {color}"}
+            holds.setdefault(n, []).append(pos)
         elif layers[name][pos] == {"t": "▽", "type": "trans"}:
             layers[name][pos] = base[pos]
+    for if_layers, then in conditional:
+        for n in if_layers:
+            for pos in holds.get(n, []):
+                layers[names[then]][pos] = {"type": f"held layer{n}"}
     return yaml.safe_dump(keymap, allow_unicode=True, sort_keys=False)
+
+
+def conditional_layers(keymap_text):
+    """(if-layers, then-layer) of each conditional layer in the keymap source"""
+    return [(tuple(map(int, ifs.split())), int(then)) for ifs, then in re.findall(
+        r"if-layers\s*=\s*<([\d\s]+)>;\s*then-layer\s*=\s*<(\d+)>;", keymap_text)]
 
 
 def parse(config):
@@ -206,7 +229,7 @@ def parse(config):
     if raw:
         sys.exit("no label in keymap_drawer.config.yaml for:\n"
                  + "\n".join(f"  {name} ({layer})" for layer, name in raw))
-    return mark_layer_keys(keymap_yaml)
+    return mark_layer_keys(keymap_yaml, conditional_layers(KEYMAP.read_text()))
 
 
 @contextlib.contextmanager
@@ -236,19 +259,99 @@ def render_drawing():
     print("keymap-custom/my_keymap.{yaml,svg,png}")
 
 
-def render_cheatsheet(paper):
-    page_w, page_h = PAPER[paper]
+def stamp():
+    """The commit the drawing comes from, today, the author"""
     sha = subprocess.run(["git", "-C", str(ROOT), "rev-parse", "--short", "HEAD"],
                          capture_output=True, text=True).stdout.strip() or "uncommitted"
     # everything the drawing comes from: a page drawn from uncommitted work says so
     dirty = subprocess.run(["git", "-C", str(ROOT), "status", "--porcelain", "config",
                             "keymap_drawer.config.yaml", "bin/cheatsheet.py"],
                            capture_output=True, text=True).stdout.strip()
-    stamp = f"Advantage 360 · {sha}{'+dirty' if dirty else ''} · {datetime.date.today()} · {AUTHOR}"
+    return f"Advantage 360 · {sha}{'+dirty' if dirty else ''} · {datetime.date.today()} · {AUTHOR}"
+
+
+PAGE = """<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Advantage 360 keymap</title>
+<style>
+:root {{ color-scheme: dark; }}
+body {{ margin: 0; height: 100vh; display: flex; flex-direction: column; background: {background};
+  color: #e4e4e4; font: 14px "JetBrains Mono", "JetBrainsMono Nerd Font", ui-monospace, monospace; }}
+nav {{ display: flex; flex-wrap: wrap; gap: 6px; padding: 10px 16px; }}
+button {{ font: inherit; color: inherit; background: #16213e; border: 1px solid #0f3460;
+  border-radius: 6px; padding: 6px 12px; cursor: pointer; }}
+button[aria-selected="true"] {{ background: #0f3460; color: #00d9ff; }}
+button:focus-visible {{ outline: 2px solid #00d9ff; outline-offset: 2px; }}
+kbd {{ font: inherit; color: #8892b0; margin-right: 6px; }}
+main {{ flex: 1; min-height: 0; display: flex; justify-content: center; padding: 0 16px; }}
+img {{ max-width: 100%; max-height: 100%; object-fit: contain; }}
+img[hidden] {{ display: none; }}
+footer {{ padding: 6px 16px 10px; color: #8892b0; font-size: 12px; }}
+</style>
+</head>
+<body>
+<nav role="tablist" aria-label="Layers">
+{tabs}
+</nav>
+<main>
+{images}
+</main>
+<footer>1–{count} or ← → switch layers · {stamp}</footer>
+<script>
+const tabs = [...document.querySelectorAll('[role="tab"]')];
+const images = [...document.querySelectorAll("main img")];
+let current = 0;
+function show(i) {{
+  current = (i + tabs.length) % tabs.length;
+  tabs.forEach((t, j) => t.setAttribute("aria-selected", j === current));
+  images.forEach((img, j) => (img.hidden = j !== current));
+}}
+tabs.forEach((t, i) => t.addEventListener("click", () => show(i)));
+addEventListener("keydown", (e) => {{
+  if (e.ctrlKey || e.metaKey || e.altKey) return;
+  const n = Number(e.key);
+  if (n >= 1 && n <= tabs.length) show(n - 1);
+  else if (e.key === "ArrowRight") show(current + 1);
+  else if (e.key === "ArrowLeft") show(current - 1);
+  else if (e.key === "Escape") window.close();  // app windows only; the F13 hotkey closes the rest
+}});
+show(0);
+</script>
+</body>
+</html>
+"""
+
+
+def render_page(keymap):
+    """index.html: each layer drawn on its own (dark theme), inlined as a data: URI so
+    the file needs nothing else, offline too; an <img> keeps each drawing's ids and
+    style apart from the others'"""
+    names = list(yaml.safe_load(keymap.read_text())["layers"])
+    tabs, images = [], []
+    for i, name in enumerate(names):
+        svg = draw(CONFIG, keymap, "-s", name)
+        data = base64.b64encode(svg.encode()).decode()
+        label = html.escape(name)
+        tabs.append(f'<button role="tab" id="tab{i}" aria-controls="layer{i}"><kbd>{i + 1}</kbd>{label}</button>')
+        images.append(f'<img id="layer{i}" role="tabpanel" aria-labelledby="tab{i}" alt="{label} layer" '
+                      f'src="data:image/svg+xml;base64,{data}">')
+    page = PAGE.format(background=BACKGROUND, tabs="\n".join(tabs), images="\n".join(images),
+                       count=len(names), stamp=html.escape(stamp()))
+    with replacing(OUT / "index.html") as tmp:
+        tmp.write_text(page)
+    print(f"keymap-custom/index.html: {len(names)} layers")
+
+
+def render_cheatsheet(paper):
+    page_w, page_h = PAPER[paper]
+    stamp_text = stamp()
 
     cfg = yaml.safe_load(CONFIG.read_text())
     cfg["draw_config"]["svg_extra_style"] = PRINT_STYLE
-    cfg["draw_config"]["footer_text"] = stamp
+    cfg["draw_config"]["footer_text"] = stamp_text
 
     with tempfile.TemporaryDirectory() as tmp:
         tmp = pathlib.Path(tmp)
@@ -278,7 +381,7 @@ def render_cheatsheet(paper):
 
         with replacing(OUT / "cheatsheet.pdf") as tmp_pdf:
             merge(pdf_pages, tmp_pdf)
-    print(f"keymap-custom/cheatsheet.pdf: {len(page_layers)} pages, {paper} landscape, {stamp}")
+    print(f"keymap-custom/cheatsheet.pdf: {len(page_layers)} pages, {paper} landscape, {stamp_text}")
 
 
 def merge(pages, target):
@@ -298,6 +401,7 @@ def main():
     if paper not in PAPER:
         sys.exit(f"usage: {sys.argv[0]} [letter|a4]")
     render_drawing()
+    render_page(OUT / "my_keymap.yaml")
     render_cheatsheet(paper)
 
 

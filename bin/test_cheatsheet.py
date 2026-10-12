@@ -43,6 +43,23 @@ assert types["Nav"] == ["held layer1", "held layer1", "layer1", None, None], typ
 assert types["Sym"] == [None, None, None, None, "held layer2"], types
 assert marked["Base"][2] == {"t": "Nav", "h": "toggle", "type": "layer1"}, marked["Base"][2]
 
+# a layer-tap (tap over the layer's name) takes its layer's color and is shaded held
+# there; a conditional layer shades the keys that hold each of its if-layers
+TAPS = """
+layers:
+  Base: [{t: ⌫, h: Nav}, {t: ␣, h: Sym}, {t: A, h: ⌃ Ctrl}, x]
+  Nav: [{type: held}, {t: ▽, type: trans}, a, b]
+  Sym: [{t: ▽, type: trans}, {type: held}, c, d]
+  Mod: ['', '', e, f]
+"""
+marked = cheatsheet.yaml.safe_load(cheatsheet.mark_layer_keys(TAPS, [((1, 2), 3)]))["layers"]
+assert marked["Base"][:3] == [{"t": "⌫", "h": "Nav", "type": "layer1"}, {"t": "␣", "h": "Sym", "type": "layer2"},
+                              {"t": "A", "h": "⌃ Ctrl"}], marked["Base"]  # a home-row mod is no layer key
+assert marked["Nav"][0] == {"type": "held layer1"} and marked["Sym"][1] == {"type": "held layer2"}, marked
+assert marked["Mod"][:2] == [{"type": "held layer1"}, {"type": "held layer2"}], marked["Mod"]
+assert cheatsheet.conditional_layers("x { if-layers = <3 5>;\n then-layer = <4>; };") == [((3, 5), 4)]
+assert cheatsheet.conditional_layers("no conditional layers") == []
+
 # ligatures broken between symbols only, & and arrows in words untouched
 assert cheatsheet.unligate("->") == "-\u200a>" and cheatsheet.unligate("===") == "=\u200a=\u200a="
 assert cheatsheet.unligate("Split→") == "Split→" and cheatsheet.unligate("a-b") == "a-b"
@@ -91,11 +108,11 @@ with tempfile.TemporaryDirectory() as tmp:
 # the real keymap: every key labelled, pages in layer order
 real = cheatsheet.drawer(cheatsheet.CONFIG, "parse", "-z", str(cheatsheet.KEYMAP))
 assert cheatsheet.unlabeled(real) == [], cheatsheet.unlabeled(real)
-assert cheatsheet.pages(real) == [("Base (Colemak-DH)", "Num+Fn"), ("Nav", "Mod"), ("Excel", "Sym")], cheatsheet.pages(real)
+assert cheatsheet.pages(real) == [("Base (Colemak-DH)", "Excel"), ("Num+Fn", "Nav"), ("Mod", "Sym")], cheatsheet.pages(real)
 
 # keymap-custom/ is consistent: drawing yaml = a fresh parse, svg and pdf drawn from it
 out = cheatsheet.OUT
-fresh = cheatsheet.yaml.safe_load(cheatsheet.mark_layer_keys(real))
+fresh = cheatsheet.yaml.safe_load(cheatsheet.mark_layer_keys(real, cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text())))
 drawn = cheatsheet.yaml.safe_load((out / "my_keymap.yaml").read_text())
 assert drawn == fresh, "keymap-custom/my_keymap.yaml is stale: run bin/cheatsheet.py"
 svg = (out / "my_keymap.svg").read_text()
@@ -104,6 +121,22 @@ assert all(f">{name}:<" in svg for name in layers), "my_keymap.svg is missing a 
 assert not re.search(r">&amp;[a-z_]", svg, re.I), "my_keymap.svg draws a raw &name"
 assert svg.count('class="legend nvim"') == 1 and svg.count('class="legend tmux"') == 1, "legend missing"
 assert (out / "my_keymap.png").stat().st_mtime >= (out / "my_keymap.svg").stat().st_mtime - 5, "my_keymap.png older than its svg"
+# index.html: a tab and an inlined drawing per layer, in order, each the same keys as
+# that layer of my_keymap.svg, and nothing fetched from anywhere
+page = (out / "index.html").read_text()
+tabs = re.findall(r'<button role="tab"[^>]*><kbd>(\d+)</kbd>([^<]*)</button>', page)
+assert tabs == [(str(i + 1), cheatsheet.html.escape(n)) for i, n in enumerate(layers)], tabs
+images = re.findall(r'<img id="layer\d+"[^>]* alt="([^"]*) layer" src="data:image/svg\+xml;base64,([^"]+)">', page)
+assert [a for a, _ in images] == [cheatsheet.html.escape(n) for n in layers], [a for a, _ in images]
+assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
+sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
+def words(drawing):
+    return sorted(w for w in re.findall(r">([^<>]+)<", drawing) if w.strip())
+for (_, data), section in zip(images, sections):
+    one = cheatsheet.base64.b64decode(data).decode()
+    assert words(re.split(r'<text x="0" y="10" class="label"', one)[1]) == words(section), "index.html is stale: run bin/cheatsheet.py"
+assert (out / "index.html").stat().st_mtime >= (out / "my_keymap.yaml").stat().st_mtime - 5, "index.html older than its drawing"
+
 text = subprocess.run(["pdftotext", "-layout", str(out / "cheatsheet.pdf"), "-"],
                       capture_output=True, text=True, check=True).stdout
 pdf_pages = [p for p in text.split("\f") if p.strip()]
@@ -115,7 +148,7 @@ for page, names in zip(pdf_pages, cheatsheet.pages(real)):
 
 # every output of a real render is swapped in, none rewritten: a file held open
 # before the render still reads as it was. Renders into a scratch OUT, not the tree
-names = ["my_keymap.yaml", "my_keymap.svg", "my_keymap.png", "cheatsheet.pdf"]
+names = ["my_keymap.yaml", "my_keymap.svg", "my_keymap.png", "index.html", "cheatsheet.pdf"]
 with tempfile.TemporaryDirectory() as tmp:
     scratch = pathlib.Path(tmp)
     for name in names:
@@ -125,6 +158,7 @@ with tempfile.TemporaryDirectory() as tmp:
         cheatsheet.OUT = scratch  # out is still the real one, from the checks above
         with contextlib.redirect_stdout(io.StringIO()):
             cheatsheet.render_drawing()
+            cheatsheet.render_page(scratch / "my_keymap.yaml")
             cheatsheet.render_cheatsheet("letter")
         stale = [name for name, f in zip(names, held) if f.read() != b"old"]
     finally:

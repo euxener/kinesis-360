@@ -46,11 +46,20 @@ hmr: homerow_mods_right {
     hold-trigger-on-release;
 };
 
+lt_th: layer_tap_thumb {
+    compatible = "zmk,behavior-hold-tap";
+    #binding-cells = <2>;
+    tapping-term-ms = <200>;
+    quick-tap-ms = <175>;
+    flavor = "balanced";
+    bindings = <&mo>, <&kp>;
+};
+
 td_caps: tap_dance_caps {
     compatible = "zmk,behavior-tap-dance";
     #binding-cells = <0>;
     tapping-term-ms = <200>;
-    bindings = <&none>, <&kp CAPS>;
+    bindings = <&caps_word>, <&kp CAPS>;
 };
     };
 
@@ -66,17 +75,37 @@ td_caps: tap_dance_caps {
         };
     };
 
+    // Nav + Sym held together (Bspc + Space): Mod
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        mod_layer {
+            if-layers = <3 5>;
+            then-layer = <4>;
+        };
+    };
+
     keymap {
         compatible = "zmk,keymap";
 
         default_layer {
             display-name = "Base (Colemak-DH)";
             bindings = <
-                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 1                                                       &mo 3    &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
+                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 2                                                       &tog 1   &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                    &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &mo 5   &mo 4 &mo 4 &mo 5               &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &mo 1 &mo 1                              &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                       &kp BSPC &kp DEL &mo 2 &mo 2 &kp ENTER &kp SPACE                 &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &kp F13 &mo 1 &mo 1 &key_repeat         &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &kp TAB &kp RGUI                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp ESC &kp RCTRL &kp ENTER &lt_th 5 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+            >;
+        };
+
+        excel {
+            display-name = "Excel";
+            bindings = <
+                &mcb_alt_shade_cycle &mcb_num_cycle   &mcb_pct_cycle    &mcb_mult_cycle        &mcb_date_cycle     &mcb_anchor_cycle &trans                                                    &trans          &mcb_outside_borders &mcb_inside_borders &mcb_no_borders    &trans              &trans              &mcb_delete_col
+                &trans               &mcb_uniformulas &mcb_max_view     &mcb_left_indent_cycle &mcb_expand_grp     &mcb_insert_col   &mcb_col_width                                            &mcb_prev_sheet &mcb_zoom_in         &mcb_flip_sign      &mcb_paste_exact   &mcb_binary_cycle   &mcb_blue_black     &mcb_delete_row
+                &trans               &mcb_autocolor   &mcb_fill_right   &mcb_quick_save        &mcb_activate_sheet &mcb_insert_row   &mcb_row_height        &trans &trans &trans &trans        &mcb_next_sheet &mcb_zoom_out        &mcb_vert_cycle     &mcb_error_wrap    &mcb_insert_note    &mcb_color_cycle    &trans
+                &trans               &mcb_smart_print &mcb_super_find   &mcb_center_cycle      &mcb_fill_down      &mcb_paste_insert                               &trans &trans                               &mcb_fill_cycle      &mcb_horiz_cycle    &mcb_inc_dec       &mcb_dec_dec        &mcb_shift_dec_left &mcb_shift_dec_right
+                &trans               &trans           &mcb_paste_numfmt &mcb_left_border       &mcb_right_border                                     &trans &trans &trans &trans &trans &trans                                      &mcb_top_border     &mcb_bottom_border &mcb_pro_precedents &mcb_pro_dependents &trans
             >;
         };
 
@@ -107,20 +136,9 @@ td_caps: tap_dance_caps {
             bindings = <
                 &none          &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 &none                                                                 &trans       &none &none      &none      &none &none &none
                 &none          &Win_Lock_PC &Win_Snip_Tool &Mac_Lock_PC &Mac_Snip_Tool &none        &bootloader                                                           &bootloader  &none &none      &none      &none &none &none
-                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN   &kp C_VOL_UP &kp C_MUTE          &none &none &bt BT_CLR &none                      &stp STP_BAT &none &none      &none      &none &none &none
+                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN   &kp C_VOL_UP &kp C_MUTE          &none &none &none &none                           &stp STP_BAT &none &none      &none      &none &none &bt BT_CLR
                 &none          &kp C_BRI_DN &kp C_BRI_UP   &none        &macro_ver     &none                                  &none &none                                              &none &none      &none      &none &none &none
-                &none          &none        &none          &none        &none                                     &none &none &none &none      &bl BL_TOG &rgb_ug RGB_TOG                    &bl BL_INC &bl BL_DEC &none &none &none
-            >;
-        };
-
-        excel {
-            display-name = "Excel";
-            bindings = <
-                &mcb_alt_shade_cycle &mcb_num_cycle   &mcb_pct_cycle    &mcb_mult_cycle        &mcb_date_cycle     &mcb_anchor_cycle &trans                                                    &trans          &mcb_outside_borders &mcb_inside_borders &mcb_no_borders    &trans              &trans              &mcb_delete_col
-                &trans               &mcb_uniformulas &mcb_max_view     &mcb_left_indent_cycle &mcb_expand_grp     &mcb_insert_col   &mcb_col_width                                            &mcb_prev_sheet &mcb_zoom_in         &mcb_flip_sign      &mcb_paste_exact   &mcb_binary_cycle   &mcb_blue_black     &mcb_delete_row
-                &trans               &mcb_autocolor   &mcb_fill_right   &mcb_quick_save        &mcb_activate_sheet &mcb_insert_row   &mcb_row_height        &trans &trans &trans &trans        &mcb_next_sheet &mcb_zoom_out        &mcb_vert_cycle     &mcb_error_wrap    &mcb_insert_note    &mcb_color_cycle    &trans
-                &trans               &mcb_smart_print &mcb_super_find   &mcb_center_cycle      &mcb_fill_down      &mcb_paste_insert                               &trans &trans                               &mcb_fill_cycle      &mcb_horiz_cycle    &mcb_inc_dec       &mcb_dec_dec        &mcb_shift_dec_left &mcb_shift_dec_right
-                &trans               &trans           &mcb_paste_numfmt &mcb_left_border       &mcb_right_border                                     &trans &trans &trans &trans &trans &trans                                      &mcb_top_border     &mcb_bottom_border &mcb_pro_precedents &mcb_pro_dependents &trans
+                &none          &none        &none          &none        &none                                     &none &none &none &none      &none &none                                   &bl BL_INC &bl BL_DEC &bl BL_TOG &rgb_ug RGB_TOG &none
             >;
         };
 
