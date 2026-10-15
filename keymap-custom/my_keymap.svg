@@ -1824,9 +1824,8 @@ text.layer-activator {
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 <text x="0" y="0" class="key tap">&amp;</text>
 </g>
-<g transform="translate(466, 374) rotate(15.0)" class="key trans keypos-52">
-<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>
-<text x="0" y="0" class="key trans tap">▽</text>
+<g transform="translate(466, 374) rotate(15.0)" class="key keypos-52">
+<rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
 </g>
 <g transform="translate(614, 374) rotate(-15.0)" class="key trans keypos-53">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key trans"/>

@@ -112,7 +112,11 @@ td_caps: tap_dance_caps {
     // over either still work; Excel, held or toggled, under a toggled Num gets Num's
     // keys wherever Num binds one: toggle Num off first. Num toggled: Space types 0, Sym
     // waits until Num is off. Nav also locks (left middle thumb): Space stays Space,
-    // and Num held shows Nav's keys where Nav binds one: unlock for symbols or numbers
+    // and Num held shows Nav's keys where Nav binds one: unlock for symbols or numbers.
+    // Lock from Base: with Nav held the lock key flips Nav off (one bit per layer), and
+    // Sym binds nothing there, or a tap would add Nav to Sym and open Mod. Unlock before
+    // the window switcher: its extra Tabs land on Nav's last-window key. Inside tmux the
+    // word keys (Ctrl+←/→) move between panes unless the pane is at that edge
     keymap {
         compatible = "zmk,keymap";
 
@@ -166,7 +170,7 @@ td_caps: tap_dance_caps {
                 &pm_strict_eq   &pm_arrow     &pm_fat_arrow  &pm_scope    &pm_eq         &pm_neq  &pm_backticks                                           &pm_angles &pm_lte   &pm_gte       &pm_and       &pm_or       &pm_line_comment &pm_block_comment
                 &pm_strict_neq  &kp EXCL      &kp LS(FSLH)   &kp LBKT     &kp RBKT       &kp HASH &pm_squotes                                             &pm_parens &kp EQUAL &kp LS(COMMA) &kp LS(DOT)   &kp LS(BSLH) &kp BSLH         &pm_brackets
                 &trans          &kp LS(SEMI)  &kp LS(SQT)    &kp LS(LBKT) &kp LS(RBKT)   &kp AT   &pm_dquotes          &trans &trans &trans &trans        &pm_braces &kp FSLH  &kp CARET     &kp DLLR      &kp PRCNT    &kp SQT          &pm_fence
-                &trans          &kp LS(GRAVE) &kp GRAVE      &kp LS(N9)   &kp LS(N0)     &kp AMPS                             &trans &trans                          &kp MINUS &kp UNDER     &kp PLUS      &kp ASTRK    &kp SEMI         &trans
+                &trans          &kp LS(GRAVE) &kp GRAVE      &kp LS(N9)   &kp LS(N0)     &kp AMPS                             &none &trans                          &kp MINUS &kp UNDER     &kp PLUS      &kp ASTRK    &kp SEMI         &trans
                 &trans          &pm_shell_var &pm_parent_dir &pm_home_dir &pm_substitute                        &trans &trans &trans &trans &trans &trans                      &trans        &pm_go_assign &pm_go_chan  &pm_pipe         &trans
             >;
         };

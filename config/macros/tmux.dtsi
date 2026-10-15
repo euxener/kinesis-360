@@ -25,9 +25,6 @@ tm_last_window: tm_last_window {
     display-name = "tmux last window";
 };
 
-
-
-
 tm_lazygit: tm_lazygit {
     compatible = "zmk,behavior-macro";
     #binding-cells = <0>;

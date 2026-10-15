@@ -347,7 +347,7 @@ addEventListener("keydown", (e) => {{
   else if (n >= 1 && n <= tabs.length) show(n - 1);
   else if (e.key === "ArrowRight") show(current + 1);
   else if (e.key === "ArrowLeft") show(current - 1);
-  else if (e.key === "Escape") window.close();  // app windows only; the F13 hotkey closes the rest
+  else if (e.key === "Escape") window.close();  // app windows only (a kiosk or a script-opened window)
 }});
 show(0);
 </script>

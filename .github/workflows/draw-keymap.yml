@@ -29,7 +29,7 @@ jobs:
   # they never lag the keymap. A key with no label fails the render;
   # bin/test_cheatsheet.py then holds every output to the keymap. A pull request
   # renders as a check and commits nothing; a push to V3.0 also publishes the
-  # folder to GitHub Pages (pages job), where the F13 thumb key opens it.
+  # folder to GitHub Pages (pages job).
   draw:
     runs-on: ubuntu-latest
     permissions:

@@ -120,7 +120,7 @@ assert taps == {65: "Nav", 66: "Num+Fn", 70: "Sym"}, taps
 assert marked["Mod"][65] == {"type": "held layer3"} and marked["Mod"][70] == {"type": "held layer4"}, (marked["Mod"][65], marked["Mod"][70])
 # layer order holds whatever the numbers become: a conditional layer sits above the
 # layers that turn it on (below Sym, Mod's keys never fired), and a toggled layer
-# leaves the other layers' thumb holds alone (Num's 0 on Space hid Space and Sym)
+# leaves the other layers' thumb holds alone (but the KEPT overlaps below)
 assert all(then > max(ifs) for ifs, then in cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text()))
 toggled = {k["t"] for k in base if isinstance(k, dict) and k.get("h") == "toggle"}
 assert toggled == {"Excel", "Num+Fn", "Nav"}, toggled  # Nav: the lock
@@ -144,6 +144,13 @@ assert list(source) == names and all(len(b) == len(source[names[0]]) for b in so
 for name in toggled:
     own = [pos for pos, b in enumerate(source[names[0]]) if re.fullmatch(rf"&(mo|lt_th|lt_sp) {names.index(name)}\b.*", b)]
     assert own and all(source[name][pos] != "&trans" for pos in own), (name, own, [source[name][p] for p in own])
+# every toggle has its way out: on its own layer the toggle key falls through to itself
+for pos, k in enumerate(source[names[0]]):
+    if (m := re.fullmatch(r"&tog (\d+)", k)):
+        assert source[names[int(m.group(1))]][pos] == "&trans", (names[int(m.group(1))], pos, "no way out of the toggle")
+# Mod's only way in is Space (Sym) held, then Bspc: Sym passes Bspc through to the Nav hold,
+# and binds nothing at the lock key, or a tap there adds Nav to Sym and opens Mod mid-symbols
+assert source["Sym"][65] == "&trans" and source["Sym"][52] == "&none", (source["Sym"][65], source["Sym"][52])
 # the two kept overlaps, as chosen: 0 on Space under Num, a plain Space under Nav
 assert source["Num+Fn"][70] == "&kp KP_N0" and source["Nav"][70] == "&kp SPACE", (source["Num+Fn"][70], source["Nav"][70])
 # Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord
