@@ -151,6 +151,8 @@ for pos, k in enumerate(source[names[0]]):
 # Mod's only way in is Space (Sym) held, then Bspc: Sym passes Bspc through to the Nav hold,
 # and binds nothing at the lock key, or a tap there adds Nav to Sym and opens Mod mid-symbols
 assert source["Sym"][65] == "&trans" and source["Sym"][52] == "&none", (source["Sym"][65], source["Sym"][52])
+# Nav's clipboard both ways: the app keys on the left bottom row, the terminal's under ↓ ↑
+assert [source["Nav"][p] for p in (47, 48, 49, 50, 51, 55, 56)] == ["&kp LC(Z)", "&kp LC(X)", "&kp LC(C)", "&kp LC(LS(Z))", "&kp LC(V)", "&kp LC(LS(C))", "&kp LC(LS(V))"]
 # the two kept overlaps, as chosen: 0 on Space under Num, a plain Space under Nav
 assert source["Num+Fn"][70] == "&kp KP_N0" and source["Nav"][70] == "&kp SPACE", (source["Num+Fn"][70], source["Nav"][70])
 # Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord

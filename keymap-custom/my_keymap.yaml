@@ -479,10 +479,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
-  - t: ▽
-    type: trans
+  - t: Term copy
+    h: C-S-c
+  - t: Term paste
+    h: C-S-v
   - t: ▽
     type: trans
   - t: ▽

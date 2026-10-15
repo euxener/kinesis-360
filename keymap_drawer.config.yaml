@@ -121,6 +121,9 @@ parse_config:
     "&kp LC(TAB)": { t: 'Tab →', h: 'C-⇥' }
     "&kp LC(LEFT)": { t: 'Word ←', h: 'C-←' }
     "&kp LC(RIGHT)": { t: 'Word →', h: 'C-→' }
+    # terminal clipboard (Ghostty, tmux): Ctrl+C there interrupts, Ctrl+V does nothing
+    "&kp LC(LS(C))": { t: 'Term copy', h: 'C-S-c' }
+    "&kp LC(LS(V))": { t: 'Term paste', h: 'C-S-v' }
     "&pm_substitute": ":%s/"
     "&pm_go_assign": ":="
     "&pm_go_chan": "<-"

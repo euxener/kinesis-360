@@ -159,7 +159,7 @@ td_caps: tap_dance_caps {
                 &trans          &trans     &trans         &trans          &trans        &trans         &trans                                             &trans &trans        &trans         &trans          &trans        &trans          &trans
                 &tm_last_window &tm_prefix &tm_split_down &tm_split_right &tm_zoom      &tm_new_window &trans                                             &trans &kp HOME      &kp PG_DN      &kp PG_UP       &kp END       &kp LC(LS(TAB)) &kp LC(TAB)
                 &trans          &kp LCTRL  &kp LALT       &kp LGUI        &kp LSHFT     &tm_lazygit    &trans         &trans &trans &trans &trans         &trans &kp LEFT      &kp DOWN       &kp UP          &kp RIGHT     &kp LC(LEFT)    &kp LC(RIGHT)
-                &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                     &trans &trans                       &trans        &trans         &trans          &trans        &trans          &trans
+                &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                     &trans &trans                       &trans        &kp LC(LS(C))  &kp LC(LS(V))   &trans        &trans          &trans
                 &trans          &trans     &trans         &trans          &trans                        &kp BSPC &trans &trans &trans &trans &kp SPACE                 &trans         &trans          &trans        &trans          &trans
             >;
         };
