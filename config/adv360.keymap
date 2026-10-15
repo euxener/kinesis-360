@@ -96,7 +96,8 @@ td_caps: tap_dance_caps {
         };
     };
 
-    // Nav + Sym held together (Bspc + Space): Mod. The top layer: the highest active
+    // Sym then Nav held (Space, then Bspc): Mod. Space first: on Nav, Space is a plain
+    // Space, so Bspc then Space never lands in Mod. The top layer: the highest active
     // layer wins a key, and Sym, held to get here, binds nearly every key
     conditional_layers {
         compatible = "zmk,conditional-layers";
@@ -109,9 +110,9 @@ td_caps: tap_dance_caps {
     // Layers: 0 Base, 1 Excel, 2 Num+Fn, 3 Nav, 4 Sym, 5 Mod. A key is the highest
     // active layer's that binds it. Toggles sit low (Excel 1, Num 2) so Nav and Sym held
     // over either still work; Excel, held or toggled, under a toggled Num gets Num's
-    // keys wherever Num binds one: toggle Num off first. Nav also locks (left middle
-    // thumb): while locked, holding Space is Nav + Sym, so Mod, and Num held shows
-    // Nav's keys where Nav binds one: unlock to type symbols or numbers
+    // keys wherever Num binds one: toggle Num off first. Num toggled: Space types 0, Sym
+    // waits until Num is off. Nav also locks (left middle thumb): Space stays Space,
+    // and Num held shows Nav's keys where Nav binds one: unlock for symbols or numbers
     keymap {
         compatible = "zmk,keymap";
 
@@ -144,7 +145,7 @@ td_caps: tap_dance_caps {
                 &kp F7    &kp F8       &kp F9      &kp F10     &kp F11      &kp F12 &trans                                             &trans &trans &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &trans
                 &trans    &kp LCTRL    &kp LALT    &kp LGUI    &kp LSHFT    &trans  &trans       &trans &trans &trans &trans           &trans &trans &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &trans
                 &trans    &trans       &trans      &trans      &trans       &trans                      &trans &trans                         &trans &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-                &trans    &trans       &trans      &trans      &trans                     &trans &kp DEL &trans &trans &kp KP_N0 &trans               &trans     &trans       &kp KP_DOT    &trans          &trans
+                &trans    &trans       &trans      &trans      &trans                     &trans &kp DEL &trans &trans &trans &kp KP_N0               &trans     &trans       &kp KP_DOT    &trans          &trans
             >;
         };
 
@@ -155,7 +156,7 @@ td_caps: tap_dance_caps {
                 &tm_last_window &tm_prefix &tm_split_down &tm_split_right &tm_zoom      &tm_new_window &trans                                             &trans &kp HOME      &kp PG_DN      &kp PG_UP       &kp END       &kp LC(LS(TAB)) &kp LC(TAB)
                 &trans          &kp LCTRL  &kp LALT       &kp LGUI        &kp LSHFT     &tm_lazygit    &trans         &trans &trans &trans &trans         &trans &kp LEFT      &kp DOWN       &kp UP          &kp RIGHT     &kp LC(LEFT)    &kp LC(RIGHT)
                 &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                     &trans &trans                       &trans        &trans         &trans          &trans        &trans          &trans
-                &trans          &trans     &trans         &trans          &trans                        &kp BSPC &trans &trans &trans &trans &trans                    &trans         &trans          &trans        &trans          &trans
+                &trans          &trans     &trans         &trans          &trans                        &kp BSPC &trans &trans &trans &trans &kp SPACE                 &trans         &trans          &trans        &trans          &trans
             >;
         };
 

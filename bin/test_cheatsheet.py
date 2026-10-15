@@ -127,8 +127,12 @@ assert toggled == {"Excel", "Num+Fn", "Nav"}, toggled  # Nav: the lock
 # ...the other layers' Base layer keys too: their holds (36/37 Excel) and toggles (6/7)
 layer_keys = {**taps, **{pos: k if isinstance(k, str) else k["t"] for pos, k in enumerate(base)
                          if (k if isinstance(k, str) else k.get("t")) in toggled | {"Excel"} and pos not in taps}}
+# chosen on purpose: the numpad's 0 on Space (Num toggled types 0 there, Sym waits), and
+# Space a plain Space on Nav (Bspc then Space never lands in Mod; Mod is Space then Bspc)
+KEPT = {("Num+Fn", 70), ("Nav", 70)}
 for name in toggled:
-    shadowed = [pos for pos, hold in layer_keys.items() if hold != name and marked[name][pos] != {"t": "▽", "type": "trans"}]
+    shadowed = [pos for pos, hold in layer_keys.items()
+                if hold != name and (name, pos) not in KEPT and marked[name][pos] != {"t": "▽", "type": "trans"}]
     assert not shadowed, f"{name}, toggled on, hides the thumb holds at {shadowed}"
 # ...and binds its own hold keys: falling through to the &mo, a hold there turns the
 # toggle off on release. Read from the keymap source: keymap-drawer draws a layer's
@@ -140,6 +144,8 @@ assert list(source) == names and all(len(b) == len(source[names[0]]) for b in so
 for name in toggled:
     own = [pos for pos, b in enumerate(source[names[0]]) if re.fullmatch(rf"&(mo|lt_th|lt_sp) {names.index(name)}\b.*", b)]
     assert own and all(source[name][pos] != "&trans" for pos in own), (name, own, [source[name][p] for p in own])
+# the two kept overlaps, as chosen: 0 on Space under Num, a plain Space under Nav
+assert source["Num+Fn"][70] == "&kp KP_N0" and source["Nav"][70] == "&kp SPACE", (source["Num+Fn"][70], source["Nav"][70])
 # Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord
 assert "&trans" not in source["Mod"], [i for i, b in enumerate(source["Mod"]) if b == "&trans"]
 # Space is the layer-tap without quick-tap: tap then hold reaches Sym, not repeated spaces

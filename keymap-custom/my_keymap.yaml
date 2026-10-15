@@ -362,9 +362,9 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - '0'
   - t: ▽
     type: trans
+  - '0'
   - t: ▽
     type: trans
   - t: ▽
@@ -508,8 +508,7 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: ▽
-    type: trans
+  - ␣
   - t: ▽
     type: trans
   - t: ▽
