@@ -47,14 +47,13 @@ layers:
     h: ⇧ Shift
   - G
   - PgDn
-  - t: $$mdi:keyboard-outline$$
-    h: cheatsheet
+  - t: Switch window
+    h: Alt ⇥
   - t: Excel
     type: layer1
   - t: Excel
     type: layer1
-  - t: $$mdi:repeat$$
-    h: repeat
+  - ⌘ Cmd
   - End
   - M
   - t: N
@@ -72,8 +71,12 @@ layers:
   - C
   - D
   - V
-  - ⇥
-  - ⌘ Cmd
+  - &id003
+    t: Nav
+    h: toggle
+    type: layer3
+  - t: ⇧ Shift
+    h: one-shot
   - K
   - H
   - ','
@@ -92,7 +95,8 @@ layers:
   - t: Del
     h: Num+Fn
     type: layer2
-  - Esc
+  - t: Del word
+    h: C-⌫
   - ⌃ Ctrl
   - ↵
   - t: ␣
@@ -387,21 +391,16 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: Last file
-    h: C-^
-    type: macro nvim
-  - t: Error
-    h: ← [e
-    type: macro nvim
-  - t: Error
-    h: ']e →'
-    type: macro nvim
-  - t: Function
-    h: ← [f
-    type: macro nvim
-  - t: Function
-    h: ']f →'
-    type: macro nvim
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: Last window
@@ -410,17 +409,17 @@ layers:
   - t: Prefix
     h: C-a
     type: macro tmux
-  - t: Save
-    h: C-s
-    type: macro nvim
-  - t: Open project
-    h: C-a f
+  - t: Split ↓
+    h: C-a -
     type: macro tmux
-  - t: Scroll
-    h: C-a [
+  - t: Split →
+    h: C-a |
     type: macro tmux
-  - t: Last session
-    h: C-a ⌫
+  - t: Zoom
+    h: C-a z
+    type: macro tmux
+  - t: New window
+    h: C-a c
     type: macro tmux
   - t: ▽
     type: trans
@@ -430,12 +429,10 @@ layers:
   - PgDn
   - PgUp
   - End
-  - t: Quickfix
-    h: ← [q
-    type: macro nvim
-  - t: Quickfix
-    h: ']q →'
-    type: macro nvim
+  - t: Tab ←
+    h: C-S-⇥
+  - t: Tab →
+    h: C-⇥
   - t: ▽
     type: trans
   - ⌃ Ctrl
@@ -461,51 +458,37 @@ layers:
   - ↓
   - ↑
   - →
-  - t: Jump back
-    h: C-o
-    type: macro nvim
-  - t: Jump fwd
-    h: C-i
-    type: macro nvim
+  - t: Word ←
+    h: C-←
+  - t: Word →
+    h: C-→
   - t: ▽
     type: trans
-  - t: Zoom
-    h: C-a z
-    type: macro tmux
+  - t: Undo
+    h: C-z
+  - t: Cut
+    h: C-x
+  - t: Copy
+    h: C-c
   - t: Redo
-    h: C-r
-    type: macro nvim
-  - t: New window
-    h: C-a c
-    type: macro tmux
-  - t: Split ↓
-    h: C-a -
-    type: macro tmux
-  - t: Split →
-    h: C-a |
-    type: macro tmux
+    h: C-S-z
+  - t: Paste
+    h: C-v
+  - *id003
   - t: ▽
     type: trans
   - t: ▽
     type: trans
-  - t: Any issue
-    h: ← [d
-    type: macro nvim
-  - t: Any issue
-    h: ']d →'
-    type: macro nvim
-  - t: Git change
-    h: ← [h
-    type: macro nvim
-  - t: Git change
-    h: ']h →'
-    type: macro nvim
-  - t: TODO
-    h: ← [t
-    type: macro nvim
-  - t: TODO
-    h: ']t →'
-    type: macro nvim
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   - t: ▽
@@ -531,12 +514,10 @@ layers:
     type: trans
   - t: ▽
     type: trans
-  - t: Same word
-    h: ← [[
-    type: macro nvim
-  - t: Same word
-    h: ']] →'
-    type: macro nvim
+  - t: ▽
+    type: trans
+  - t: ▽
+    type: trans
   - t: ▽
     type: trans
   Sym:

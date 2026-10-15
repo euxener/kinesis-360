@@ -62,8 +62,9 @@ CONFIG_USB_DEVICE_VID=0x29EA
 CONFIG_USB_DEVICE_PID=0x0362
 CONFIG_USB_DEVICE_MANUFACTURER="Kinesis Corporation"
 CONFIG_ZMK_HID_REPORT_TYPE_NKRO=y
-# y: F13 (the cheatsheet thumb key) is past the plain NKRO report's range and would be
-# dropped without a word. Kconfig's help: Android then gets no input
+# y: F13-F24 and INTL1-9 are past the plain NKRO report's range. Nothing sends them
+# now, but switching back changes the report again and every Bluetooth host must
+# re-pair. Kconfig's help: Android gets no input with it
 CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y
 CONFIG_ZMK_HID_CONSUMER_REPORT_USAGES_BASIC=y
 CONFIG_BUILD_OUTPUT_UF2=y

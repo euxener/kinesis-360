@@ -12,3 +12,13 @@ Double_Click: Double_Click {
     bindings = <&mkp MB1>, <&mkp MB1>;
     display-name = "Double Click";
 };
+
+// Window switcher: Alt held while the key is down, Tab tapped once; more taps of Tab
+// (left pinky) keep cycling, releasing the key lets go of Alt (Alt+Tab on Omarchy,
+// Windows; macOS uses Cmd+Tab)
+win_switch: win_switch {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&macro_press &kp LALT>, <&macro_tap &kp TAB>, <&macro_pause_for_release>, <&macro_release &kp LALT>;
+    display-name = "Switch window";
+};

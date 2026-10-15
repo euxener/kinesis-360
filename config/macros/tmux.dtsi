@@ -1,0 +1,74 @@
+// ═══════════════════════════════════════════════════════════════
+// tmux macros, for the Nav layer
+// Version: 0.1
+// Date: 07/Oct/2026
+// ═══════════════════════════════════════════════════════════════
+
+// ── tmux: prefix C-a, then the key (dotfiles tmux/tmux.conf) ──
+// C-a needs a macro: A is the left home-row Ctrl, so the chord cannot be typed
+
+tm_prefix: tm_prefix {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>;
+    display-name = "tmux prefix";
+};
+
+tm_last_window: tm_last_window {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp TAB>;
+    display-name = "tmux last window";
+};
+
+
+
+
+tm_lazygit: tm_lazygit {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp G>;
+    display-name = "tmux lazygit";
+};
+
+tm_zoom: tm_zoom {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp Z>;
+    display-name = "tmux zoom";
+};
+
+tm_new_window: tm_new_window {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp C>;
+    display-name = "tmux new window";
+};
+
+tm_split_down: tm_split_down {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp MINUS>;
+    display-name = "tmux split down";
+};
+
+tm_split_right: tm_split_right {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    wait-ms = <30>;
+    tap-ms = <40>;
+    bindings = <&kp LC(A)>, <&kp PIPE>;
+    display-name = "tmux split right";
+};

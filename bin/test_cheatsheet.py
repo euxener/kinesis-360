@@ -65,11 +65,11 @@ assert cheatsheet.unligate("->") == "-\u200a>" and cheatsheet.unligate("===") ==
 assert cheatsheet.unligate("Split→") == "Split→" and cheatsheet.unligate("a-b") == "a-b"
 
 # the color legend goes next to the heading of a layer with macro keys, and only there
-SVG = ('<text x="0" y="10" class="label" id="A">A:</text><rect class="key macro nvim"/>'
+SVG = ('<text x="0" y="10" class="label" id="A">A:</text><rect class="key macro tmux"/>'
        '<text x="0" y="10" class="label" id="B">B:</text><rect class="key"/>')
 out = cheatsheet.legend(SVG)
-assert out.count('class="legend nvim"') == 1 and "tmux" not in out, out
-assert out.index('class="legend nvim"') < out.index('id="B"'), out
+assert out.count('class="legend tmux"') == 1, out
+assert out.index('class="legend tmux"') < out.index('id="B"'), out
 
 # a key's bottom line moves up, a two-line label above it a little; keys without one stay
 ONE = '<g transform="translate(1, 1)" class="key k"><text x="0" y="0" class="key tap">A</text><text x="0" y="26" class="key hold">b</text></g>'
@@ -123,7 +123,7 @@ assert marked["Mod"][65] == {"type": "held layer3"} and marked["Mod"][70] == {"t
 # leaves the other layers' thumb holds alone (Num's 0 on Space hid Space and Sym)
 assert all(then > max(ifs) for ifs, then in cheatsheet.conditional_layers(cheatsheet.KEYMAP.read_text()))
 toggled = {k["t"] for k in base if isinstance(k, dict) and k.get("h") == "toggle"}
-assert toggled == {"Excel", "Num+Fn"}, toggled
+assert toggled == {"Excel", "Num+Fn", "Nav"}, toggled  # Nav: the lock
 # ...the other layers' Base layer keys too: their holds (36/37 Excel) and toggles (6/7)
 layer_keys = {**taps, **{pos: k if isinstance(k, str) else k["t"] for pos, k in enumerate(base)
                          if (k if isinstance(k, str) else k.get("t")) in toggled | {"Excel"} and pos not in taps}}
@@ -146,9 +146,9 @@ assert "&trans" not in source["Mod"], [i for i, b in enumerate(source["Mod"]) if
 keymap_text = cheatsheet.KEYMAP.read_text()
 assert source[names[0]][70] == "&lt_sp 4 SPACE", source[names[0]][70]
 assert re.search(r"lt_sp: [^}]*quick-tap-ms = <0>;", keymap_text), "lt_sp lost quick-tap-ms = <0>"
-# F13 (the cheatsheet key) is past the plain NKRO report: without the extended one it is dropped
+# the extended NKRO report stays: turning it off changes the key report, every Bluetooth host re-pairs
 defconfig = (cheatsheet.ROOT / "config/boards/arm/adv360/adv360_left_defconfig").read_text()
-assert re.search(r"^CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y$", defconfig, re.M), "F13 needs the extended NKRO report"
+assert re.search(r"^CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y$", defconfig, re.M), "extended NKRO report turned off: every Bluetooth host must re-pair"
 
 # keymap-custom/ is consistent: drawing yaml = a fresh parse, svg and pdf drawn from it
 out = cheatsheet.OUT
@@ -159,7 +159,7 @@ svg = (out / "my_keymap.svg").read_text()
 layers = list(fresh["layers"])
 assert all(f">{name}:<" in svg for name in layers), "my_keymap.svg is missing a layer"
 assert not re.search(r">&amp;[a-z_]", svg, re.I), "my_keymap.svg draws a raw &name"
-assert svg.count('class="legend nvim"') == 1 and svg.count('class="legend tmux"') == 1, "legend missing"
+assert svg.count('class="legend tmux"') == 1 and "legend nvim" not in svg, "legend missing"
 assert (out / "my_keymap.png").stat().st_mtime >= (out / "my_keymap.svg").stat().st_mtime - 5, "my_keymap.png older than its svg"
 # index.html: a tab and two inlined drawings per layer (dark, light), in order, each the
 # same keys as that layer of my_keymap.svg, and nothing fetched from anywhere

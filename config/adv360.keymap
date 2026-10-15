@@ -50,12 +50,13 @@ hmr: homerow_mods_right {
 // have keys on both hands. prior-idle: a thumb pressed within 100 ms of the last
 // key press is a tap, so a thumb rolled into the next letter rarely turns into its
 // layer (one held across the whole next letter still can: balanced flavor)
-// Bspc (Nav), Del (Num+Fn): quick-tap, tap then hold repeats the key
+// Bspc (Nav), Del (Num+Fn): quick-tap, tap then hold within 300 ms repeats the key
+// (Nav right after a Backspace: wait a beat before holding)
 lt_th: layer_tap_thumb {
     compatible = "zmk,behavior-hold-tap";
     #binding-cells = <2>;
     tapping-term-ms = <200>;
-    quick-tap-ms = <175>;
+    quick-tap-ms = <300>;
     require-prior-idle-ms = <100>;
     flavor = "balanced";
     bindings = <&mo>, <&kp>;
@@ -108,7 +109,9 @@ td_caps: tap_dance_caps {
     // Layers: 0 Base, 1 Excel, 2 Num+Fn, 3 Nav, 4 Sym, 5 Mod. A key is the highest
     // active layer's that binds it. Toggles sit low (Excel 1, Num 2) so Nav and Sym held
     // over either still work; Excel, held or toggled, under a toggled Num gets Num's
-    // keys wherever Num binds one: toggle Num off first
+    // keys wherever Num binds one: toggle Num off first. Nav also locks (left middle
+    // thumb): while locked, holding Space is Nav + Sym, so Mod, and Num held shows
+    // Nav's keys where Nav binds one: unlock to type symbols or numbers
     keymap {
         compatible = "zmk,keymap";
 
@@ -117,9 +120,9 @@ td_caps: tap_dance_caps {
             bindings = <
                 &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 2                                                       &tog 1   &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
                 &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                    &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &kp F13 &mo 1 &mo 1 &key_repeat         &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &kp TAB &kp RGUI                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp ESC &kp RCTRL &kp ENTER &lt_sp 4 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &win_switch &mo 1 &mo 1 &kp RGUI        &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &tog 3 &sk LSHFT                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp LC(BSPC) &kp RCTRL &kp ENTER &lt_sp 4 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
             >;
         };
 
@@ -148,11 +151,11 @@ td_caps: tap_dance_caps {
         nav {
             display-name = "Nav";
             bindings = <
-                &trans          &trans     &trans   &trans          &trans         &trans           &trans                                             &trans &nv_alt_file  &nv_prev_error &nv_next_error &nv_prev_func &nv_next_func &trans
-                &tm_last_window &tm_prefix &nv_save &tm_sessionizer &tm_copy_mode  &tm_last_session &trans                                             &trans &kp HOME      &kp PG_DN      &kp PG_UP      &kp END       &nv_prev_qf   &nv_next_qf
-                &trans          &kp LCTRL  &kp LALT &kp LGUI        &kp LSHFT      &tm_lazygit      &trans         &trans &trans &trans &trans         &trans &kp LEFT      &kp DOWN       &kp UP         &kp RIGHT     &nv_jump_back &nv_jump_fwd
-                &trans          &tm_zoom   &nv_redo &tm_new_window  &tm_split_down &tm_split_right                        &trans &trans                       &nv_prev_diag &nv_next_diag  &nv_prev_hunk  &nv_next_hunk &nv_prev_todo &nv_next_todo
-                &trans          &trans     &trans   &trans          &trans                                  &trans &trans &trans &trans &trans &trans                       &trans         &trans         &nv_prev_ref  &nv_next_ref  &trans
+                &trans          &trans     &trans         &trans          &trans        &trans         &trans                                             &trans &trans        &trans         &trans          &trans        &trans          &trans
+                &tm_last_window &tm_prefix &tm_split_down &tm_split_right &tm_zoom      &tm_new_window &trans                                             &trans &kp HOME      &kp PG_DN      &kp PG_UP       &kp END       &kp LC(LS(TAB)) &kp LC(TAB)
+                &trans          &kp LCTRL  &kp LALT       &kp LGUI        &kp LSHFT     &tm_lazygit    &trans         &trans &trans &trans &trans         &trans &kp LEFT      &kp DOWN       &kp UP          &kp RIGHT     &kp LC(LEFT)    &kp LC(RIGHT)
+                &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                     &trans &trans                       &trans        &trans         &trans          &trans        &trans          &trans
+                &trans          &trans     &trans         &trans          &trans                        &kp BSPC &trans &trans &trans &trans &trans                    &trans         &trans          &trans        &trans          &trans
             >;
         };
 

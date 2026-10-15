@@ -8,7 +8,7 @@
 - index.html: the screen cheatsheet, one self-contained file (each layer drawn on
   its own in the dark theme and the PDF's light one, inlined), a tab per layer, keys
   1-6 and arrows switch, t or the button switches theme (the system's until chosen).
-  CI publishes it to GitHub Pages; the F13 thumb key opens it on every computer
+  CI publishes it to GitHub Pages
 
 Every key needs a label: a behavior keymap_drawer.config.yaml does not map is
 drawn as its raw &name, so the render stops and names it instead.
@@ -50,7 +50,6 @@ text.hold { fill: #a0001c; }
 text.label { font-size: 18px; }
 text.layer-activator { text-decoration: none; }
 /* Nav macros: the tool's color on the keys line only, as in the dark theme */
-text.hold.nvim, text.legend.nvim { fill: #1a7f37; }
 text.hold.tmux, text.legend.tmux { fill: #0b5cad; }
 text.legend { font-size: 13px; text-anchor: start; }
 tspan.modicon { font-size: 140%; }
@@ -83,7 +82,7 @@ def unligate(text):
 
 
 # The macro tools: the key type in keymap_drawer.config.yaml, the name in the legend
-TOOLS = [("nvim", "Neovim"), ("tmux", "tmux")]
+TOOLS = [("tmux", "tmux")]
 
 
 def legend(svg):
