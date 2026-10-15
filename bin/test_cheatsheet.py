@@ -153,6 +153,38 @@ for pos, k in enumerate(source[names[0]]):
 assert source["Sym"][65] == "&trans" and source["Sym"][52] == "&none", (source["Sym"][65], source["Sym"][52])
 # Nav's clipboard both ways: the app keys on the left bottom row, the terminal's under ↓ ↑
 assert [source["Nav"][p] for p in (47, 48, 49, 50, 51, 55, 56)] == ["&kp LC(Z)", "&kp LC(X)", "&kp LC(C)", "&kp LC(LS(Z))", "&kp LC(V)", "&kp LC(LS(C))", "&kp LC(LS(V))"]
+# every press and release of the layer keys, from every reachable state (hold-taps as
+# their hold): Mod opens one way only, Bspc pressed while Space holds Sym, and no state
+# with every key up leaves a layer on that nothing turns off (Mod is conditional on 3+4)
+LAYER = re.compile(r"&(?:mo|lt_th|lt_sp) (\d+)\b|&tog (\d+)\b")
+def binding(on, pos):
+    return next(b for n in sorted(on, reverse=True) if (b := source[names[n]][pos]) != "&trans")
+def with_mod(on):
+    return on | {5} if {3, 4} <= on else on - {5}
+layer_keys = sorted({p for b in source.values() for p, k in enumerate(b) if LAYER.match(k)})
+seen, todo, entries = set(), [(frozenset({0}), frozenset())], set()
+while todo:
+    on, held = todo.pop()
+    if (on, held) in seen:
+        continue
+    seen.add((on, held))
+    for pos in layer_keys:
+        if any(p == pos for p, _ in held):
+            n = dict(held)[pos]
+            nxt = (with_mod(on - {n}) if n is not None else on, frozenset(h for h in held if h[0] != pos))
+        else:
+            m = LAYER.match(binding(on, pos))
+            hold = int(m.group(1)) if m and m.group(1) else None
+            new = on | {hold} if hold else (on ^ {int(m.group(2))} if m and m.group(2) else on)
+            nxt = (with_mod(new), held | {(pos, hold)})
+            if 5 in nxt[0] and 5 not in on:
+                entries.add((pos, frozenset(p for p, _ in held)))
+        todo.append(nxt)
+assert entries and all(pos == 65 and 70 in held for pos, held in entries), sorted(entries)[:5]
+for on, held in seen:
+    if not held:
+        for n in on - {0}:
+            assert any(binding(on, p) == f"&tog {n}" for p in layer_keys), (sorted(on), n, "stuck on")
 # the two kept overlaps, as chosen: 0 on Space under Num, a plain Space under Nav
 assert source["Num+Fn"][70] == "&kp KP_N0" and source["Nav"][70] == "&kp SPACE", (source["Num+Fn"][70], source["Nav"][70])
 # Mod, on top, passes nothing through: no Sym key under a Mod gap, no thumb brushed mid-chord
