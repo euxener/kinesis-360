@@ -160,7 +160,7 @@ path.combo {
 /* End Tabler Icons Cleanup */
 
 svg {
-  background-color: #1a1a2e;
+  background-color: #1a1b26;
 }
 /* On text, not svg: the built-in style sets the font on text. Ubuntu's
    fonts-jetbrains-mono is "JetBrains Mono", Omarchy ships the Nerd build.
@@ -169,49 +169,50 @@ text {
   font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace;
 }
 rect.key {
-  fill: #16213e;
-  stroke: #0f3460;
+  fill: #24283b;
+  stroke: #414868;
   stroke-width: 1;
   rx: 6;
 }
 /* neutral: layer keys carry their layer's color below, so plain .held is only
    the combo diagram's keys, which must not read as a layer */
 rect.key.held {
-  fill: #3d4b6b;
+  fill: #414868;
 }
 /* One color per layer, set by bin/cheatsheet.py: a layer's keys on Base and its
    held thumbs on its own drawing. After .held, same specificity. Print colors
-   in bin/cheatsheet.py */
-rect.key.layer1 { fill: #1e6b3c; }
-rect.key.layer2 { fill: #7a5a12; }
-rect.key.layer3 { fill: #533483; }
-rect.key.layer4 { fill: #145f6b; }
-rect.key.layer5 { fill: #7a2a3a; }
+   in bin/cheatsheet.py. Each is the palette's green, yellow, magenta, cyan and
+   red at 30% over the background: the text on them stays above 5:1 */
+rect.key.layer1 { fill: #42513a; }
+rect.key.layer2 { fill: #55473a; }
+rect.key.layer3 { fill: #4a4165; }
+rect.key.layer4 { fill: #385167; }
+rect.key.layer5 { fill: #5c3645; }
 /* text.key.layerN outranks text.hold, so the toggle's sublabel turns light too */
-text.key.layer1, text.key.layer2, text.key.layer3, text.key.layer4, text.key.layer5 { fill: #f5f5f5; }
+text.key.layer1, text.key.layer2, text.key.layer3, text.key.layer4, text.key.layer5 { fill: #c0caf5; }
 text {
-  fill: #e4e4e4;
+  fill: #c0caf5;
 }
 use.glyph {
-  fill: #e4e4e4;
+  fill: #c0caf5;
 }
 text.label {
-  fill: #00d9ff;
-  stroke: #1a1a2e;
+  fill: #7aa2f7;
+  stroke: #1a1b26;
 }
 text.tap {
   font-size: 13px;
 }
 text.hold {
   font-size: 10px;
-  fill: #ff6b6b;
+  fill: #f7768e;
 }
 rect.combo {
-  fill: #2d4059;
+  fill: #394b70;
 }
 /* tool colors on the keys line only (text.hold.X outranks text.hold); the words
    keep the theme's color */
-text.hold.tmux, text.legend.tmux { fill: #a5d6ff; }
+text.hold.tmux, text.legend.tmux { fill: #7dcfff; }
 text.legend { font-size: 12px; text-anchor: start; }
 /* modifier icons (bin/cheatsheet.py wraps them): larger than the name next to them */
 tspan.modicon { font-size: 140%; }
@@ -1965,12 +1966,18 @@ text.layer-activator {
 </g>
 <g transform="translate(735, 30)" class="key keypos-8">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">BT</text>
+<text x="0" y="21" class="key hold">5</text>
 </g>
 <g transform="translate(795, 30)" class="key keypos-9">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">BT</text>
+<text x="0" y="21" class="key hold">6</text>
 </g>
 <g transform="translate(855, 30)" class="key keypos-10">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>
+<text x="0" y="0" class="key tap">BT</text>
+<text x="0" y="21" class="key hold">7</text>
 </g>
 <g transform="translate(915, 30)" class="key keypos-11">
 <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key"/>

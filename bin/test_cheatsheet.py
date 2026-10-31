@@ -196,6 +196,20 @@ assert re.search(r"lt_sp: [^}]*quick-tap-ms = <0>;", keymap_text), "lt_sp lost q
 # the extended NKRO report stays: turning it off changes the key report, every Bluetooth host re-pairs
 defconfig = (cheatsheet.ROOT / "config/boards/arm/adv360/adv360_left_defconfig").read_text()
 assert re.search(r"^CONFIG_ZMK_HID_KEYBOARD_EXTENDED_REPORT=y$", defconfig, re.M), "extended NKRO report turned off: every Bluetooth host must re-pair"
+# every &bt BT_SEL n has a profile behind it: the fork's split central defaults both limits
+# to 6 and keeps one for the right half, so profiles are 0-4 and a higher BT_SEL does nothing
+def bt_limit(name):
+    m = re.search(rf"^CONFIG_{name}=(\d+)$", defconfig, re.M)
+    return int(m.group(1)) if m else 6
+profiles = min(bt_limit("BT_MAX_PAIRED"), bt_limit("BT_MAX_CONN")) - 1
+selected = [int(n) for b in source.values() for k in b for n in re.findall(r"&bt BT_SEL (\d+)", k)]
+assert max(selected) < profiles, f"BT_SEL {max(selected)} but {profiles} profiles: raise CONFIG_BT_MAX_PAIRED and CONFIG_BT_MAX_CONN in adv360_left_defconfig"
+# blank keycaps: the key backlight stays dark on both halves (scale 0 overrides any brightness
+# saved on the board; each half applies its own), the RGB indicator LEDs stay on
+for half in ("left", "right"):
+    board = (cheatsheet.ROOT / f"config/boards/arm/adv360/adv360_{half}_defconfig").read_text()
+    assert re.search(r"^CONFIG_ZMK_BACKLIGHT_BRT_SCALE=0$", board, re.M), f"{half} half: key backlight not scaled to 0"
+    assert re.search(r"^CONFIG_ZMK_RGB_UNDERGLOW=y$", board, re.M), f"{half} half: indicator LEDs turned off"
 
 # keymap-custom/ is consistent: drawing yaml = a fresh parse, svg and pdf drawn from it
 out = cheatsheet.OUT

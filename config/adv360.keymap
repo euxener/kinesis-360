@@ -124,11 +124,11 @@ td_caps: tap_dance_caps {
         default_layer {
             display-name = "Base (Colemak-DH)";
             bindings = <
-                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 2                                                       &tog 1   &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
-                &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                    &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
-                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN            &win_switch &mo 1 &mo 1 &kp RGUI        &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
-                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                               &tog 3 &sk LSHFT                         &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
-                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT          &lt_th 3 BSPC &lt_th 2 DEL &kp LC(BSPC) &kp RCTRL &kp ENTER &lt_sp 4 SPACE          &kp DOWN       &kp UP    &kp LBKT    &kp RBKT     &kp RALT
+                &kp EQUAL &kp N1       &kp N2      &kp N3      &kp N4       &kp N5 &tog 2                                                                               &tog 1   &kp N6 &kp N7       &kp N8      &kp N9      &kp N0       &kp MINUS
+                &kp TAB   &kp Q        &kp W       &kp F       &kp P        &kp B  &kp PG_UP                                                                            &kp HOME &kp J  &kp L        &kp U       &kp Y       &kp SEMI     &kp BSLH
+                &kp ESC   &hml LCTRL A &hml LALT R &hml LGUI S &hml LSHFT T &kp G  &kp PG_DN                &win_switch &mo 1        &mo 1 &kp RGUI                     &kp END  &kp M  &hmr RSHFT N &hmr RGUI E &hmr RALT I &hmr RCTRL O &kp SQT
+                &kp LSHFT &kp Z        &kp X       &kp C       &kp D        &kp V                                       &tog 3       &sk LSHFT                                   &kp K  &kp H        &kp COMMA   &kp DOT     &kp FSLH     &kp RSHFT
+                &kp LCTRL &kp GRAVE    &td_caps    &kp LEFT    &kp RIGHT                     &lt_th 3 BSPC &lt_th 2 DEL &kp LC(BSPC) &kp RCTRL &kp ENTER &lt_sp 4 SPACE                 &kp DOWN     &kp UP      &kp LBKT    &kp RBKT     &kp RALT
             >;
         };
 
@@ -146,44 +146,44 @@ td_caps: tap_dance_caps {
         num {
             display-name = "Num+Fn";
             bindings = <
-                &kp F1    &kp F2       &kp F3      &kp F4      &kp F5       &kp F6  &trans                                             &trans &trans &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &trans
-                &kp F7    &kp F8       &kp F9      &kp F10     &kp F11      &kp F12 &trans                                             &trans &trans &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &trans
-                &trans    &kp LCTRL    &kp LALT    &kp LGUI    &kp LSHFT    &trans  &trans       &trans &trans &trans &trans           &trans &trans &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &trans
-                &trans    &trans       &trans      &trans      &trans       &trans                      &trans &trans                         &trans &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
-                &trans    &trans       &trans      &trans      &trans                     &trans &kp DEL &trans &trans &trans &kp KP_N0               &trans     &trans       &kp KP_DOT    &trans          &trans
+                &kp F1    &kp F2       &kp F3      &kp F4      &kp F5       &kp F6  &trans                                               &trans &trans &kp KP_NUM &kp KP_EQUAL &kp KP_DIVIDE &kp KP_MULTIPLY &trans
+                &kp F7    &kp F8       &kp F9      &kp F10     &kp F11      &kp F12 &trans                                               &trans &trans &kp KP_N7  &kp KP_N8    &kp KP_N9     &kp KP_MINUS    &trans
+                &trans    &kp LCTRL    &kp LALT    &kp LGUI    &kp LSHFT    &trans  &trans        &trans &trans &trans &trans            &trans &trans &kp KP_N4  &kp KP_N5    &kp KP_N6     &kp KP_PLUS     &trans
+                &trans    &trans       &trans      &trans      &trans       &trans                       &trans &trans                          &trans &kp KP_N1  &kp KP_N2    &kp KP_N3     &kp KP_ENTER    &trans
+                &trans    &trans       &trans      &trans      &trans                      &trans &kp DEL &trans &trans &trans &kp KP_N0               &trans     &trans       &kp KP_DOT    &trans          &trans
             >;
         };
 
         nav {
             display-name = "Nav";
             bindings = <
-                &trans          &trans     &trans         &trans          &trans        &trans         &trans                                             &trans &trans        &trans         &trans          &trans        &trans          &trans
-                &tm_last_window &tm_prefix &tm_split_down &tm_split_right &tm_zoom      &tm_new_window &trans                                             &trans &kp HOME      &kp PG_DN      &kp PG_UP       &kp END       &kp LC(LS(TAB)) &kp LC(TAB)
-                &trans          &kp LCTRL  &kp LALT       &kp LGUI        &kp LSHFT     &tm_lazygit    &trans         &trans &trans &trans &trans         &trans &kp LEFT      &kp DOWN       &kp UP          &kp RIGHT     &kp LC(LEFT)    &kp LC(RIGHT)
-                &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                     &trans &trans                       &trans        &kp LC(LS(C))  &kp LC(LS(V))   &trans        &trans          &trans
-                &trans          &trans     &trans         &trans          &trans                        &kp BSPC &trans &trans &trans &trans &kp SPACE                 &trans         &trans          &trans        &trans          &trans
+                &trans          &trans     &trans         &trans          &trans        &trans         &trans                                                &trans &trans   &trans        &trans        &trans    &trans          &trans
+                &tm_last_window &tm_prefix &tm_split_down &tm_split_right &tm_zoom      &tm_new_window &trans                                                &trans &kp HOME &kp PG_DN     &kp PG_UP     &kp END   &kp LC(LS(TAB)) &kp LC(TAB)
+                &trans          &kp LCTRL  &kp LALT       &kp LGUI        &kp LSHFT     &tm_lazygit    &trans          &trans &trans &trans &trans           &trans &kp LEFT &kp DOWN      &kp UP        &kp RIGHT &kp LC(LEFT)    &kp LC(RIGHT)
+                &trans          &kp LC(Z)  &kp LC(X)      &kp LC(C)       &kp LC(LS(Z)) &kp LC(V)                             &trans &trans                         &trans   &kp LC(LS(C)) &kp LC(LS(V)) &trans    &trans          &trans
+                &trans          &trans     &trans         &trans          &trans                              &kp BSPC &trans &trans &trans &trans &kp SPACE                 &trans        &trans        &trans    &trans          &trans
             >;
         };
 
         symbol {
             display-name = "Sym";
             bindings = <
-                &pm_strict_eq   &pm_arrow     &pm_fat_arrow  &pm_scope    &pm_eq         &pm_neq  &pm_backticks                                           &pm_angles &pm_lte   &pm_gte       &pm_and       &pm_or       &pm_line_comment &pm_block_comment
-                &pm_strict_neq  &kp EXCL      &kp LS(FSLH)   &kp LBKT     &kp RBKT       &kp HASH &pm_squotes                                             &pm_parens &kp EQUAL &kp LS(COMMA) &kp LS(DOT)   &kp LS(BSLH) &kp BSLH         &pm_brackets
-                &trans          &kp LS(SEMI)  &kp LS(SQT)    &kp LS(LBKT) &kp LS(RBKT)   &kp AT   &pm_dquotes          &trans &trans &trans &trans        &pm_braces &kp FSLH  &kp CARET     &kp DLLR      &kp PRCNT    &kp SQT          &pm_fence
-                &trans          &kp LS(GRAVE) &kp GRAVE      &kp LS(N9)   &kp LS(N0)     &kp AMPS                             &none &trans                          &kp MINUS &kp UNDER     &kp PLUS      &kp ASTRK    &kp SEMI         &trans
-                &trans          &pm_shell_var &pm_parent_dir &pm_home_dir &pm_substitute                        &trans &trans &trans &trans &trans &trans                      &trans        &pm_go_assign &pm_go_chan  &pm_pipe         &trans
+                &pm_strict_eq  &pm_arrow     &pm_fat_arrow  &pm_scope    &pm_eq         &pm_neq  &pm_backticks                                           &pm_angles &pm_lte   &pm_gte       &pm_and       &pm_or       &pm_line_comment &pm_block_comment
+                &pm_strict_neq &kp EXCL      &kp LS(FSLH)   &kp LBKT     &kp RBKT       &kp HASH &pm_squotes                                             &pm_parens &kp EQUAL &kp LS(COMMA) &kp LS(DOT)   &kp LS(BSLH) &kp BSLH         &pm_brackets
+                &trans         &kp LS(SEMI)  &kp LS(SQT)    &kp LS(LBKT) &kp LS(RBKT)   &kp AT   &pm_dquotes          &trans &trans &trans &trans        &pm_braces &kp FSLH  &kp CARET     &kp DLLR      &kp PRCNT    &kp SQT          &pm_fence
+                &trans         &kp LS(GRAVE) &kp GRAVE      &kp LS(N9)   &kp LS(N0)     &kp AMPS                             &none &trans                           &kp MINUS &kp UNDER     &kp PLUS      &kp ASTRK    &kp SEMI         &trans
+                &trans         &pm_shell_var &pm_parent_dir &pm_home_dir &pm_substitute                        &trans &trans &trans &trans &trans &trans                      &trans        &pm_go_assign &pm_go_chan  &pm_pipe         &trans
             >;
         };
 
         mod {
             display-name = "Mod";
             bindings = <
-                &none          &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3   &bt BT_SEL 4 &none                                                                 &none        &none &none      &none      &none &none &none
-                &none          &Win_Lock_PC &Win_Snip_Tool &Mac_Lock_PC &Mac_Snip_Tool &none        &bootloader                                                           &bootloader  &none &none      &none      &none &none &none
-                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN   &kp C_VOL_UP &kp C_MUTE          &none &none &none &none                           &stp STP_BAT &none &none      &none      &none &none &bt BT_CLR
-                &none          &kp C_BRI_DN &kp C_BRI_UP   &none        &macro_ver     &none                                  &none &none                                              &none &none      &none      &none &none &none
-                &none          &none        &none          &none        &none                                     &none &none &none &none      &none &none                                   &bl BL_INC &bl BL_DEC &bl BL_TOG &rgb_ug RGB_TOG &none
+                &none          &bt BT_SEL 0 &bt BT_SEL 1   &bt BT_SEL 2 &bt BT_SEL 3       &bt BT_SEL 4 &none                                           &none        &bt BT_SEL 5 &bt BT_SEL 6 &bt BT_SEL 7 &none      &none           &none
+                &none          &Win_Lock_PC &Win_Snip_Tool &Mac_Lock_PC &Mac_Cleanshot_All &none        &bootloader                                     &bootloader  &none        &none        &none        &none      &none           &none
+                &studio_unlock &kp C_PREV   &kp C_PP       &kp C_NEXT   &kp C_VOL_DN       &kp C_VOL_UP &kp C_MUTE        &none &none &none &none       &stp STP_BAT &none        &none        &none        &none      &none           &bt BT_CLR
+                &none          &kp C_BRI_DN &kp C_BRI_UP   &none        &macro_ver         &none                                &none &none                          &none        &none        &none        &none      &none           &none
+                &none          &none        &none          &none        &none                                       &none &none &none &none &none &none                           &bl BL_INC   &bl BL_DEC   &bl BL_TOG &rgb_ug RGB_TOG &none
             >;
         };
 

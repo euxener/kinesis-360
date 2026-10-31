@@ -80,3 +80,11 @@ Mac_Lock_PC: Mac_Lock_PC {
     bindings = <&kp LC(LG(Q))>;
     display-name = "Mac Lock";
 };
+
+Mac_Cleanshot_All: Mac_Cleanshot_All {
+    compatible = "zmk,behavior-macro";
+    #binding-cells = <0>;
+    bindings = <&kp LS(LG(NUMBER_5))>;
+    display-name = "Mac Cleanshot All";
+};
+

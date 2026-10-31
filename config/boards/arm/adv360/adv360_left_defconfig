@@ -45,6 +45,9 @@ CONFIG_LED_PWM=y
 CONFIG_ZMK_BACKLIGHT=y
 CONFIG_ZMK_BACKLIGHT_BRT_START=20
 CONFIG_ZMK_BACKLIGHT_AUTO_OFF_IDLE=y
+# Blank keycaps: every brightness is scaled to 0, so the key backlight stays dark whatever
+# is saved on the board or the BL keys set. The RGB indicator LEDs are separate (above)
+CONFIG_ZMK_BACKLIGHT_BRT_SCALE=0
 
 #BT configuration
 CONFIG_BT_CTLR_TX_PWR_PLUS_8=y
@@ -56,6 +59,10 @@ CONFIG_BT_DIS_MANUF="Kinesis Corporation"
 #CONFIG_BT_PERIPHERAL_PREF_MAX_INT=24
 #CONFIG_BT_PERIPHERAL_PREF_LATENCY=30
 CONFIG_BT_BAS=n #Set this to y to enable BLE battery reporting
+# 8 host profiles (BT_SEL 0-7 on Mod) plus the right half's link. Default 6, 5 profiles.
+# The profile LED has colors for 0-3 only, 4-7 show it off
+CONFIG_BT_MAX_PAIRED=9
+CONFIG_BT_MAX_CONN=9
 
 #Misc configuration
 CONFIG_USB_DEVICE_VID=0x29EA

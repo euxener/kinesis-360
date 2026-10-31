@@ -36,7 +36,7 @@ KEYMAP = ROOT / "config" / "adv360.keymap"
 PAPER = {"letter": (11.0, 8.5), "a4": (297 / 25.4, 210 / 25.4)}  # landscape, inches
 MARGIN = 0.4  # inches
 DRAWER = "keymap-drawer==0.23.0"  # pinned; CI runs this script, so this is the only pin
-BACKGROUND = "#1a1a2e"  # the dark theme's, for the PNG
+BACKGROUND = "#1a1b26"  # the dark theme's (Tokyo Night), for the PNG
 AUTHOR = "euxener"
 # keymap-drawer's light theme, keys a shade darker so they hold up on paper
 PRINT_STYLE = """
@@ -282,8 +282,9 @@ PAGE = """<!doctype html>
 try {{ const s = localStorage.getItem("kinesis-360-theme"); if (s === "light" || s === "dark") document.documentElement.dataset.theme = s; }} catch (e) {{}}
 </script>
 <style>
-:root {{ color-scheme: dark; --bg: {background}; --fg: #e4e4e4; --muted: #8892b0;
-  --button: #16213e; --border: #0f3460; --selected: #0f3460; --accent: #00d9ff; --dark: block; --light: none; }}
+/* dark: Tokyo Night, as the drawings (keymap_drawer.config.yaml) */
+:root {{ color-scheme: dark; --bg: {background}; --fg: #c0caf5; --muted: #a9b1d6;
+  --button: #24283b; --border: #414868; --selected: #283457; --accent: #7aa2f7; --dark: block; --light: none; }}
 /* the light theme: chosen (data-theme), or the system's while nothing is chosen */
 :root[data-theme="light"] {{ {light} }}
 @media (prefers-color-scheme: light) {{ :root:not([data-theme]) {{ {light} }} }}

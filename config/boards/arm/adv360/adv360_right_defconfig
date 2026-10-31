@@ -45,6 +45,8 @@ CONFIG_LED_PWM=y
 CONFIG_ZMK_BACKLIGHT=y
 CONFIG_ZMK_BACKLIGHT_BRT_START=20
 CONFIG_ZMK_BACKLIGHT_AUTO_OFF_IDLE=y
+# Blank keycaps: as on the left, this half scales the brightness the left sends it
+CONFIG_ZMK_BACKLIGHT_BRT_SCALE=0
 
 #Misc configuration
 CONFIG_USB_DEVICE_VID=0x29EA
