@@ -233,7 +233,10 @@ images = re.findall(r'<div id="layer\d+" role="tabpanel" aria-labelledby="tab\d+
 # before the script runs, only the first layer shows
 assert re.findall(r'aria-labelledby="tab(\d+)"( hidden)?>', page) == [(str(i), " hidden" if i else "") for i in range(len(layers))]
 assert [(d, l) for d, _, l, _ in images] == [(cheatsheet.html.escape(n),) * 2 for n in layers], [(d, l) for d, _, l, _ in images]
-assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in page and "url(" not in page, "index.html fetches something"
+# the one <link> is the inlined icon, cheatsheet.FAVICON; any other would fetch something
+ICON = re.compile(r'<link rel="icon" type="image/svg\+xml" href="data:image/svg\+xml;base64,([^"]+)">')
+assert [cheatsheet.base64.b64decode(icon).decode() for icon in ICON.findall(page)] == [cheatsheet.FAVICON], "index.html lacks its icon: run bin/cheatsheet.py"
+assert not re.search(r'(?:src|href)="(?!data:)', page) and "<link" not in ICON.sub("", page) and "url(" not in page, "index.html fetches something"
 sections = re.split(r'<text x="0" y="10" class="label"', svg)[1:]
 light_key = re.search(r"rect\.key \{ fill: (#[0-9a-f]+); \}", cheatsheet.PRINT_STYLE).group(1)  # the light theme's key fill
 def words(drawing):

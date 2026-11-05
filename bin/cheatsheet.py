@@ -38,6 +38,14 @@ MARGIN = 0.4  # inches
 DRAWER = "keymap-drawer==0.23.0"  # pinned; CI runs this script, so this is the only pin
 BACKGROUND = "#1a1b26"  # the dark theme's (Tokyo Night), for the PNG
 AUTHOR = "euxener"
+# The page's icon: keycaps in the palette's six layer hues on the dark theme's background, the
+# same tile as the dotfiles cheatsheets' prompt icon. Inlined like the drawings, so offline too
+FAVICON = ('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">'
+           '<rect width="32" height="32" rx="7" fill="#1a1b26"/>'
+           + "".join(f'<rect x="{x}" y="{y}" width="6" height="6" rx="1.5" fill="{fill}"/>'
+                     for (x, y), fill in zip([(5, 8), (13, 8), (21, 8), (5, 18), (13, 18), (21, 18)],
+                                             ["#9ece6a", "#e0af68", "#bb9af7", "#7dcfff", "#f7768e", "#7aa2f7"]))
+           + "</svg>")
 # keymap-drawer's light theme, keys a shade darker so they hold up on paper
 PRINT_STYLE = """
 text { font-family: "JetBrains Mono", "JetBrainsMono Nerd Font", "JetBrainsMono NF", monospace; }
@@ -276,6 +284,7 @@ PAGE = """<!doctype html>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Advantage 360 keymap</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,{favicon}">
 <script>
 // the chosen theme before the first paint (the drawings below are ~400 KB to parse);
 // own key: every project page on this origin shares localStorage
@@ -391,6 +400,7 @@ def render_page(keymap):
             hidden = " hidden" if i else ""  # only the first layer before the script runs
             images.append(f'<div id="layer{i}" role="tabpanel" aria-labelledby="tab{i}"{hidden}>{imgs}</div>')
     page = PAGE.format(background=BACKGROUND, light=PAGE_LIGHT, tabs="\n".join(tabs),
+                       favicon=base64.b64encode(FAVICON.encode()).decode(),
                        images="\n".join(images), count=len(names), stamp=html.escape(stamp()))
     with replacing(OUT / "index.html") as tmp:
         tmp.write_text(page)
